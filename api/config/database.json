@@ -1,0 +1,4 @@
+{
+    "Dev": "mongodb://localhost:27017/ark-dev",
+    "Prod": "mongodb://localhost:27017/ark-prod"
+}
