@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const Movie = mongoose.model("Movie");
+const Genre = mongoose.model("Genre");
 
 const getSort = sortType => {
   switch (sortType) {
@@ -27,6 +28,7 @@ class MovieController {
       releasedate,
       availability,
       duration,
+      genre: genreId,
       country,
       price,
       salePrice,
@@ -40,12 +42,17 @@ class MovieController {
         availability,
         duration,
         country,
+        genre: genreId,
         price,
         salePrice,
         description
       });
 
+      const genre = await Genre.findById(genreId);
+      genre.movies.push(movie._id);
+
       await movie.save();
+      await genre.save();
 
       return res.send({ movie });
     } catch (e) {
@@ -111,16 +118,14 @@ class MovieController {
       const movie = await Movie.findOne({ _id: req.params.id});
       if (!movie) return res.status(400).send({ error: "Movie not found" });
 
-      /*
-      const category = await Category.findById(movie.category);
-      if (category) {
-        category.movies.filter(item => item !== movie._id);
+      const genre = await Genre.findById(movie.genre);
+      if (genre) {
+        genre.movies.filter(item => item !== movie._id);
 
-        await category.save();
+        await genre.save();
       }
-      */
 
-      movie.remove();
+      await movie.remove();
 
       return res.send({ deleted: true });
     } catch (e) {
@@ -169,12 +174,7 @@ class MovieController {
   // GET /:id
   async show(req, res, next) {
     try {
-      const movie = await Movie.findById(req.params.id).populate([
-        //"reviews",
-        //"variations",
-        //"staff"
-      ]);
-
+      const movie = await Movie.findById(req.params.id).populate(["genre"]);
       return res.send({ movie });
     } catch (e) {
       next(e);

@@ -1,0 +1,123 @@
+const mongoose = require("mongoose");
+
+const Genre = mongoose.model("Genre");
+const Movie = mongoose.model("Movie");
+
+class GenreController {
+
+    // POST /
+    async create(req, res, next) {
+        const { name } = req.body;
+        try {
+            const genre = await new Genre({ name });
+
+            await genre.save();
+            res.send({ genre });
+        }catch(e) {
+            next(e)
+        }
+    }
+
+    // GET /
+    async index(req, res, next) {
+        try {
+            const genre = await Genre.find().select("_id movies name");
+            res.send({ genre });
+
+        }catch(e) {
+            next(e);
+        }
+    }
+
+    // GET /:id
+    async show(req, res, next) {
+        try {
+            const genre = await Genre.findOne({_id: req.params.id}).select("_id movies name").populate(["movies"]);
+            return res.send({ genre });
+        }catch(e) {
+            next(e)
+        }
+    }
+
+    // PUT /:id
+    async update(req,res,next){
+        const { name, movies } = req.body;
+        try {
+            const genre = await Genre.findById(req.params.id);
+
+            if (name) genre.name = name;
+            if (movies) genre.movies = movies;
+
+            await genre.save();
+            return res.send({ genre })
+        } catch(e){
+            next(e);
+        }
+    }
+
+    // DELETE /:id
+    async delete(req,res,next){
+        try {
+            const genre = await Genre.findById(req.params.id);
+            await genre.remove();
+            return res.send({ deleted: true });
+        }catch(e){
+            next(e);
+        }
+    }
+
+    /**
+     * MOVIES
+    */
+
+    // GET /:id/movies
+    async showMovies(req, res, next) {
+        const { offset, limit } = req.query;
+        try {
+            const movies = await Movie.paginate(
+                {genre: req.params.id},
+                {offset: Number(offset) || 0, limit: Number(limit) || 30}
+            )
+
+            return res.send({ movies });
+
+        }catch(e) {
+            next(e);
+        }
+    }
+
+    // PUT /:id/movies
+    async updateMovies(req, res, next) {
+        try {
+            const genre = await Genre.findById(req.params.id);
+            const { movies } = req.body;
+            if(movies) genre.movies = movies;
+            await genre.save();
+
+            let _movies = await Movie.find({
+                $or: [
+                    {genre: req.params.id},
+                    {id: {$in: movies}}
+                ]
+            });
+
+            _movies = await Promise.all(_movies.map(async (movie) => {
+                if(!movies.includes(movie._id.toString())) {
+                    movie.genre = null;
+                } else {
+                    movie.genre = req.params.id;
+                }
+                await movie.save();
+                return movie;
+            }));
+
+            const result = await Movie.paginate({ genre: req.params.id }, { offset: 0, limit: 30 });
+            return res.send({ movies: result });
+        }catch(e) {
+            next(e);
+        }
+    }
+
+}
+
+module.exports = GenreController;
