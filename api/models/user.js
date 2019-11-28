@@ -7,31 +7,16 @@ const secret = require("../config").secret;
 
 const UserSchema = new Schema(
   {
-    name: {
-      type: String,
-      required: [true, "Can't be blank."]
-    },
-    email: {
-      type: String,
-      lowercase: true,
-      unique: true,
-      required: [true, "Can't be blank."],
-      index: true,
-      match: [/\S+@\S+\.\S+/, "Invalid Email"]
-    },
-    role: {
-      type: Array,
-      default: ["customer"]
-    },
+    name: {type: String,required: [true, "Can't be blank."]},
+    email: {type: String,lowercase: true,unique: true,required: [true, "Can't be blank."],index: true,match: [/\S+@\S+\.\S+/, "Invalid Email"]},
+    role: {type: Array, default: ["customer","admin"]},
     hash: String,
     salt: String,
-    recovery: {
-      type: {
-        token: String,
-        date: Date
-      },
+    recovery: {type: 
+      {token: String,date: Date},
       default: {}
-    }
+    },
+    reviews: { type: [{ type: Schema.Types.ObjectId, ref: "Review" }] }
   },
   { timestamps: true }
 );
@@ -64,7 +49,7 @@ UserSchema.methods.generateToken = function() {
       id: this._id,
       name: this.name,
       email: this.email,
-      role: this.role,
+      reviews: this.reviews,
       exp: parseFloat(exp.getTime() / 1000, 10)
     },
     secret
@@ -76,6 +61,7 @@ UserSchema.methods.sendAuthJSON = function() {
     name: this.name,
     email: this.email,
     role: this.role,
+    reviews: this.reviews,
     token: this.generateToken()
   };
 };

@@ -13,7 +13,7 @@ const MovieSchema = new Schema(
     price: { type: Number },
     salePrice: { type: Number },
     description: { type: String },
-    reviews: { type: [{ type: Schema.Types.ObjectId, ref: "Reviews" }] },
+    reviews: { type: [{ type: Schema.Types.ObjectId, ref: "Review" }] },
     genre: { type: [{ type: Schema.Types.ObjectId, ref: "Genre" }] },
     staff: { type: [{ type: Schema.Types.ObjectId, ref: "Staff" }] }
   },

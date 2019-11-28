@@ -35,7 +35,6 @@ class userController {
 
   //GET /
   async index(req, res, next) {
-    console.log(req.payload)
     try {
       const user = await User.findById(req.payload.id);
       if (!user) return res.status(401).json({ errors: "User not registered." });
