@@ -13,9 +13,10 @@ const MovieSchema = new Schema(
     price: { type: Number },
     salePrice: { type: Number },
     description: { type: String },
+    subtitles: {type: Array},
     reviews: { type: [{ type: Schema.Types.ObjectId, ref: "Review" }] },
     genre: { type: [{ type: Schema.Types.ObjectId, ref: "Genre" }] },
-    staff: { type: [{ type: Schema.Types.ObjectId, ref: "Staff" }] }
+    directors: { type: [{ type: Schema.Types.ObjectId, ref: "Director" }] }
   },
 
   { timestamps: true }

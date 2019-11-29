@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Movie = mongoose.model("Movie");
 const Genre = mongoose.model("Genre");
+const Director = mongoose.model("Director");
 
 const getSort = sortType => {
   switch (sortType) {
@@ -29,6 +30,8 @@ class MovieController {
       availability,
       duration,
       genre: genreId,
+      cast: castId,
+      directors,
       country,
       price,
       salePrice,
@@ -43,14 +46,21 @@ class MovieController {
         duration,
         country,
         genre: genreId,
+        cast: castId,
+        directors,
         price,
         salePrice,
         description
       });
 
       const genre = await Genre.findById(genreId);
-      genre.movies.push(movie._id);
+      directors.forEach(async (id) => {
+        const director = await Director.findById(id);
+        director.movies.push(movie._id);
 
+        await director.save();
+      });
+      genre.movies.push(movie._id);
       await movie.save();
       await genre.save();
 
