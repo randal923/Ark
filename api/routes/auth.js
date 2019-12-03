@@ -24,11 +24,11 @@ const auth = {
     getToken: getTokenFromHeader
   }),
   admin: function isAdmin(req, res, next) {
-      User.findById(req.payload.id).then(user => {
-        if (!user) return res.sendStatus(401);
-        if (!user.role.includes("admin")) return res.sendStatus(401);
-        next();
-      })
+    User.findById(req.payload.id).then(user => {
+      if (!user) return res.sendStatus(401);
+      if (!user.role.includes("admin")) return res.sendStatus(401);
+      next();
+    })
   }
 };
 

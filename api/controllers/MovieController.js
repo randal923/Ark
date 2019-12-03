@@ -29,8 +29,7 @@ class MovieController {
       releasedate,
       availability,
       duration,
-      genre: genreId,
-      cast: castId,
+      genre,
       directors,
       country,
       price,
@@ -39,30 +38,38 @@ class MovieController {
     } = req.body;
 
     try {
+
       const movie = new Movie({
         title,
         releasedate,
         availability,
         duration,
         country,
-        genre: genreId,
-        cast: castId,
+        genre,
         directors,
         price,
         salePrice,
         description
       });
 
-      const genre = await Genre.findById(genreId);
+      // Directors
       directors.forEach(async (id) => {
         const director = await Director.findById(id);
         director.movies.push(movie._id);
 
         await director.save();
       });
-      genre.movies.push(movie._id);
+
+
+      // Genres
+      genre.forEach(async (id) => {
+        const genre = await Genre.findById(id);
+        genre.movies.push(movie._id);
+
+        await genre.save();
+      });
+
       await movie.save();
-      await genre.save();
 
       return res.send({ movie });
     } catch (e) {
@@ -108,7 +115,7 @@ class MovieController {
   // PUT /images/:id
   async updateImages(req, res, next) {
     try {
-      const movie = await Movie.findOne({ _id: req.params.id});
+      const movie = await Movie.findOne({ _id: req.params.id });
       if (!movie) return res.status(400).send({ error: "Movie not found" });
 
       const newImages = req.files.map(item => item.filename);
@@ -125,18 +132,27 @@ class MovieController {
   // DELETE /:id
   async delete(req, res, next) {
     try {
-      const movie = await Movie.findOne({ _id: req.params.id});
+      const movie = await Movie.findOne({ _id: req.params.id });
       if (!movie) return res.status(400).send({ error: "Movie not found" });
 
-      const genre = await Genre.findById(movie.genre);
-      if (genre) {
-        genre.movies.filter(item => item !== movie._id);
+      let _genres = await Genre.find({ _id: { $in: movie.genre } });
 
+      _genres = await Promise.all(_genres.map(async (genre) => {
+        genre.movies = genre.movies.filter(item => item.toString() !== movie._id.toString());
         await genre.save();
-      }
+        return genre;
+      }));
+
+      let _directors = await Director.find({ _id: { $in: movie.directors } });
+
+      _directors = await Promise.all(_directors.map(async (director) => {
+        director.movies = director.movies.filter(item => item.toString() !== movie._id.toString());
+        await director.save();
+        return director;
+      }));
+
 
       await movie.remove();
-
       return res.send({ deleted: true });
     } catch (e) {
       next(e);
@@ -170,7 +186,7 @@ class MovieController {
         {
           title: { $regex: search },
           description: { $regex: search },
-          sku: { $regex: search } 
+          sku: { $regex: search }
         },
         { offset, limit, sort: getSort(req.query.sortType) }
       );
@@ -184,7 +200,7 @@ class MovieController {
   // GET /:id
   async show(req, res, next) {
     try {
-      const movie = await Movie.findById(req.params.id).populate(["genre"]);
+      const movie = await Movie.findById(req.params.id);
       return res.send({ movie });
     } catch (e) {
       next(e);

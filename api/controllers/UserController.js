@@ -5,15 +5,15 @@ class userController {
 
   //POST /register
   async create(req, res, next) {
-    const { name, email, password} = req.body;
+    const { name, email, password } = req.body;
     try {
       if (!name || !email || !password) return res.status(422).json({ errors: "Fill out all the empty fields." });
-      const user = new User({ name, email});
+      const user = new User({ name, email });
       user.setPassword(password);
       user.save();
-    
-      return res.json({user: user.sendAuthJSON()});
-    }catch(e) {
+
+      return res.json({ user: user.sendAuthJSON() });
+    } catch (e) {
       next(e);
     }
   }
@@ -23,12 +23,12 @@ class userController {
     const { email, password } = req.body;
 
     try {
-      const user = await User.findOne({email});
+      const user = await User.findOne({ email });
       if (!user) return res.status(401).json({ errors: "User not registered." });
       if (!user.validatePassword(password)) return res.status(401).json({ errors: "Invalid password." });
 
-      return res.send({user: user.sendAuthJSON()})
-    }catch(e) {
+      return res.send({ user: user.sendAuthJSON() })
+    } catch (e) {
       next(e);
     }
   }
@@ -36,11 +36,11 @@ class userController {
   //GET /
   async index(req, res, next) {
     try {
-      const user = await User.findById(req.payload.id);
-      if (!user) return res.status(401).json({ errors: "User not registered." });
+      const users = await User.find();
+      if (!users) return res.status(401).json({ errors: "No user in the database" });
 
-      return res.json({ user: user.sendAuthJSON() });
-    }catch(e) {
+      return res.json({ users });
+    } catch (e) {
       next(e)
     }
   }
@@ -58,7 +58,7 @@ class userController {
           role: user.role
         }
       });
-    }catch(e) {
+    } catch (e) {
       next(e);
     }
   }
@@ -74,8 +74,8 @@ class userController {
       if (typeof password !== "undefined") user.setPassword(password);
 
       user.save();
-      return res.json({user: user.sendAuthJSON()});
-    }catch(e) {
+      return res.json({ user: user.sendAuthJSON() });
+    } catch (e) {
       next(e);
     }
   }
@@ -84,11 +84,11 @@ class userController {
   async delete(req, res, next) {
     try {
       const user = await User.findById(req.payload.id);
-      if (!user)return res.status(401).json({ errors: "User not registered." });
+      if (!user) return res.status(401).json({ errors: "User not registered." });
 
       user.remove();
-      return res.json({deleted: true});
-    }catch(e) {
+      return res.json({ deleted: true });
+    } catch (e) {
       next(e);
     }
   }

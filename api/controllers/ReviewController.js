@@ -36,15 +36,15 @@ class ReviewController {
     const { text, stars } = req.body;
     const { movie, user } = req.query;
 
- 
+
     try {
-      const review = new Review({ name: req.payload.name, text, stars, movie, user});
+      const review = new Review({ name: req.payload.name, text, stars, movie, user });
 
       const _movie = await Movie.findById(movie);
       if (!_movie) return res.status(422).send({ error: "Movie doesn't exist." });
-      
+
       const _user = await User.findById(user);
-      if (!_user) return res.status(422).send({ error: "User not logged in." }); 
+      if (!_user) return res.status(422).send({ error: "User not logged in." });
 
       _user.reviews.push(review._id);
       _movie.reviews.push(review._id);
@@ -66,7 +66,7 @@ class ReviewController {
       const movie = await Movie.findById(review.movie);
       const user = await User.findById(review.user);
 
-      if(!user.reviews.includes(req.params.id)) return res.status(401).send({error: "User not authorized to edit this review."});
+      if (!user.reviews.includes(req.params.id)) return res.status(401).send({ error: "User not authorized to edit this review." });
 
 
       user.reviews = movie.reviews.filter(
@@ -96,7 +96,7 @@ class ReviewController {
       if (!review) return res.status(400).send({ error: "Review not found" });
       const user = await User.findById(review.user);
 
-      if(!user.reviews.includes(req.params.id)) return res.status(401).send({error: "User not authorized to edit this review."});
+      if (!user.reviews.includes(req.params.id)) return res.status(401).send({ error: "User not authorized to edit this review." });
 
       if (text) review.text = text;
       if (stars) review.stars = stars;

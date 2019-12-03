@@ -7,13 +7,14 @@ const secret = require("../config").secret;
 
 const UserSchema = new Schema(
   {
-    name: {type: String,required: [true, "Can't be blank."]},
-    email: {type: String,lowercase: true,unique: true,required: [true, "Can't be blank."],index: true,match: [/\S+@\S+\.\S+/, "Invalid Email"]},
-    role: {type: Array, default: ["customer","admin"]},
+    name: { type: String, required: [true, "Can't be blank."] },
+    email: { type: String, lowercase: true, unique: true, required: [true, "Can't be blank."], index: true, match: [/\S+@\S+\.\S+/, "Invalid Email"] },
+    role: { type: Array, default: ["customer", "admin"] },
     hash: String,
     salt: String,
-    recovery: {type: 
-      {token: String,date: Date},
+    recovery: {
+      type:
+        { token: String, date: Date },
       default: {}
     },
     reviews: { type: [{ type: Schema.Types.ObjectId, ref: "Review" }] }
@@ -25,21 +26,21 @@ UserSchema.plugin(uniqueValidator, {
   message: "This email is already being used."
 });
 
-UserSchema.methods.setPassword = function(password) {
+UserSchema.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString("hex");
   this.hash = crypto
     .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
     .toString("hex");
 };
 
-UserSchema.methods.validatePassword = function(password) {
+UserSchema.methods.validatePassword = function (password) {
   const hash = crypto
     .pbkdf2Sync(password, this.salt, 10000, 512, "sha512")
     .toString("hex");
   return hash === this.hash;
 };
 
-UserSchema.methods.generateToken = function() {
+UserSchema.methods.generateToken = function () {
   const today = new Date();
   const exp = new Date(today);
   exp.setDate(today.getDate() + 15);
@@ -56,7 +57,7 @@ UserSchema.methods.generateToken = function() {
   );
 };
 
-UserSchema.methods.sendAuthJSON = function() {
+UserSchema.methods.sendAuthJSON = function () {
   return {
     name: this.name,
     email: this.email,
@@ -67,14 +68,14 @@ UserSchema.methods.sendAuthJSON = function() {
 };
 
 //Password Recovery
-UserSchema.methods.createPasswordRecoveryToken = function() {
+UserSchema.methods.createPasswordRecoveryToken = function () {
   this.recovery = {};
   this.recovery.token = crypto.randomBytes(16).toString("hex");
   this.recovery.date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
   return this.recovery;
 };
 
-UserSchema.methods.deletePasswordRecoveryToken = function() {
+UserSchema.methods.deletePasswordRecoveryToken = function () {
   this.recovery = { token: null, date: null };
   return this.recovery;
 };

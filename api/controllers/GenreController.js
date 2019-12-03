@@ -13,7 +13,7 @@ class GenreController {
 
             await genre.save();
             res.send({ genre });
-        }catch(e) {
+        } catch (e) {
             next(e)
         }
     }
@@ -24,7 +24,7 @@ class GenreController {
             const genre = await Genre.find().select("_id movies name");
             res.send({ genre });
 
-        }catch(e) {
+        } catch (e) {
             next(e);
         }
     }
@@ -32,15 +32,15 @@ class GenreController {
     // GET /:id
     async show(req, res, next) {
         try {
-            const genre = await Genre.findOne({_id: req.params.id}).select("_id movies name").populate(["movies"]);
+            const genre = await Genre.findOne({ _id: req.params.id });
             return res.send({ genre });
-        }catch(e) {
+        } catch (e) {
             next(e)
         }
     }
 
     // PUT /:id
-    async update(req,res,next){
+    async update(req, res, next) {
         const { name, movies } = req.body;
         try {
             const genre = await Genre.findById(req.params.id);
@@ -50,18 +50,26 @@ class GenreController {
 
             await genre.save();
             return res.send({ genre })
-        } catch(e){
+        } catch (e) {
             next(e);
         }
     }
 
     // DELETE /:id
-    async delete(req,res,next){
+    async delete(req, res, next) {
         try {
             const genre = await Genre.findById(req.params.id);
+
+            let _movies = await Movie.find({ _id: { $in: genre.movies } });
+
+            _movies = await Promise.all(_movies.map(async (movie) => {
+                movie.genre = movie.genre.filter(item => item.toString() !== genre._id.toString());
+                await movie.save();
+            }));
+
             await genre.remove();
             return res.send({ deleted: true });
-        }catch(e){
+        } catch (e) {
             next(e);
         }
     }
@@ -75,13 +83,13 @@ class GenreController {
         const { offset, limit } = req.query;
         try {
             const movies = await Movie.paginate(
-                {genre: req.params.id},
-                {offset: Number(offset) || 0, limit: Number(limit) || 30}
+                { genre: req.params.id },
+                { offset: Number(offset) || 0, limit: Number(limit) || 30 }
             )
 
             return res.send({ movies });
 
-        }catch(e) {
+        } catch (e) {
             next(e);
         }
     }
@@ -91,18 +99,18 @@ class GenreController {
         try {
             const genre = await Genre.findById(req.params.id);
             const { movies } = req.body;
-            if(movies) genre.movies = movies;
+            if (movies) genre.movies = movies;
             await genre.save();
 
             let _movies = await Movie.find({
                 $or: [
-                    {genre: req.params.id},
-                    {id: {$in: movies}}
+                    { genre: req.params.id },
+                    { id: { $in: movies } }
                 ]
             });
 
             _movies = await Promise.all(_movies.map(async (movie) => {
-                if(!movies.includes(movie._id.toString())) {
+                if (!movies.includes(movie._id.toString())) {
                     movie.genre = null;
                 } else {
                     movie.genre = req.params.id;
@@ -113,7 +121,7 @@ class GenreController {
 
             const result = await Movie.paginate({ genre: req.params.id }, { offset: 0, limit: 30 });
             return res.send({ movies: result });
-        }catch(e) {
+        } catch (e) {
             next(e);
         }
     }

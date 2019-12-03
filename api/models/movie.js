@@ -6,14 +6,14 @@ const MovieSchema = new Schema(
   {
     title: { type: String },
     releasedate: { type: String },
-    availability: {type: Boolean, default: true},
+    availability: { type: Boolean, default: true },
     duration: { type: String },
-    country: { type: String },
+    country: { type: Array },
     posters: { type: Array, default: [] },
     price: { type: Number },
     salePrice: { type: Number },
     description: { type: String },
-    subtitles: {type: Array},
+    subtitles: { type: Array },
     reviews: { type: [{ type: Schema.Types.ObjectId, ref: "Review" }] },
     genre: { type: [{ type: Schema.Types.ObjectId, ref: "Genre" }] },
     directors: { type: [{ type: Schema.Types.ObjectId, ref: "Director" }] }
