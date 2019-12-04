@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
-const Director = mongoose.model('Director');
+const Actor = mongoose.model('Actor');
 const Movie = mongoose.model('Movie');
 
-class DirectorController {
+class ActorController {
 	async create(req, res, next) {
 		const { name, movies } = req.body;
 		try {
-			const director = new Director({ name });
+			const actor = new Actor({ name, movies });
 
 			await Promise.all(
 				movies.map(async id => {
 					const movie = await Movie.findById(id);
-					movie.directors.push(director._id.toString());
+					movie.actors.push(actor._id.toString());
 					await movie.save();
 				})
 			);
 
-			await director.save();
-			return res.send({ director });
+			await actor.save();
+			return res.send({ actor });
 		} catch (e) {
 			next(e);
 		}
@@ -26,9 +26,9 @@ class DirectorController {
 
 	async index(req, res, next) {
 		try {
-			const directors = await Director.find();
+			const actors = await Actor.find();
 
-			return res.send({ directors });
+			return res.send({ actors });
 		} catch (e) {
 			next(e);
 		}
@@ -36,10 +36,10 @@ class DirectorController {
 
 	async show(req, res, next) {
 		try {
-			const director = await Director.findOne({ _id: req.params.id })
+			const actor = await Actor.findOne({ _id: req.params.id })
 				.select('_id movies name')
 				.populate({ path: 'movies', select: 'title posters price salePrice' });
-			return res.send({ director });
+			return res.send({ actor });
 		} catch (e) {
 			next(e);
 		}
@@ -48,13 +48,13 @@ class DirectorController {
 	async update(req, res, next) {
 		const { name, movies } = req.body;
 		try {
-			const director = await Director.findById(req.params.id);
+			const actor = await Actor.findById(req.params.id);
 
-			if (name) director.name = name;
-			if (movies) director.movies = movies;
+			if (name) actor.name = name;
+			if (movies) actor.movies = movies;
 
-			await director.save();
-			return res.send({ director });
+			await actor.save();
+			return res.send({ actor });
 		} catch (e) {
 			next(e);
 		}
@@ -63,18 +63,18 @@ class DirectorController {
 	// DELETE /:id
 	async delete(req, res, next) {
 		try {
-			const director = await Director.findById(req.params.id);
+			const actor = await Actor.findById(req.params.id);
 
-			let _movies = await Movie.find({ _id: { $in: director.movies } });
+			let _movies = await Movie.find({ _id: { $in: actor.movies } });
 
 			_movies = await Promise.all(
 				_movies.map(async movie => {
-					movie.directors = movie.directors.filter(item => item.toString() !== director._id.toString());
+					movie.actors = movie.actors.filter(item => item.toString() !== actor._id.toString());
 					await movie.save();
 				})
 			);
 
-			await director.remove();
+			await actor.remove();
 			return res.send({ deleted: true });
 		} catch (e) {
 			next(e);
@@ -90,7 +90,7 @@ class DirectorController {
 		const { offset, limit } = req.query;
 		try {
 			const movies = await Movie.paginate(
-				{ directors: req.params.id },
+				{ actors: req.params.id },
 				{ offset: Number(offset) || 0, limit: Number(limit) || 30 }
 			);
 
@@ -101,4 +101,4 @@ class DirectorController {
 	}
 }
 
-module.exports = DirectorController;
+module.exports = ActorController;

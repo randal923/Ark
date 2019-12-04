@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const WriterSchema = new Schema(
+const ActorSchema = new Schema(
 	{
 		name: { type: String },
 		movies: { type: [{ type: Schema.Types.ObjectId, ref: 'Movie' }] },
@@ -9,4 +9,4 @@ const WriterSchema = new Schema(
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model('Writer', WriterSchema);
+module.exports = mongoose.model('Actor', ActorSchema);
