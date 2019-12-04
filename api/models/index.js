@@ -5,3 +5,6 @@ require('./review');
 require('./director');
 require('./writer');
 require('./actor');
+require('./order');
+require('./payment');
+require('./orderRegistration');

@@ -7,5 +7,6 @@ router.use('/reviews', require('./reviews'));
 router.use('/directors', require('./directors'));
 router.use('/writers', require('./writers'));
 router.use('/actors', require('./actors'));
+router.use('/orders', require('./orders'));
 
 module.exports = router;
