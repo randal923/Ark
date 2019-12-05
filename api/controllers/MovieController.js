@@ -1,222 +1,244 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const Movie = mongoose.model("Movie");
-const Genre = mongoose.model("Genre");
-const Director = mongoose.model("Director");
+const Movie = mongoose.model('Movie');
+const Genre = mongoose.model('Genre');
+const Director = mongoose.model('Director');
+const Writer = mongoose.model('Writer');
+const Actor = mongoose.model('Actor');
 
 const getSort = sortType => {
-  switch (sortType) {
-    case "alphabetical_a-z":
-      return { title: 1 };
-    case "alphabetical_z-a":
-      return { title: -1 };
-    case "lowest-to-highest":
-      return { price: 1 };
-    case "highest-to-lowest":
-      return { price: -1 };
-    default:
-      return {};
-  }
+	switch (sortType) {
+		case 'alphabetical_a-z':
+			return { title: 1 };
+		case 'alphabetical_z-a':
+			return { title: -1 };
+		case 'lowest-to-highest':
+			return { price: 1 };
+		case 'highest-to-lowest':
+			return { price: -1 };
+		default:
+			return {};
+	}
 };
 
 class MovieController {
-  // ADMIN
+	// ADMIN
 
-  // POST / - create
-  async create(req, res, next) {
-    const {
-      title,
-      releasedate,
-      availability,
-      duration,
-      genre,
-      directors,
-      country,
-      price,
-      salePrice,
-      description
-    } = req.body;
+	// POST / - create
+	async create(req, res, next) {
+		const {
+			title,
+			releasedate,
+			availability,
+			duration,
+			subtitles,
+			genre,
+			directors,
+			writers,
+			actors,
+			country,
+			price,
+			salePrice,
+			description,
+		} = req.body;
 
-    try {
+		try {
+			const movie = new Movie({
+				title,
+				releasedate,
+				availability,
+				duration,
+				subtitles,
+				country,
+				genre,
+				directors,
+				actors,
+				writers,
+				price,
+				salePrice,
+				description,
+			});
 
-      const movie = new Movie({
-        title,
-        releasedate,
-        availability,
-        duration,
-        country,
-        genre,
-        directors,
-        price,
-        salePrice,
-        description
-      });
+			// Push directors to movies
+			Promise.all(
+				directors.map(async id => {
+					const director = await Director.findById(id);
+					director.movies.push(movie._id);
 
-      // Directors
-      directors.forEach(async (id) => {
-        const director = await Director.findById(id);
-        director.movies.push(movie._id);
+					await director.save();
+				})
+			);
 
-        await director.save();
-      });
+			// Push genres tom movies
+			Promise.all(
+				genre.map(async id => {
+					const genre = await Genre.findById(id);
+					genre.movies.push(movie._id);
 
+					await genre.save();
+				})
+			);
 
-      // Genres
-      genre.forEach(async (id) => {
-        const genre = await Genre.findById(id);
-        genre.movies.push(movie._id);
+			// Push actors to movies
+			Promise.all(
+				actors.map(async id => {
+					const actor = await Actor.findById(id);
+					actor.movies.push(movie._id);
 
-        await genre.save();
-      });
+					await actor.save();
+				})
+			);
 
-      await movie.save();
+			// Push writers to movies
+			Promise.all(
+				writers.map(async id => {
+					const writer = await Writer.findById(id);
+					writer.movies.push(movie._id);
 
-      return res.send({ movie });
-    } catch (e) {
-      next(e);
-    }
-  }
+					await writer.save();
+				})
+			);
 
-  // PUT /:id
+			await movie.save();
 
-  async update(req, res, next) {
-    const {
-      title,
-      releasedate,
-      availability,
-      duration,
-      country,
-      price,
-      salePrice,
-      description
-    } = req.body;
+			return res.send({ movie });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-    try {
-      const movie = await Movie.findById(req.params.id);
-      if (!movie) return res.status(400).send({ error: "Movie not found" });
+	// PUT /:id
 
-      if (title) movie.title = title;
-      if (releasedate) movie.releasedate = releasedate;
-      if (availability !== undefined) movie.availability = availability;
-      if (duration) movie.duration = duration;
-      if (country) movie.country = country;
-      if (price) movie.price = price;
-      if (salePrice) movie.sale = sale;
-      if (description) movie.description = description;
+	async update(req, res, next) {
+		const { title, releasedate, availability, duration, country, price, salePrice, description } = req.body;
 
-      await movie.save();
+		try {
+			const movie = await Movie.findById(req.params.id);
+			if (!movie) return res.status(400).send({ error: 'Movie not found' });
 
-      return res.send({ movie });
-    } catch (e) {
-      next(e);
-    }
-  }
+			if (title) movie.title = title;
+			if (releasedate) movie.releasedate = releasedate;
+			if (availability !== undefined) movie.availability = availability;
+			if (duration) movie.duration = duration;
+			if (country) movie.country = country;
+			if (price) movie.price = price;
+			if (salePrice) movie.sale = sale;
+			if (description) movie.description = description;
 
-  // PUT /images/:id
-  async updateImages(req, res, next) {
-    try {
-      const movie = await Movie.findOne({ _id: req.params.id });
-      if (!movie) return res.status(400).send({ error: "Movie not found" });
+			await movie.save();
 
-      const newImages = req.files.map(item => item.filename);
-      movie.posters = movie.posters.filter(item => item).concat(newImages);
+			return res.send({ movie });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-      await movie.save();
+	// PUT /images/:id
+	async updateImages(req, res, next) {
+		try {
+			const movie = await Movie.findOne({ _id: req.params.id });
+			if (!movie) return res.status(400).send({ error: 'Movie not found' });
 
-      return res.send({ movie });
-    } catch (e) {
-      next(e);
-    }
-  }
+			const newImages = req.files.map(item => item.filename);
+			movie.posters = movie.posters.filter(item => item).concat(newImages);
 
-  // DELETE /:id
-  async delete(req, res, next) {
-    try {
-      const movie = await Movie.findOne({ _id: req.params.id });
-      if (!movie) return res.status(400).send({ error: "Movie not found" });
+			await movie.save();
 
-      let _genres = await Genre.find({ _id: { $in: movie.genre } });
+			return res.send({ movie });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-      _genres = await Promise.all(_genres.map(async (genre) => {
-        genre.movies = genre.movies.filter(item => item.toString() !== movie._id.toString());
-        await genre.save();
-        return genre;
-      }));
+	// DELETE /:id
+	async delete(req, res, next) {
+		try {
+			const movie = await Movie.findOne({ _id: req.params.id });
+			if (!movie) return res.status(400).send({ error: 'Movie not found' });
 
-      let _directors = await Director.find({ _id: { $in: movie.directors } });
+			let _genres = await Genre.find({ _id: { $in: movie.genre } });
 
-      _directors = await Promise.all(_directors.map(async (director) => {
-        director.movies = director.movies.filter(item => item.toString() !== movie._id.toString());
-        await director.save();
-        return director;
-      }));
+			_genres = await Promise.all(
+				_genres.map(async genre => {
+					genre.movies = genre.movies.filter(item => item.toString() !== movie._id.toString());
+					await genre.save();
+					return genre;
+				})
+			);
 
+			let _directors = await Director.find({ _id: { $in: movie.directors } });
 
-      await movie.remove();
-      return res.send({ deleted: true });
-    } catch (e) {
-      next(e);
-    }
-  }
+			_directors = await Promise.all(
+				_directors.map(async director => {
+					director.movies = director.movies.filter(item => item.toString() !== movie._id.toString());
+					await director.save();
+					return director;
+				})
+			);
 
-  // VISITOR
+			await movie.remove();
+			return res.send({ deleted: true });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-  // GET /
-  async index(req, res, next) {
-    const offset = Number(req.query.offset) || 0;
-    const limit = Number(req.query.limit) || 30;
-    try {
-      const movies = await Movie.paginate(
-        { offset, limit, sort: getSort(req.query.sortType) }
-      );
+	// VISITOR
 
-      return res.send({ movies });
-    } catch (e) {
-      next(e);
-    }
-  }
+	// GET /
+	async index(req, res, next) {
+		const offset = Number(req.query.offset) || 0;
+		const limit = Number(req.query.limit) || 30;
+		try {
+			const movies = await Movie.paginate({ offset, limit, sort: getSort(req.query.sortType) });
 
-  // GET /search/:search
-  async search(req, res, next) {
-    const offset = Number(req.query.offset) || 0;
-    const limit = Number(req.query.limit) || 30;
-    const search = new RegExp(req.params.search, "i");
-    try {
-      const movies = await Movie.paginate(
-        {
-          title: { $regex: search },
-          description: { $regex: search },
-          sku: { $regex: search }
-        },
-        { offset, limit, sort: getSort(req.query.sortType) }
-      );
+			return res.send({ movies });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-      return res.send({ movies });
-    } catch (e) {
-      next(e);
-    }
-  }
+	// GET /search/:search
+	async search(req, res, next) {
+		const offset = Number(req.query.offset) || 0;
+		const limit = Number(req.query.limit) || 30;
+		const search = new RegExp(req.params.search, 'i');
+		try {
+			const movies = await Movie.paginate(
+				{
+					title: { $regex: search },
+					description: { $regex: search },
+					sku: { $regex: search },
+				},
+				{ offset, limit, sort: getSort(req.query.sortType) }
+			);
 
-  // GET /:id
-  async show(req, res, next) {
-    try {
-      const movie = await Movie.findById(req.params.id);
-      return res.send({ movie });
-    } catch (e) {
-      next(e);
-    }
-  }
+			return res.send({ movies });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-  // REVIEWS
-  // GET /:id/reviews - showReviews
-  async showReviews(req, res, next) {
-    try {
-      const reviews = await Review.find({ movie: req.params.id });
-      return res.send({ reviews });
-    } catch (e) {
-      next(e);
-    }
-  }
+	// GET /:id
+	async show(req, res, next) {
+		try {
+			const movie = await Movie.findById(req.params.id);
+			return res.send({ movie });
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	// REVIEWS
+	// GET /:id/reviews - showReviews
+	async showReviews(req, res, next) {
+		try {
+			const reviews = await Review.find({ movie: req.params.id });
+			return res.send({ reviews });
+		} catch (e) {
+			next(e);
+		}
+	}
 }
 
 module.exports = MovieController;

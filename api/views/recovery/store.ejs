@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-3">
+                <h2>Password Recovery</h2>
+                <hr />
+                <br />
+
+                <% if(success){%>
+                <div class="alert alert-success">
+                    <%= success %>
+                </div>
+                <div class="text-center">
+                    <h3>Now you can login again.</h3>
+                </div>
+                <% }%>
+
+                <% if(error){%>
+                <div class="alert alert-danger"><%= error %></div>
+                <% }%>
+
+                <% if(!success) { %>
+                <p>
+                    Type your new password.
+                </p>
+                <form action="/v1/api/users/password-recovered" method="POST">
+                    <input type="hidden" name="token" value="<%= token %>" />
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control"
+                            placeholder="Type your new password." />
+                    </div>
+                    <button class="btn btn-primary">
+                        Create Password
+                    </button>
+                </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

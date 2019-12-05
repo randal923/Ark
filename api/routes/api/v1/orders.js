@@ -14,7 +14,7 @@ router.get('/admin/:id', auth.required, auth.admin, orderController.showAdmin);
 router.delete('/admin/:id', auth.required, auth.admin, orderController.deleteAdmin);
 
 // -- cart
-router.get('/admin/:id/carrinho', auth.required, auth.admin, orderController.showCartOrderAdmin);
+router.get('/admin/:id/cart', auth.required, auth.admin, orderController.showCartOrderAdmin);
 
 // CLIENTE
 router.get('/', auth.required, orderController.index);
@@ -23,7 +23,7 @@ router.get('/:id', auth.required, orderController.show);
 router.post('/', auth.required, orderController.create);
 router.delete('/:id', auth.required, orderController.delete);
 
-// -- carrinho
-router.get('/:id/carrinho', auth.required, orderController.showCartOrder);
+// -- cart
+router.get('/:id/cart', auth.required, orderController.showCartOrder);
 
 module.exports = router;

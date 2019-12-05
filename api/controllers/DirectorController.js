@@ -9,13 +9,15 @@ class DirectorController {
 		try {
 			const director = new Director({ name });
 
-			await Promise.all(
-				movies.map(async id => {
-					const movie = await Movie.findById(id);
-					movie.directors.push(director._id.toString());
-					await movie.save();
-				})
-			);
+			if (movies) {
+				await Promise.all(
+					movies.map(async id => {
+						const movie = await Movie.findById(id);
+						movie.directors.push(director._id.toString());
+						await movie.save();
+					})
+				);
+			}
 
 			await director.save();
 			return res.send({ director });

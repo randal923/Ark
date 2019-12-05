@@ -9,13 +9,15 @@ class ActorController {
 		try {
 			const actor = new Actor({ name, movies });
 
-			await Promise.all(
-				movies.map(async id => {
-					const movie = await Movie.findById(id);
-					movie.actors.push(actor._id.toString());
-					await movie.save();
-				})
-			);
+			if (movies) {
+				await Promise.all(
+					movies.map(async id => {
+						const movie = await Movie.findById(id);
+						movie.actors.push(actor._id.toString());
+						await movie.save();
+					})
+				);
+			}
 
 			await actor.save();
 			return res.send({ actor });

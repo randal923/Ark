@@ -9,13 +9,15 @@ class WriterController {
 		try {
 			const writer = new Writer({ name, movies });
 
-			await Promise.all(
-				movies.map(async id => {
-					const movie = await Movie.findById(id);
-					movie.writers.push(writer._id.toString());
-					await movie.save();
-				})
-			);
+			if (movies) {
+				await Promise.all(
+					movies.map(async id => {
+						const movie = await Movie.findById(id);
+						movie.writers.push(writer._id.toString());
+						await movie.save();
+					})
+				);
+			}
 
 			await writer.save();
 			return res.send({ writer });

@@ -10,13 +10,15 @@ class GenreController {
 		try {
 			const genre = await new Genre({ name });
 
-			await Promise.all(
-				movies.map(async id => {
-					const movie = await Movie.findById(id);
-					movie.genre.push(genre._id.toString());
-					await movie.save();
-				})
-			);
+			if (movies) {
+				await Promise.all(
+					movies.map(async id => {
+						const movie = await Movie.findById(id);
+						movie.genre.push(genre._id.toString());
+						await movie.save();
+					})
+				);
+			}
 
 			await genre.save();
 			res.send({ genre });

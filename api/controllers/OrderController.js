@@ -74,7 +74,7 @@ class OrderController {
 			await orderRegistration.save();
 
 			// Send Email to customer - Order Cancelled
-			//EmailController.cancelOrder({ user: order.customer.user, order });
+			//EmailController.cancelOrder({ user: order.user, order });
 
 			return res.send({ cancelled: true });
 		} catch (e) {
@@ -210,7 +210,10 @@ class OrderController {
 			return res.send({
 				order: Object.assign({}, order._doc, {
 					payment: newPayment,
-					user,
+					user: {
+						name: user.name,
+						email: user.email,
+					},
 				}),
 			});
 		} catch (e) {
@@ -254,7 +257,7 @@ class OrderController {
 	// GET /:id/cart - showCartOrder
 	async showCartOrder(req, res, next) {
 		try {
-			const user = await User.findOne({ user: req.payload.id });
+			const user = await User.findOne({ _id: req.payload.id });
 			const order = await Order.findOne({
 				user: user._id,
 				_id: req.params.id,

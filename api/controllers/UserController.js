@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const sendEmailRecovery = require('../helpers/email-recovery');
 
 class userController {
 
@@ -92,6 +93,101 @@ class userController {
       next(e);
     }
   }
+
+
+  //Get /password-recovery
+  showRecovery(req, res, next) {
+    return res.render("recovery", { error: null, success: null });
+  }
+
+  //POST /password-recovery
+  createRecovery(req, res, next) {
+    const { email } = req.body;
+    if (!email)
+      return res.render("recovery", {
+        error: "Email can't be blank",
+        success: null
+      });
+
+    User.findOne({ email })
+      .then(user => {
+        if (!user)
+          return res.render("recovery", {
+            error: "No user with this email.",
+            success: null
+          });
+        const recoveryData = user.createPasswordRecoveryToken();
+        return user.save().then(() => {
+          sendEmailRecovery(
+            { user, recovery: recoveryData },
+            (error = null, success = null) => {
+              return res.render("recovery", { error, success });
+            }
+          );
+        });
+      })
+      .catch(next);
+  }
+
+  //GET /password-recovered
+  showCompleteRecovery(req, res, next) {
+    if (!req.query.token)
+      return res.render("recovery", {
+        error: "Token not available",
+        success: null
+      });
+    User.findOne({ "recovery.token": req.query.token })
+      .then(user => {
+        if (!user)
+          return res.render("recovery", { error: "No user with this token" });
+        if (new Date(user.recovery.date) < new Date())
+          return res.render("recovery", {
+            error: "Token has expired",
+            success: null
+          });
+        return res.render(
+          "recovery/store",
+          {
+            error: null,
+            success: null,
+            token: req.query.token
+          },
+        );
+      })
+      .catch(next);
+  }
+
+  //POST /password-recovered
+  completeRecovery(req, res, next) {
+    const { token, password } = req.body;
+    if (!token || !password)
+      return res.render("recovery/store", {
+        error: "Write your password again.",
+        success: null,
+        token: token
+      });
+
+    User.findOne({ "recovery.token": token }).then(user => {
+      if (!user)
+        return res.render("recovery", {
+          error: "User not identified.",
+          success: null
+        });
+      user.deletePasswordRecoveryToken();
+      user.setPassword(password);
+      return user
+        .save()
+        .then(() => {
+          return res.render("recovery/store", {
+            error: null,
+            success: "Password successfully recovered. Please, login again",
+            token: null
+          });
+        })
+        .catch(next);
+    });
+  }
 }
+
 
 module.exports = userController;

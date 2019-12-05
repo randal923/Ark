@@ -8,5 +8,6 @@ router.use('/directors', require('./directors'));
 router.use('/writers', require('./writers'));
 router.use('/actors', require('./actors'));
 router.use('/orders', require('./orders'));
+router.use('/payments', require('./payments'));
 
 module.exports = router;
