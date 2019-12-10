@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const mongoose = require('mongoose');
 const db = require('./config/database.json');
 const ejs = require('ejs');
@@ -14,9 +15,16 @@ const app = express();
 const isProduction = process.env.NODE_ENV === 'production';
 const PORT = process.env.PORT || 5000;
 
+//Ejs
+app.set('view engine', 'ejs');
+
 //Static
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/public/images', express.static(__dirname + '/public/images'));
+
+//Body Parser
+app.use(bodyParser.urlencoded({ extended: false, limit: 1.5 * 1024 * 1024 }));
+app.use(bodyParser.json({ limit: 1.5 * 1024 * 1024 }));
 
 // Connect to MongoDB
 const databaseURL = isProduction ? db.Prod : db.Dev;
@@ -25,18 +33,11 @@ mongoose.connect(databaseURL, {
 	useUnifiedTopology: true,
 });
 
-//Ejs
-app.set('view engine', 'ejs');
-
 //Configurations
 if (!isProduction) require('dotenv').config();
 if (!isProduction) app.use(morgan('dev'));
 app.use(cors());
 app.use(helmet());
-
-//Body Parser
-app.use(bodyParser.urlencoded({ extended: false, limit: 1.5 * 1024 * 1024 }));
-app.use(bodyParser.json({ limit: 1.5 * 1024 * 1024 }));
 
 // Models
 require('./models');
