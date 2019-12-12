@@ -171,7 +171,8 @@ class OrderController {
 			const user = await User.findOne({ _id: req.payload.id });
 
 			// Check payment data
-			//if (!(await PaymentValidation.checkTotalCost({ cart, payment }))) return res.status(422).send({ error: 'Invalid payment data' });
+			if (!(await PaymentValidation.checkTotalCost({ cart, payment })))
+				return res.status(422).send({ error: 'Invalid payment data' });
 
 			// Check Credit Card
 			//if (!(await PaymentValidation.checkCreditCard(payment))) return res.status(422).send({ error: 'Invalid payment data with credit card' });

@@ -39,17 +39,19 @@ const PaymentValidation = {
 
 const checkTotalCost = async ({ cart, payment }) => {
 	try {
-		let totalCost = 0;
-		await Promise.all(
+		const _cart = await Promise.all(
 			cart.map(async item => {
-				item.movie = await Movie.findById(item.movie);
-				if (!item.salePrice) item.salePrice = 0;
-				totalCost += item.unitPrice - item.salePrice;
+				const movie = await Movie.findById(item.movie);
+				return { price: movie.price, salePrice: movie.salePrice || 0 };
 			})
 		);
-		return totalCost.toFixed(2);
+
+		const totalCost = _cart.reduce((acc, { price, salePrice }) => {
+			return salePrice > 0 ? acc + salePrice : acc + price;
+		}, 0);
+		return totalCost === payment.paymentTotal;
 	} catch (e) {
-		next(e);
+		console.log(e);
 		return false;
 	}
 };

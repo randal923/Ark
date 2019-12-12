@@ -31,9 +31,7 @@ class PaymentController {
 			const payment = await Payment.findOne({ _id: req.params.id });
 			if (!payment) return res.status(400).send({ error: 'Payment does not exist' });
 
-			const registration = await OrderRegistration.find({ order: payment.order, type: 'payment' });
-
-			res.send({ payment });
+			res.send({ Total: payment.paymentTotal, Status: payment.paymentStatus, Option: payment.paymentOption });
 		} catch (e) {
 			next(e);
 		}
