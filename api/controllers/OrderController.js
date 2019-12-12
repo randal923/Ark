@@ -6,6 +6,9 @@ const Movie = mongoose.model('Movie');
 const Payment = mongoose.model('Payment');
 const OrderRegistration = mongoose.model('OrderRegistration');
 
+const PaymentValidation = require('./validations/PaymentValidation');
+const EmailController = require('./EmailController');
+
 class OrderController {
 	// ADMIN
 	// GET /admin - indexAdmin
@@ -199,8 +202,8 @@ class OrderController {
 			await orderRegistration.save();
 
 			// NOTIFY CUSTOMER VIA EMAIL
+			EmailController.sendNewOrder({ order, user });
 			/*
-			EmailController.sendNewOrder({ order, user: customer.user });
 			const administrators = await User.find({ role: 'admin', store });
 			administrators.forEach(user => {
 				EmailController.sendNewOrder({ order, user: user });

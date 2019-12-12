@@ -9,6 +9,7 @@ const Validation = require('express-validation');
 
 const paymentController = new PaymentController();
 router.get('/', paymentController.payment);
+router.get('/:id', paymentController.show);
 router.post('/charge/:id', paymentController.charge);
 
 module.exports = router;

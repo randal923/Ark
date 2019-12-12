@@ -3,8 +3,6 @@ const router = require('express').Router();
 const axios = require('axios');
 require('dotenv').config();
 
-//const EmailController = require('./emailController');
-
 const Payment = mongoose.model('Payment');
 const Movie = mongoose.model('Movie');
 const Order = mongoose.model('Order');
@@ -16,10 +14,26 @@ const keyPublishable = process.env.PUBLISHABLE_KEY;
 const keySecret = process.env.SECRET_KEY;
 const stripe = require('stripe')(keySecret);
 
+// Email
+const EmailController = require('./emailController');
+
 class PaymentController {
 	async payment(req, res, next) {
 		try {
 			res.render('stripe/index');
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	async show(req, res, next) {
+		try {
+			const payment = await Payment.findOne({ _id: req.params.id });
+			if (!payment) return res.status(400).send({ error: 'Payment does not exist' });
+
+			const registration = await OrderRegistration.find({ order: payment.order, type: 'payment' });
+
+			res.send({ payment });
 		} catch (e) {
 			next(e);
 		}
@@ -36,20 +50,15 @@ class PaymentController {
 				order.cart.map(async item => {
 					item.movie = await Movie.findById(item.movie);
 					user.movies.push(item.movie);
-					await user.save();
-					return item;
 				})
 			);
 
-			// Remove . from total amount
-			const amount = payment.paymentTotal
-				.toString()
-				.split('.')
-				.join('');
+			// Save user after pushing movies to it
+			await user.save();
 
 			// Charge customer
 			const payload = await stripe.charges.create({
-				amount: Number(amount),
+				amount: payment.paymentTotal * 100,
 				currency: 'usd',
 				description: 'Example charge',
 				source: token,
@@ -59,6 +68,9 @@ class PaymentController {
 
 			if (payload) payment.paymentStatus = 'Completed';
 			await payment.save();
+
+			// NOTIFY CUSTOMER VIA EMAIL
+			EmailController.completeOrder({ order, user });
 
 			return res.send({ order });
 		} catch (e) {

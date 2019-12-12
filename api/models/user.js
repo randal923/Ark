@@ -16,7 +16,7 @@ const UserSchema = new Schema(
 			index: true,
 			match: [/\S+@\S+\.\S+/, 'Invalid Email'],
 		},
-		role: { type: Array, default: ['customer', 'admin'] },
+		role: { type: Array, default: ['customer', 'admin', 'owners'] },
 		hash: String,
 		salt: String,
 		recovery: {
