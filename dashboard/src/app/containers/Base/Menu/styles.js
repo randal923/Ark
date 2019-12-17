@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+	background: #27293d;
+	grid-row: 1/-1;
 	display: grid;
-	grid-template-columns: 0.2fr 1fr;
-	grid-template-rows: 7rem 1fr;
-	height: 100%;
+	grid-template-rows: 7rem 0.3fr;
 `;

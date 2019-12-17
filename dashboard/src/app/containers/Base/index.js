@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Container } from './styles';
 
+import Header from './Header';
+import Menu from './Menu';
+import Content from './Content';
+
 class Dashboard extends Component {
 	render() {
 		return (
 			<Container>
-				<div>Menu</div>
-				<div>
-					<div>Header</div>
-					<div>{this.props.children}</div>
-				</div>
+				<Menu history={this.props.history} />
+				<Header />
+				<Content {...this.props} />
 			</Container>
 		);
 	}
