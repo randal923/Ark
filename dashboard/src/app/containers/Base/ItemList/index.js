@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from './styles';
+import { Container, Active } from './styles';
 
 import { MdContentCopy, MdGroup, MdPerson, MdMovie, MdSettings } from 'react-icons/md';
 
@@ -26,25 +26,32 @@ const items = [
 		title: 'Settings',
 	},
 	{
-		route: '/Profile',
+		route: '/profile',
 		icon: <MdPerson />,
 		title: 'Profile',
 	},
 ];
 
-const ItemList = ({ open, history }) => {
-	return (
-		<Container>
-			{items.map((item, index) => {
-				return (
-					<Link to={item.route} key={index}>
-						{item.icon}
-						{open && <span>{item.title}</span>}
-					</Link>
-				);
-			})}
-		</Container>
-	);
-};
+class ItemList extends Component {
+	render() {
+		const { open, history } = this.props;
+		const pathName = history.location.pathname;
+
+		return (
+			<Container>
+				{items.map((item, index) => {
+					return (
+						<Active open={open} active={item.route === pathName} key={index}>
+							<Link to={item.route} key={index}>
+								{item.icon}
+								<span>{item.title}</span>
+							</Link>
+						</Active>
+					);
+				})}
+			</Container>
+		);
+	}
+}
 
 export default ItemList;
