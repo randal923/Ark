@@ -23,7 +23,7 @@ export default createGlobalStyle`
 
     body {
         font-family: 'Roboto', sans-serif;
-        background: #1e1e2f;
+        background: #22252a;
         color: white;
         -webkit-font-smoothing: antialiased !important;
     }

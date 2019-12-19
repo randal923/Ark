@@ -11,13 +11,13 @@ const Active = styled.div`
 		text-decoration: none;
 		font-size: 1.5rem;
 		height: 5rem;
-		color: #898e9a;
+		color: #b3b3b3;
 		font-weight: 500;
 		line-height: 1.4rem;
 		display: flex;
 		align-items: center;
 		&:hover {
-			color: #7560c2;
+			color: #00a5ff;
 		}
 	}
 	svg {
@@ -41,7 +41,7 @@ const Active = styled.div`
 		props.active &&
 		css`
 			a {
-				color: #7560c2;
+				color: #00a5ff;
 			}
 		`}
 `;

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
-	background: #27293d;
+	background: #2d3035;
 	grid-row: 1/-1;
 	display: grid;
 	border-right: 1px solid #353a53;

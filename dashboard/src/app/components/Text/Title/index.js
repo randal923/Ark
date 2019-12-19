@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Title = ({ type, title }) => {
+const Title = ({ type, title }) => {
 	switch (type) {
 		case 'h1':
 			return <h1>{title}</h1>;
@@ -14,3 +14,5 @@ export const Title = ({ type, title }) => {
 			return <h1>{title}</h1>;
 	}
 };
+
+export default Title;
