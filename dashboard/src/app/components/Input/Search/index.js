@@ -6,7 +6,7 @@ const Search = ({ value, onChange, placeHolder, onClick }) => {
 		<Container>
 			<input value={value} onChange={onChange} placeholder={placeHolder} />
 			<button onClick={onClick}>
-				<MdSearch />
+				<MdSearch size={30} />
 			</button>
 		</Container>
 	);

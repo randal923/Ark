@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Active } from './styles';
+import { Container } from './styles';
 
-const Pagination = () => {
-	return <Container></Container>;
+const Card = props => {
+	return <Container size={props.size}>{props.children}</Container>;
 };
 
-export default Pagination;
+export default Card;

@@ -4,20 +4,20 @@ const Container = styled.div``;
 
 const Active = styled.div`
 	&:not(:first-child) {
-			border-top: dotted 2px #353a53;
+			border-top: dotted 2px var(--border-blue);;
 		}
 	}
 	a {
 		text-decoration: none;
 		font-size: 1.5rem;
 		height: 5rem;
-		color: #b3b3b3;
+		color: var(--medium-text-color);
 		font-weight: 500;
 		line-height: 1.4rem;
 		display: flex;
 		align-items: center;
 		&:hover {
-			color: #00a5ff;
+			color: var(--blue);
 		}
 	}
 	svg {
@@ -41,7 +41,7 @@ const Active = styled.div`
 		props.active &&
 		css`
 			a {
-				color: #00a5ff;
+				color: var(--blue);
 			}
 		`}
 `;

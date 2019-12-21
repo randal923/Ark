@@ -1,5 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const Container = styled.div``;
+const ButtonContainer = styled.div`
+	${props =>
+		props.type === 'danger' &&
+		css`
+			background: red;
+			color: white;
+		`}
+`;
 
-export { Container };
+const LinkContainer = styled.div`
+	${props =>
+		props.type === 'danger' &&
+		css`
+			background: red;
+			color: white;
+		`}
+`;
+
+export { LinkContainer, ButtonContainer };

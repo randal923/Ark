@@ -3,6 +3,20 @@ import { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
+    #root {
+        --light-text-color: #fffcf3;
+        --medium-text-color: #8c909a;
+        --dark-text-color: #727377;
+
+        --blue: #00a5ff;
+        --dark-blue: #3c78a6;
+        --border-blue: #353a53;
+
+        --light-grey: #40444b;
+        --medium-grey: #36393f;
+        --dark-grey: #2f3136;
+        --darker-grey: #202225;
+    }
     *,
     *::after,
     *::before {
@@ -23,8 +37,8 @@ export default createGlobalStyle`
 
     body {
         font-family: 'Roboto', sans-serif;
-        background: #22252a;
-        color: white;
+        background: #202225;
+        color: #fffcf3;
         -webkit-font-smoothing: antialiased !important;
     }
 

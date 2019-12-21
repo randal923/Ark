@@ -26,7 +26,7 @@ function App() {
 			<Provider store={store}>
 				<Router>
 					<Route path={'/'} exact component={base(Orders)} />
-					<Route path={'/order'} exact component={base(Order)} />
+					<Route path={'/order'} component={base(Order)} />
 
 					<Route path={'/login'} component={Login} />
 					<Route path={'/password-recovery'} component={PasswordRecovery} />

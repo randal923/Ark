@@ -11,7 +11,7 @@ class Menu extends Component {
 				<LogoHeader open={this.props.open} onClick={() => this.props.toggleOpen()}>
 					<img src="/ark-logo.svg" alt="Ark logo" />
 					<h1>Ark</h1>
-					{this.props.open ? <MdArrowForward size={30} /> : <MdArrowBack size={30} />}
+					{this.props.open ? <MdArrowBack size={30} /> : <MdArrowForward size={30} />}
 				</LogoHeader>
 				<ItemList open={this.props.open} history={this.props.history} />
 			</Container>

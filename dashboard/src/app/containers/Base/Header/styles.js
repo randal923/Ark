@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-	background: #2d3035;
-	border-bottom: 1px solid #353a53;
+	background: var(--dark-grey);
+	border-bottom: 1px solid var(--border-blue);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	align-items: center;

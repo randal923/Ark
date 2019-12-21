@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
-	background: #2d3035;
+	background: var(--dark-grey);
 	grid-row: 1/-1;
 	display: grid;
-	border-right: 1px solid #353a53;
+	border-right: 1px solid var(--border-blue);
 	grid-template-rows: 7rem 1fr;
 `;
 
@@ -12,12 +12,13 @@ const LogoHeader = styled.span`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	border-bottom: 1px solid #353a53;
+	border-bottom: 1px solid var(--border-blue);
 
 	svg {
 		margin-left: 2rem;
+		color: var(--medium-text-color);
 		&:hover {
-			color: #7560c2;
+			color: var(--blue);
 			cursor: pointer;
 		}
 	}
@@ -31,6 +32,7 @@ const LogoHeader = styled.span`
 		font-size: 3rem;
 		font-weight: 500;
 		line-height: 6rem;
+		color: var(--light-text-color);
 	}
 
 	${props =>

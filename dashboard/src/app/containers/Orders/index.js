@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from './styles';
+
 import moment from 'moment';
 import Title from '../../components/Text/Title';
 import Search from '../../components/Input/Search';
@@ -23,49 +24,51 @@ class Orders extends Component {
 				Total: 89.9,
 				Date: moment().toString(),
 				Status: 'Waiting for payment',
-				detailsButton: '/order/123512341234SADASd',
+				Action: '/order/123512341234SADASd',
 			},
 			{
 				Customer: 'Customer 2',
 				Total: 89.9,
 				Date: moment().toString(),
 				Status: 'Waiting for payment',
-				detailsButton: '/order/12351dfgadsfafwADASd',
+				Action: '/order/12351dfgadsfafwADASd',
 			},
 			{
 				Customer: 'Customer 3',
 				Total: 89.9,
 				Date: moment().toString(),
 				Status: 'Waiting for payment',
-				detailsButton: '/order/123512dsgfgnbvcbnDASd',
+				Action: '/order/123512dsgfgnbvcbnDASd',
 			},
 			{
 				Customer: 'Customer 4',
 				Total: 89.9,
 				Date: moment().toString(),
 				Status: 'Waiting for payment',
-				detailsButton: '/order/12asdsdczxcADASd',
+				Action: '/order/12asdsdczxcADASd',
 			},
 		];
 		return (
-			<Container>
-				<Title type="h1" title="Orders" />
-				<br />
-				<Search
-					value={this.state.search}
-					placeHolder={"Search by customer's name"}
-					onChange={e => this.onChangeSearch(e)}
-					onClick={() => alert('Search')}
-				/>
-				<br />
-				<Table header={['Customer', 'Total', 'Date', 'Status']} data={data} />
-				<Pagination
-					offset={0}
-					total={120}
-					limit={20}
-					onClick={currentPageNumber => this.changeCurrentPageNumber(currentPageNumber)}
-				/>
-			</Container>
+			<Card size={'100vh'}>
+				<Container>
+					<Title type="h3" title="Orders" />
+					<br />
+					<Search
+						value={this.state.search}
+						placeHolder={"Search by customer's name"}
+						onChange={e => this.onChangeSearch(e)}
+						onClick={() => alert('Search')}
+					/>
+					<br />
+					<Table header={['Customer', 'Total', 'Date', 'Status', 'Action']} data={data} />
+					<Pagination
+						offset={0}
+						total={120}
+						limit={20}
+						onClick={currentPageNumber => this.changeCurrentPageNumber(currentPageNumber)}
+					/>
+				</Container>
+			</Card>
 		);
 	}
 }

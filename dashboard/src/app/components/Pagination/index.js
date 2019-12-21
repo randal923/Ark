@@ -8,7 +8,11 @@ const Pagination = ({ offset, total, limit, onClick }) => {
 			{[...Array(numberOfPages).keys()].map((pageNumber, index) => {
 				const currentPageNumber = pageNumber * limit;
 				return (
-					<Active key={index} onClick={() => onClick(currentPageNumber)}>
+					<Active
+						key={index}
+						onClick={() => onClick(currentPageNumber)}
+						active={currentPageNumber === offset}
+					>
 						{pageNumber + 1}
 					</Active>
 				);

@@ -18,16 +18,19 @@ const Table = ({ header, data }) => {
 						return (
 							<tr key={index}>
 								{header.map((item, i) => {
-									return <td key={i}>{row[item] ? row[item] : ''}</td>;
+									return (
+										<td key={i}>
+											{row[item] === row['Action'] ? (
+												<Link to={row['Action']}>
+													<button>View</button>
+												</Link>
+											) : (
+												''
+											)}
+											{row[item] && row[item] !== row['Action'] ? row[item] : ''}
+										</td>
+									);
 								})}
-								;
-								{row['detailsButton'] && (
-									<td>
-										<Link to={'detailsButton'}>
-											<button>DETAILS</button>
-										</Link>
-									</td>
-								)}
 							</tr>
 						);
 					})}
