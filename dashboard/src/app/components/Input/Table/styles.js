@@ -1,24 +1,27 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
+	margin: 2rem;
+	table {
+		width: 100%;
+		text-align: center;
+		border-collapse: collapse;
+	}
 	thead {
 		color: var(--light-text-color);
+		font-size: 1.5rem;
+		font-weight: 700;
 	}
 	tbody {
 		color: var(--medium-text-color);
+		font-size: 1.2rem;
 	}
 
-	button {
-		color: var(--blue);
-		background: transparent;
-		padding: 0.5rem 0.8rem;
-		margin: 0.5rem;
-		border: 1px solid var(--blue);
-		cursor: pointer;
-		&:hover {
-			color: var(--light-text-color);
-			background: var(--blue);
-		}
+	td,
+	th {
+		padding: 6px;
+		border-bottom: 1px solid var(--border-blue);
+		text-align: center;
 	}
 `;
 

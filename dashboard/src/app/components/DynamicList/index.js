@@ -10,24 +10,24 @@ class DynamicList extends Component {
 	};
 
 	onChangeInput = e => this.setState({ text: e.target.value });
+
 	render() {
 		const { data, onAdd, onRemove } = this.props;
 		const { text } = this.state;
 		return (
 			<>
 				{data.map((item, index) => {
-					<Container key={index}>
-						<span>{text}</span>
-						<Button type="danger" onCLick={() => onRemove(index)} label=" - " />
-					</Container>;
+					return (
+						<Container key={index}>
+							<span>{item}</span>
+							{onRemove && <Button type="danger" onClick={() => onRemove(index)} label=" - " />}
+						</Container>
+					);
 				})}
-
-				{data.map((item, index) => {
-					<Container key={index}>
-						<Input type="text" value={text} onChange={this.onChangeInput} />
-						<Button type="success" onCLick={() => onAdd(text)} label=" + " />
-					</Container>;
-				})}
+				<Container>
+					<Input type="text" value={text} onChange={this.onChangeInput} />
+					<Button type="success" onClick={() => onAdd(text)} label=" + " />
+				</Container>
 			</>
 		);
 	}

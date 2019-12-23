@@ -2,6 +2,15 @@ import styled, { css } from 'styled-components';
 
 const Container = styled.div`
 	color: var(--medium-text-color);
+	span {
+		font-size: 1.7rem;
+		margin: 0.4rem;
+		cursor: pointer;
+
+		:hover {
+			color: var(--blue);
+		}
+	}
 `;
 
 const Active = styled.span`

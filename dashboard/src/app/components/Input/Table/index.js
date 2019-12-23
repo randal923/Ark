@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from './styles';
-import { Link } from 'react-router-dom';
+import Button from '../../Button';
 
-const Table = ({ header, data }) => {
+const Table = ({ header, data, buttonType, buttonLabel }) => {
 	return (
 		<Container>
 			<table>
@@ -21,9 +21,11 @@ const Table = ({ header, data }) => {
 									return (
 										<td key={i}>
 											{row[item] === row['Action'] ? (
-												<Link to={row['Action']}>
-													<button>View</button>
-												</Link>
+												<Button
+													type={buttonType}
+													label={buttonLabel}
+													route={row['Action']}
+												></Button>
 											) : (
 												''
 											)}

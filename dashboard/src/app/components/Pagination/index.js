@@ -9,9 +9,9 @@ const Pagination = ({ offset, total, limit, onClick }) => {
 				const currentPageNumber = pageNumber * limit;
 				return (
 					<Active
+						active={currentPageNumber === offset}
 						key={index}
 						onClick={() => onClick(currentPageNumber)}
-						active={currentPageNumber === offset}
 					>
 						{pageNumber + 1}
 					</Active>

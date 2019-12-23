@@ -1,26 +1,22 @@
 import React from 'react';
-import { LinkContainer, ButtonContainer } from './styles';
 import { Link } from 'react-router-dom';
-
-const ReturnButton = ({ type, onClick, label }) => {
-	return (
-		<ButtonContainer type={type}>
-			<button onClick={onClick}>{label}</button>
-		</ButtonContainer>
-	);
-};
+import { Container } from './styles';
 
 const Button = ({ type, route, onClick, label }) => {
 	if (route) {
 		return (
-			<LinkContainer type={type}>
+			<Container type={type}>
 				<Link to={route}>
-					<ReturnButton onClick={onClick} label={label} />
+					<button onClick={onClick}>{label}</button>
 				</Link>
-			</LinkContainer>
+			</Container>
 		);
 	} else {
-		return <ReturnButton onClick={onClick} label={label} />;
+		return (
+			<Container type={type}>
+				<button onClick={onClick}>{label}</button>
+			</Container>
+		);
 	}
 };
 

@@ -10,14 +10,14 @@ class PaymentDetails extends Component {
 	};
 
 	onRemoveDynamicList = index => {
-		const { status } = this.state;
+		let { status } = this.state;
 		status = status.filter((item, _index) => _index !== index);
 		this.setState({ status });
 	};
 
 	onAddDynamicList = text => {
 		if (!text) return false;
-		const { status } = this.state;
+		let { status } = this.state;
 		status.push(text);
 		this.setState({ status });
 	};
