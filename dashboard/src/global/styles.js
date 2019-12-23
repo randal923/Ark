@@ -16,6 +16,15 @@ export default createGlobalStyle`
         --medium-grey: #36393f;
         --dark-grey: #2f3136;
         --darker-grey: #202225;
+
+        --success: #58d777;
+        --success-hover: #29323a;
+
+        --danger: #f45722;
+        --danger-hover: #fff;
+
+        --warning: #f0af03;
+        --warning-hover: #29323a;
     }
     *,
     *::after,

@@ -110,6 +110,7 @@ class Orders extends Component {
 						buttonLabel={'View'}
 					/>
 					<Pagination
+						offset={this.state.currentPageNumber}
 						total={25}
 						limit={5}
 						onClick={currentPageNumber => this.changeCurrentPageNumber(currentPageNumber)}
