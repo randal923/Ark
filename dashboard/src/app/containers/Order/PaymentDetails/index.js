@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Container } from './styles';
 
 import Title from '../../../components/Text/Title';
 import DynamicList from '../../../components/DynamicList';
-
+import { Container } from './styles';
 class PaymentDetails extends Component {
 	state = {
 		status: ['Waiting For Payment', 'Processing payment'],
@@ -25,7 +24,7 @@ class PaymentDetails extends Component {
 		const { status } = this.state;
 		return (
 			<Container>
-				<Title type="h4" title="Payment" />
+				<Title type="h2" title="Payment" />
 				<DynamicList data={status} onRemove={this.onRemoveDynamicList} onAdd={this.onAddDynamicList} />
 			</Container>
 		);

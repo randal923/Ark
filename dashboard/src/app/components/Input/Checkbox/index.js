@@ -5,6 +5,7 @@ const Checkbox = ({ label, value, onChange }) => {
 	return (
 		<Container>
 			<input type="checkbox" checked={value} onChange={onChange} />
+			<span></span>
 			<span>&nbsp;{label}</span>
 		</Container>
 	);

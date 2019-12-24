@@ -1,40 +1,35 @@
 import React, { Component } from 'react';
-import { Container } from './styles';
+
+import { Container, Header } from './styles';
 
 import Button from '../../../components/Button';
 import Title from '../../../components/Text/Title';
-import InfoTable from '../../../components/Text/InfoTable';
 import Table from '../../../components/Input/Table';
+import Card from '../../../components/Card';
+import PaymentDetails from '../PaymentDetails';
 
 class OrderDetails extends Component {
 	renderHeader() {
 		return (
-			<>
-				<Title type="h4" title="Order" />
+			<Header>
+				<Title type="h1" title="Order" />
 				<Button type="danger" label="Cancel Order" onCLick={() => alert('Order Cancelled')} />
-			</>
+			</Header>
 		);
 	}
+
 	renderCustomerData() {
-		return (
-			<>
-				<Title type="h2" title="Customer Data" />
-				<br />
-				<InfoTable name="name" value="Customer 1" />
-				<InfoTable name="email" value="randal@test.com" />
-			</>
-		);
-	}
-	renderPaymentData() {
-		return (
-			<>
-				<Title type="h2" title="Payment Data" />
-				<br />
-				<InfoTable name="Payment Total" value="US$ 10" />
-				<InfoTable name="Payment Option" value="Stripe" />
-				<InfoTable name="Payment Status" value="Confirmed" />
-			</>
-		);
+		const data = [
+			{
+				Name: 'Customer 1',
+				'E-mail': 'customer1@me.com',
+				Total: 'US$ 10',
+				Type: 'Stripe',
+				Status: 'Confirmed',
+			},
+		];
+
+		return <Table header={['Name', 'E-mail', 'Total', 'Type', 'Status']} data={data} />;
 	}
 
 	renderCartData() {
@@ -58,19 +53,20 @@ class OrderDetails extends Component {
 		return (
 			<>
 				<Title type="h2" title="Cart Data" />
-				<br />
 				<Table header={['Movie', 'Unit Price', 'Total Price']} data={data} />
 			</>
 		);
 	}
 	render() {
 		return (
-			<Container>
-				{this.renderHeader()}
-				{this.renderCustomerData()}
-				{this.renderPaymentData()}
-				{this.renderCartData()}
-			</Container>
+			<Card>
+				<Container>
+					{this.renderHeader()}
+					{this.renderCustomerData()}
+					{this.renderCartData()}
+					<PaymentDetails />
+				</Container>
+			</Card>
 		);
 	}
 }

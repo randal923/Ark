@@ -8,13 +8,15 @@ const Container = styled.div`
 		border-radius: 3px;
 		height: 3rem;
 		width: 100%;
-		border: 1px solid var(--ark-light-grey);
-		color: white;
+		border: 1px solid transparent;
+		color: var(--medium-text-color);
 		padding: 1.4rem 2rem 1.6rem;
 		font-size: 1.3rem;
+		font-weight: 500;
+		box-shadow: 0 2px rgba(0, 0, 0, 0.15);
 
 		:focus {
-			border-color: rgba(var(--border-blue), 0.6);
+			border-color: var(--blue);
 		}
 	}
 	button {

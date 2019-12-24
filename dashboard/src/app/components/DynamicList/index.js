@@ -25,7 +25,7 @@ class DynamicList extends Component {
 					);
 				})}
 				<Container>
-					<Input type="text" value={text} onChange={this.onChangeInput} />
+					<Input type="text" value={text} onChange={this.onChangeInput} placeholder={'Add Payment Status'} />
 					<Button type="success" onClick={() => onAdd(text)} label=" + " />
 				</Container>
 			</>

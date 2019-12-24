@@ -2,5 +2,25 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	margin: 2rem;
+	font-size: 1.3rem;
+	> :last-child {
+		display: flex;
+		flex-direction: column;
+	}
 `;
-export { Container };
+
+const Header = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	h1 {
+		color: var(--light-text-color);
+	}
+
+	button {
+		padding: 0.5rem 0.8rem;
+		margin: 0.5rem;
+	}
+`;
+
+export { Container, Header };

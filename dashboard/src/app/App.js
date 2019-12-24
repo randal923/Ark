@@ -18,7 +18,6 @@ import Order from './containers/Order';
 //Containers without HOC
 import Login from './containers/Login';
 import PasswordRecovery from './containers/PasswordRecovery';
-import PasswordReset from './containers/PasswordRecovery/PasswordReset';
 
 function App() {
 	return (
@@ -29,8 +28,7 @@ function App() {
 					<Route path={'/order'} component={base(Order)} />
 
 					<Route path={'/login'} component={Login} />
-					<Route path={'/password-recovery'} component={PasswordRecovery} />
-					<Route path={'/password-reset/:token'} component={PasswordReset} />
+					<Route path={'/password-recovery/:token'} component={PasswordRecovery} />
 				</Router>
 			</Provider>
 			<GlobalStyle />

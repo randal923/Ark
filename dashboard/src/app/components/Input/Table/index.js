@@ -29,7 +29,7 @@ const Table = ({ header, data, buttonType, buttonLabel }) => {
 											) : (
 												''
 											)}
-											{row[item] && row[item] !== row['Action'] ? row[item] : ''}
+											{(row[item] && row[item]) !== row['Action'] ? row[item] : ''}
 										</td>
 									);
 								})}

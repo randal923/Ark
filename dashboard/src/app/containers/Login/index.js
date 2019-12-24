@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, PasswordRecovery, H1 } from './styles';
+import { Container, PasswordRecovery, LoginContainer, ContainerCard } from './styles';
 
 import Title from '../../components/Text/Title';
 import Input from '../../components/Input/Input';
@@ -13,7 +13,6 @@ class Login extends Component {
 		password: '',
 		rememberMe: true,
 	};
-
 	onChangeInput(field, e) {
 		this.setState({ [field]: e.target.value });
 	}
@@ -23,31 +22,32 @@ class Login extends Component {
 	render() {
 		return (
 			<Container>
-				<H1>Login</H1>
-				<Title type="h3" title="Ark Admin Account" />
-				<Input
-					type="email"
-					label="E-mail"
-					value={this.state.email}
-					onChange={e => this.onChangeInput('email', e)}
-				/>
-				<Title type="h3" title="Password" />
-				<Input
-					type="password"
-					label="Password"
-					value={this.state.password}
-					onChange={e => this.onChangeInput('password', e)}
-				/>
-				<Checkbox
-					label="Remember Me"
-					value={this.state.rememberMe}
-					onChange={() => this.onChangeCheckBox('rememberMe')}
-				/>
-				<PasswordRecovery>
-					<span>Forgot Password?</span>&nbsp;
-					<Link to="/password-recovery">Click here</Link>
-				</PasswordRecovery>
-				<Button route="/" label="Login" />
+				<ContainerCard>
+					<Title type="h1" title="Login" />
+					<LoginContainer>
+						<Title type="h3" title="Ark Admin Account" />
+						<Input type="email" value={this.state.email} onChange={e => this.onChangeInput('email', e)} />
+
+						<Title type="h3" title="Password" />
+						<Input
+							type="password"
+							value={this.state.password}
+							onChange={e => this.onChangeInput('password', e)}
+						/>
+
+						<Checkbox
+							label="Remember Me"
+							checked={this.state.checked}
+							value={this.state.rememberMe}
+							onChange={() => this.onChangeCheckBox('rememberMe')}
+						/>
+					</LoginContainer>
+					<PasswordRecovery>
+						<span>Forgot Password?</span>&nbsp;
+						<Link to="/password-recovery">Click here</Link>
+					</PasswordRecovery>
+					<Button route="/" label="Login" />
+				</ContainerCard>
 			</Container>
 		);
 	}

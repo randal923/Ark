@@ -3,8 +3,6 @@ import styled, { css } from 'styled-components';
 const Container = styled.div`
 	button {
 		background: transparent;
-		padding: 0.5rem 0.8rem;
-		margin: 0.5rem;
 		cursor: pointer;
 		user-select: none;
 		font-weight: 500;

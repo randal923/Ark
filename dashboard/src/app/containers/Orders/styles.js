@@ -5,6 +5,9 @@ const Container = styled.div`
 	grid-template-rows: 1fr;
 	margin: 2rem;
 
+	button {
+		padding: 0.5rem 0.8rem;
+	}
 	> :last-child {
 		justify-self: end;
 	}
