@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.span`
 	button {
 		background: transparent;
 		cursor: pointer;
@@ -8,6 +8,8 @@ const Container = styled.div`
 		font-weight: 500;
 		font-size: 1.3rem;
 		border-radius: 0.2rem;
+		margin: 0.5rem;
+		padding: 0.5rem;
 	}
 	${props => {
 		if (props.type === 'danger') {

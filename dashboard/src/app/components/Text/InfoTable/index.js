@@ -1,12 +1,11 @@
 import React from 'react';
-import { Container } from './styles';
 
 const InfoTable = ({ name, value }) => {
 	return (
-		<Container>
+		<div>
 			<strong>{name}:&nbsp;</strong>
 			<strong>{value}</strong>
-		</Container>
+		</div>
 	);
 };
 

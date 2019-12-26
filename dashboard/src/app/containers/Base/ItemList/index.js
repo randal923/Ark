@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Active } from './styles';
 
-import { MdContentCopy, MdGroup, MdPerson, MdMovie, MdSettings } from 'react-icons/md';
+import { MdContentCopy, MdGroup, MdPerson, MdMovie, MdSettings, MdStyle } from 'react-icons/md';
 
 const items = [
 	{
@@ -11,9 +11,14 @@ const items = [
 		title: 'Orders',
 	},
 	{
-		route: '/customers',
+		route: '/users',
 		icon: <MdGroup />,
-		title: 'Customers',
+		title: 'Users',
+	},
+	{
+		route: '/genres',
+		icon: <MdStyle />,
+		title: 'Genres',
 	},
 	{
 		route: '/movies',

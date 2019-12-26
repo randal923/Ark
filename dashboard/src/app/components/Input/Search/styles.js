@@ -23,7 +23,7 @@ const Container = styled.div`
 		background-color: transparent;
 		border: 0;
 		margin-left: -5rem;
-		color: white;
+		color: var(--dark-text-color);
 		cursor: pointer;
 		outline: none;
 		&:hover {
