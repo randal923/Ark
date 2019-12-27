@@ -18,6 +18,12 @@ import Users from './containers/Users';
 import User from './containers/User';
 import Genres from './containers/Genres';
 import Genre from './containers/Genre';
+import Movies from './containers/Movies';
+import Movie from './containers/Movie';
+import Reviews from './containers/Reviews';
+import Review from './containers/Review';
+import Settings from './containers/Settings';
+import Profile from './containers/Profile';
 
 //Containers without HOC
 import Login from './containers/Login';
@@ -37,6 +43,16 @@ function App() {
 
 					<Route path={'/genres'} component={base(Genres)} />
 					<Route path={'/genre/:id'} component={base(Genre)} />
+
+					<Route path={'/movies'} component={base(Movies)} />
+					<Route path={'/movie/:id'} component={base(Movie)} />
+
+					<Route path={'/reviews/:id'} component={base(Reviews)} />
+					<Route path={'/review/:id'} component={base(Review)} />
+
+					<Route path={'/settings'} component={base(Settings)} />
+
+					<Route path={'/profile'} component={base(Profile)} />
 
 					<Route path={'/login'} component={Login} />
 					<Route path={'/password-recovery'} component={PasswordRecovery} />

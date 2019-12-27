@@ -55,41 +55,6 @@ class Orders extends Component {
 				Status: 'Waiting for payment',
 				Action: '/order/12asdsdczxcADA123141231231231',
 			},
-			{
-				Customer: 'Customer 4',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12asdsdczxcADA123141231231231',
-			},
-			{
-				Customer: 'Customer 4',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12asdsdczxcADA123141231231231',
-			},
-			{
-				Customer: 'Customer 4',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12asdsdczxcADA123141231231231',
-			},
-			{
-				Customer: 'Customer 4',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12asdsdczxcADA123141231231231',
-			},
-			{
-				Customer: 'Customer 4',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12asdsdczxcADA123141231231231',
-			},
 		];
 		return (
 			<Card size={'100vh'}>

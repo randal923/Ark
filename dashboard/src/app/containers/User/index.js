@@ -26,8 +26,8 @@ class User extends Component {
 			<Card>
 				<Header>
 					<Title type="h1" title={name} />
-					<Button type="success" onClic={() => alert('Saved')} label={'Save'} />
-					<Button type="danger" onClic={() => alert('Deleted')} label={'Remove'} />
+					<Button type="success" onClick={() => alert('Saved')} label={'Save'} />
+					<Button type="danger" onClick={() => alert('Deleted')} label={'Remove'} />
 				</Header>
 				<Container>
 					<InfoTable

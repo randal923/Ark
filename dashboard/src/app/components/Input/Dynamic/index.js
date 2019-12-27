@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Container } from './styles';
 
-import Button from '../../Button/index';
 import { MdModeEdit, MdCheck, MdClose } from 'react-icons/md';
 
 class Dynamic extends Component {
@@ -25,21 +25,21 @@ class Dynamic extends Component {
 	renderForm() {
 		const { value } = this.state;
 		return (
-			<>
+			<Container>
 				<input value={value} onChange={this.onChange} />
-				<Button type="warning" label={<MdCheck />} onClick={() => this.handleSubmit(value)} />
-				<Button type="warning" label={<MdClose />} onClick={this.toggleForm} />
-			</>
+				<MdCheck size={15} onClick={() => this.handleSubmit(value)} />
+				<MdClose size={15} onClick={this.toggleForm} />
+			</Container>
 		);
 	}
 
 	renderValue() {
 		const { value } = this.props;
 		return (
-			<>
+			<Container>
 				<span>{value}</span>
-				<Button type="warning" label={<MdModeEdit />} onClick={() => this.toggleForm()} />
-			</>
+				<MdModeEdit size={15} onClick={() => this.toggleForm()} />
+			</Container>
 		);
 	}
 

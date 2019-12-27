@@ -47,7 +47,12 @@ class Genres extends Component {
 						onClick={() => alert('Search')}
 					/>
 					<br />
-					<Table header={['Genre', 'Quantity']} data={data} buttonType={'ark'} buttonLabel={'View'} />
+					<Table
+						header={['Genre', 'Quantity', 'Action']}
+						data={data}
+						buttonType={'ark'}
+						buttonLabel={'View'}
+					/>
 					<Pagination
 						offset={this.state.currentPageNumber}
 						total={25}

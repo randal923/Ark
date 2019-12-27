@@ -12,14 +12,6 @@ const Container = styled.div`
 		justify-self: end;
 	}
 `;
+const OrderBy = styled.div``;
 
-const Header = styled.div`
-	display: flex;
-	margin: 1rem;
-	align-items: center;
-
-	h1 {
-		margin-right: auto;
-	}
-`;
-export { Container, Header };
+export { Container, OrderBy };

@@ -16,6 +16,7 @@ const Container = styled.div`
 const Header = styled.div`
 	display: flex;
 	margin: 1rem;
+	align-items: center;
 
 	h1 {
 		margin-right: auto;
