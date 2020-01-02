@@ -1,27 +1,26 @@
 import React from 'react';
-import Base from '../Base';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { getCookie } from '../../utilities/cookie';
 
-const base = Component => {
-	class BaseComponent extends React.Component {
+const NoAuth = Component => {
+	class ComponentNoAuth extends React.Component {
 		componentDidMount() {
 			const { getUser, authorized, history, user } = this.props;
 			if (getCookie('user')) getUser();
-			if (!authorized || !user || !user.role.includes('admin')) history.replace('/login');
+			if (authorized && user.role.includes('admin')) history.replace('/');
 		}
 
 		componentDidUpdate(prevProps) {
-			const { history, authorized, user } = this.props;
-			if (!authorized || !user || !user.role.includes('admin')) history.replace('/login');
+			const { authorized, history } = prevProps;
+			if (!authorized && this.props.authorized && this.props.user.role.includes('admin')) history.replace('/');
 		}
 
 		render() {
 			return (
-				<Base history={this.props.history}>
+				<>
 					<Component {...this.props} />
-				</Base>
+				</>
 			);
 		}
 	}
@@ -30,7 +29,7 @@ const base = Component => {
 		return { authorized: state.auth.authorized, user: state.auth.user };
 	};
 
-	return connect(mapStateToProps, actions)(BaseComponent);
+	return connect(mapStateToProps, actions)(ComponentNoAuth);
 };
 
-export default base;
+export default NoAuth;

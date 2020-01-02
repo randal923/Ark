@@ -1,8 +1,38 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+const Order = mongoose.model('Order');
+const Movie = mongoose.model('Movie');
+
 const sendEmailRecovery = require('../helpers/email-recovery');
 
 class userController {
+	// GET /search/:search/orders
+	async searchOrders(req, res, next) {
+		const { offset, limit } = req.query;
+		try {
+			const search = new RegExp(req.params.search, 'i');
+			const users = await User.find({ name: { $regex: search } });
+			const orders = await Order.paginate(
+				{ user: { $in: users.map(item => item._id) } },
+				{ offset, limit, populate: ['user', 'payment'] }
+			);
+			orders.docs = await Promise.all(
+				orders.docs.map(async order => {
+					order.cart = await Promise.all(
+						order.cart.map(async item => {
+							item.movie = await Movie.findById(item.movie);
+							return item;
+						})
+					);
+					return order;
+				})
+			);
+			return res.send({ orders });
+		} catch (e) {
+			next(e);
+		}
+	}
+
 	//POST /register
 	async create(req, res, next) {
 		const { name, email, password } = req.body;
@@ -34,12 +64,23 @@ class userController {
 	}
 
 	//GET /
+	async indexAdmin(req, res, next) {
+		try {
+			const offset = Number(req.query.offset) || 0;
+			const limit = Number(req.query.limit) || 30;
+			const users = await User.paginate({}, { offset, limit, populate: { path: 'user', select: '-salt -hash' } });
+			return res.send({ users });
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	//GET /
 	async index(req, res, next) {
 		try {
-			const users = await User.find();
-			if (!users) return res.status(401).json({ errors: 'No user in the database' });
-
-			return res.json({ users });
+			const user = await User.findById(req.payload.id);
+			if (!user) return res.status(401).json({ errors: 'User not registered.' });
+			return res.json({ user: user.sendAuthJSON() });
 		} catch (e) {
 			next(e);
 		}

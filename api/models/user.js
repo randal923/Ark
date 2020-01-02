@@ -4,6 +4,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const secret = require('../config').secret;
+const mongoosePaginate = require('mongoose-paginate');
 
 const UserSchema = new Schema(
 	{
@@ -83,4 +84,5 @@ UserSchema.methods.deletePasswordRecoveryToken = function() {
 	return this.recovery;
 };
 
+UserSchema.plugin(mongoosePaginate);
 module.exports = mongoose.model('User', UserSchema);

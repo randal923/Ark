@@ -23,6 +23,7 @@ const Container = styled.div`
 		background-color: transparent;
 		border: 0;
 		margin-left: -5rem;
+		margin-top: 0.5rem;
 		color: var(--dark-text-color);
 		cursor: pointer;
 		outline: none;

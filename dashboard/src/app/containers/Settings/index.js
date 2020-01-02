@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Container, Header } from './styles';
 
 import Button from '../../components/Button';

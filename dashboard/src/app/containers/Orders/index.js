@@ -8,54 +8,57 @@ import Table from '../../components/Input/Table';
 import Pagination from '../../components/Pagination';
 import Card from '../../components/Card';
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions/orders';
+
+import { currency } from '../../actions';
+
 class Orders extends Component {
 	state = {
 		search: '',
 		currentPageNumber: 0,
+		offset: 0,
+		limit: 5,
 	};
+
+	getOrders() {
+		const { offset, limit, search } = this.state;
+		if (search) this.props.getOrdersSearch(search, offset, limit);
+		else this.props.getOrders(offset, limit);
+	}
+
+	componentDidMount() {
+		this.getOrders();
+	}
 
 	onChangeSearch = e => this.setState({ search: e.target.value });
 
-	changeCurrentPageNumber = currentPageNumber => this.setState({ currentPageNumber });
+	changeCurrentPageNumber = currentPageNumber => {
+		this.setState({ currentPageNumber }, () => {
+			this.getOrders();
+		});
+	};
+
+	handleSearchSubmit() {
+		this.setState({ offset: 0 }, () => {
+			const { offset, limit, search } = this.state;
+			this.props.getOrdersSearch(search, offset, limit);
+		});
+	}
 
 	render() {
-		const data = [
-			{
-				Customer: 'Customer 1',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/123512341234SAsfsdfsfd',
-			},
-			{
-				Customer: 'Customer 2',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12351dfgadsfafwasdvcxcvxcvxcvd',
-			},
-			{
-				Customer: 'Customer 3',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/123512dsgfgnbvcbnDcbvcvmgmnbn',
-			},
-			{
-				Customer: 'Customer 4',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12asdsdczxcADA123141231231231',
-			},
-			{
-				Customer: 'Customer 4',
-				Total: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Status: 'Waiting for payment',
-				Action: '/order/12asdsdczxcADA123141231231231',
-			},
-		];
+		const { orders } = this.props;
+		const data = [];
+		(orders ? orders.docs : []).forEach(item => {
+			data.push({
+				Customer: item.user.name ? item.user.name : '',
+				Total: currency(item.payment.paymentTotal),
+				Date: moment(item.createdAt).format('dddd, MMMM Do YYYY'),
+				Status: item.paymentStatus,
+				Action: `/order/${item._id}`,
+			});
+		});
+
 		return (
 			<Card size={'100vh'}>
 				<Container>
@@ -65,7 +68,7 @@ class Orders extends Component {
 						value={this.state.search}
 						placeHolder={"Search by customer's name"}
 						onChange={e => this.onChangeSearch(e)}
-						onClick={() => alert('Search')}
+						onClick={() => this.handleSearchSubmit()}
 					/>
 					<br />
 					<Table
@@ -76,8 +79,8 @@ class Orders extends Component {
 					/>
 					<Pagination
 						offset={this.state.currentPageNumber}
-						total={25}
-						limit={5}
+						total={this.props.orders ? this.props.orders.total : 0}
+						limit={this.state.limit}
 						onClick={currentPageNumber => this.changeCurrentPageNumber(currentPageNumber)}
 					/>
 				</Container>
@@ -86,4 +89,10 @@ class Orders extends Component {
 	}
 }
 
-export default Orders;
+const mapStateToProps = state => {
+	return {
+		orders: state.order.orders,
+	};
+};
+
+export default connect(mapStateToProps, actions)(Orders);

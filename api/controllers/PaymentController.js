@@ -75,6 +75,41 @@ class PaymentController {
 			next(e);
 		}
 	}
+
+	// ADMIN
+	async update(req, res, next) {
+		const { status } = req.body;
+		try {
+			const payment = await Payment.findOne({ _id: req.params.id });
+			if (!payment) return res.status(400).send({ error: "Payment doesn't exist" });
+
+			if (status) payment.paymentStatus = status;
+
+			const orderRegistration = new OrderRegistration({
+				order: payment.order,
+				type: 'payment',
+				status: status,
+			});
+
+			await orderRegistration.save();
+
+			// Email customer
+			const order = await Order.findById(payment.order).populate('user');
+			EmailController.updateOrder({
+				user: order.user,
+				order,
+				type: 'payment',
+				status,
+				date: new Date(),
+			});
+
+			await payment.save();
+
+			return res.send({ payment });
+		} catch (e) {
+			next(e);
+		}
+	}
 }
 
 module.exports = PaymentController;

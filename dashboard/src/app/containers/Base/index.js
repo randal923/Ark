@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container } from './styles';
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+
 import Header from './Header';
 import Menu from './Menu';
 import Content from './Content';
@@ -18,11 +21,11 @@ class Dashboard extends Component {
 		return (
 			<Container open={this.state.open}>
 				<Menu history={this.props.history} open={this.state.open} toggleOpen={this.toggleOpen} />
-				<Header />
+				<Header handleLogOut={this.props.handleLogOut} />
 				<Content {...this.props} />
 			</Container>
 		);
 	}
 }
 
-export default Dashboard;
+export default connect(null, actions)(Dashboard);

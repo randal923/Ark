@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { Container } from './styles';
-// import { MdViewHeadline } from 'react-icons/md';
-const Header = () => {
+
+const Header = ({ handleLogOut }) => {
 	return (
 		<Container>
 			<a href="/">Store</a>
-			<span>Log Out</span>
+			<span onClick={() => handleLogOut()}>Log Out</span>
 		</Container>
 	);
 };

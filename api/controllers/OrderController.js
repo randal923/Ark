@@ -15,12 +15,14 @@ class OrderController {
 	async indexAdmin(req, res, next) {
 		const { offset, limit } = req.query;
 		try {
-			const orders = await Order.paginate({
-				offset: Number(offset || 0),
-				limit: Number(limit || 30),
-				populate: ['user', 'payment'],
-			});
-
+			const orders = await Order.paginate(
+				{},
+				{
+					offset: Number(offset || 0),
+					limit: Number(limit || 30),
+					populate: ['payment', 'user'],
+				}
+			);
 			orders.docs = await Promise.all(
 				orders.docs.map(async order => {
 					order.cart = await Promise.all(
@@ -32,7 +34,6 @@ class OrderController {
 					return order;
 				})
 			);
-
 			return res.send({ orders });
 		} catch (e) {
 			next(e);
@@ -44,7 +45,9 @@ class OrderController {
 		try {
 			const order = await Order.findOne({
 				_id: req.params.id,
-			}).populate(['user', 'payment']);
+			})
+				.populate({ path: 'user', select: ['id', 'email', 'movies', 'name', 'reviews', 'role'] })
+				.populate('payment');
 			order.cart = await Promise.all(
 				order.cart.map(async item => {
 					item.movie = await Movie.findById(item.movie);
@@ -74,6 +77,7 @@ class OrderController {
 				status: 'order_cancelled',
 			});
 
+			await order.save();
 			await orderRegistration.save();
 
 			// Send Email to customer - Order Cancelled
@@ -115,7 +119,7 @@ class OrderController {
 				{ user: user._id },
 				{
 					offset: Number(offset || 0),
-					limit: Number(limit || 0),
+					limit: Number(limit || 30),
 					populate: ['payment'],
 				}
 			);
@@ -127,10 +131,10 @@ class OrderController {
 							return item;
 						})
 					);
+					console.log(order);
 					return order;
 				})
 			);
-
 			return res.send({ orders });
 		} catch (e) {
 			next(e);

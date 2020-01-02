@@ -11,6 +11,15 @@ const UserValidation = {
 				.required(),
 		},
 	},
+	searchOrders: {
+		query: {
+			offset: Joi.number(),
+			limit: Joi.number(),
+		},
+		params: {
+			search: Joi.string().required(),
+		},
+	},
 	create: {
 		body: {
 			name: Joi.string().required(),
