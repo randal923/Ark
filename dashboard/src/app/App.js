@@ -49,7 +49,7 @@ class App extends Component {
 						<Route path={'/order/:id'} component={base(Order)} />
 
 						<Route path={'/users'} component={base(Users)} />
-						<Route path={'/user/:email'} component={base(User)} />
+						<Route path={'/user/:id'} component={base(User)} />
 
 						<Route path={'/genres'} component={base(Genres)} />
 						<Route path={'/genre/:id'} component={base(Genre)} />

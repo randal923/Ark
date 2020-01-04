@@ -2,7 +2,7 @@ import axios from 'axios';
 import { USER_LOGIN, USER_LOGOUT } from './types';
 import { api, version } from '../config';
 import { setCookie, getCookie, removeCookie } from '../utilities/cookie';
-import errorHandling from './errorHandling';
+//import errorHandling from './errorHandling';
 import { getHeaders } from '../utilities/cookie';
 
 export const initApp = () => {
@@ -27,7 +27,7 @@ export const handleLogin = ({ email, password, rememberMe }, callback) => {
 				setCookie('rememberMe', rememberMe);
 				dispatch({ type: USER_LOGIN, payload: response.data });
 			})
-			.catch(err => callback(errorHandling(err)));
+			.catch(error => console.log(error));
 	};
 };
 

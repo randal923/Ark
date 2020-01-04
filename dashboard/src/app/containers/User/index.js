@@ -9,27 +9,108 @@ import InfoTable from '../../components/Text/InfoTable';
 import Dynamic from '../../components/Input/Dynamic';
 import OrdersUser from './OrdersUser';
 
+import { connect } from 'react-redux';
+import * as actions from '../../actions/users';
+import General from '../../components/Alerts/General';
+
 class User extends Component {
-	state = {
-		name: 'User 1',
-		email: 'user1@hotmail.com',
-		dateOfBirth: '10/01/1995',
-	};
+	generateStateUser = props => ({
+		name: props.user ? props.user.name : '',
+		email: props.user ? props.user.email : '',
+	});
+
+	constructor(props) {
+		super();
+		this.state = {
+			...this.generateStateUser(props),
+			warning: null,
+			errors: {},
+		};
+	}
+
+	componentDidMount() {
+		const { id } = this.props.match.params;
+		this.props.getUser(id);
+	}
+	cleanAlert = () => this.setState({ warning: null });
+
+	componentDidUpdate(prevProps) {
+		if (
+			(!prevProps.user && this.props.user) ||
+			(prevProps.user && this.props.user && prevProps.user.updatedAt !== this.props.user.updatedAt)
+		)
+			this.setState(this.generateStateUser(this.props));
+	}
+
+	componentWillUnmount() {
+		this.props.cleanUser();
+	}
 
 	handleSubmit = (field, value) => {
-		this.setState({ [field]: value });
+		this.setState({ [field]: value }, () => this.validate());
 	};
 
+	validate() {
+		const { name, email } = this.state;
+		const errors = {};
+
+		if (!name) errors.name = 'Name cannot be blank';
+		if (!email) errors.email = 'Email cannot be blank';
+
+		this.setState({ errors });
+		return !(Object.keys(errors).length > 0);
+	}
+
+	saveUser() {
+		this.cleanAlert();
+		const { user } = this.props;
+		if (!user) return null;
+		if (!this.validate()) return null;
+		this.props.updateUser(this.state, user._id, error => {
+			this.setState({
+				warning: {
+					status: !error,
+					msg: error ? error.message : 'User updated successfully!',
+				},
+			});
+		});
+	}
+
+	removeUser() {
+		this.cleanAlert();
+		const { user } = this.props;
+		if (!user) return null;
+
+		if (window.confirm('Would you really like to remove this user?')) {
+			this.props.removeUser(user._id, error => {
+				this.setState({
+					warning: {
+						status: !error,
+						msg: error ? error.message : 'User removed successfully!',
+					},
+				});
+			});
+		}
+	}
+
 	render() {
-		const { name, email, dateOfBirth } = this.state;
+		const { name, email } = this.state;
+		const { user } = this.props;
 		return (
 			<Card>
 				<Header>
 					<Title type="h1" title={name} />
-					<Button type="success" onClick={() => alert('Saved')} label={'Save'} />
-					<Button type="danger" onClick={() => alert('Deleted')} label={'Remove'} />
+					{user && user.deleted ? (
+						<Button type="success" label={'Removed'} />
+					) : (
+						<>
+							<Button type="success" onClick={() => this.saveUser()} label={'Save'} />
+							<Button type="danger" onClick={() => this.removeUser()} label={'Remove'} />
+						</>
+					)}
 				</Header>
 				<Container>
+					<General warning={this.state.warning} />
 					<InfoTable
 						name="Name"
 						value={
@@ -50,16 +131,6 @@ class User extends Component {
 							/>
 						}
 					/>
-					<InfoTable
-						name="Date of Birth"
-						value={
-							<Dynamic
-								name="dateOfBirth"
-								value={dateOfBirth}
-								handleSubmit={value => this.handleSubmit('dateOfBirth', value)}
-							/>
-						}
-					/>
 				</Container>
 				<OrdersUser />
 			</Card>
@@ -67,4 +138,8 @@ class User extends Component {
 	}
 }
 
-export default User;
+const mapStateToProps = state => ({
+	user: state.user.user,
+});
+
+export default connect(mapStateToProps, actions)(User);

@@ -28,7 +28,8 @@ class Orders extends Component {
 	}
 
 	componentDidMount() {
-		this.getOrders();
+		const { user } = this.props;
+		if (user) this.getOrders();
 	}
 
 	onChangeSearch = e => this.setState({ search: e.target.value });
@@ -54,7 +55,7 @@ class Orders extends Component {
 				Customer: item.user.name ? item.user.name : '',
 				Total: currency(item.payment.paymentTotal),
 				Date: moment(item.createdAt).format('dddd, MMMM Do YYYY'),
-				Status: item.paymentStatus,
+				Status: item.payment.paymentStatus,
 				Action: `/order/${item._id}`,
 			});
 		});
@@ -92,6 +93,7 @@ class Orders extends Component {
 const mapStateToProps = state => {
 	return {
 		orders: state.order.orders,
+		user: state.auth.user,
 	};
 };
 

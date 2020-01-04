@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { api, version } from '../config';
-import errorHandling from './errorHandling';
+//import errorHandling from './errorHandling';
 import { GET_ORDERS, GET_ORDER, CLEAN_ORDER, CANCEL_ORDER } from './types';
 import { getHeaders } from '../utilities/cookie';
 

@@ -18,6 +18,7 @@ const UserSchema = new Schema(
 			match: [/\S+@\S+\.\S+/, 'Invalid Email'],
 		},
 		role: { type: Array, default: ['customer', 'admin', 'owners'] },
+		deleted: { type: Boolean, default: false },
 		hash: String,
 		salt: String,
 		recovery: {
@@ -66,6 +67,7 @@ UserSchema.methods.sendAuthJSON = function() {
 		name: this.name,
 		email: this.email,
 		role: this.role,
+		deleted: this.deleted,
 		reviews: this.reviews,
 		token: this.generateToken(),
 	};

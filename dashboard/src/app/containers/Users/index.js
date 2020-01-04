@@ -23,7 +23,7 @@ class Users extends Component {
 		if (!user) return null;
 
 		if (search) this.props.searchUsers(search, currentPageNumber, limit);
-		else this.props.currentPageNumber(currentPageNumber, limit);
+		else this.props.getUsers(currentPageNumber, limit);
 	}
 
 	componentDidMount() {
@@ -39,15 +39,13 @@ class Users extends Component {
 	changeCurrentPageNumber = currentPageNumber => this.setState({ currentPageNumber });
 
 	render() {
-		const { search } = this.state;
 		const { users } = this.props;
-		console.log(users);
 		const data = [];
 
 		(users ? users.docs : []).forEach(item => {
 			data.push({
 				User: item.name,
-				'E-Mail': item.user ? item.user.email : '',
+				'E-mail': item.email,
 				Action: `/user/${item._id}`,
 			});
 		});
@@ -63,12 +61,7 @@ class Users extends Component {
 						onClick={() => alert('Search')}
 					/>
 					<br />
-					<Table
-						header={['Customer', 'E-mail', 'Action']}
-						data={data}
-						buttonType={'ark'}
-						buttonLabel={'View'}
-					/>
+					<Table header={['User', 'E-mail', 'Action']} data={data} buttonType={'ark'} buttonLabel={'View'} />
 					<Pagination
 						offset={this.state.currentPageNumber}
 						total={users ? users.total : 0}
@@ -83,7 +76,7 @@ class Users extends Component {
 
 const mapStateToProps = state => {
 	return {
-		users: state.auth.user,
+		users: state.user.users,
 	};
 };
 

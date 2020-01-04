@@ -120,7 +120,7 @@ class OrderController {
 				{
 					offset: Number(offset || 0),
 					limit: Number(limit || 30),
-					populate: ['payment'],
+					populate: ['payment', 'user'],
 				}
 			);
 			orders.docs = await Promise.all(
@@ -131,7 +131,6 @@ class OrderController {
 							return item;
 						})
 					);
-					console.log(order);
 					return order;
 				})
 			);

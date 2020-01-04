@@ -6,6 +6,23 @@ const Movie = mongoose.model('Movie');
 const sendEmailRecovery = require('../helpers/email-recovery');
 
 class userController {
+	/**
+	 *
+	 * 		ADMIN
+	 */
+
+	//GET /
+	async indexAdmin(req, res, next) {
+		try {
+			const offset = Number(req.query.offset) || 0;
+			const limit = Number(req.query.limit) || 30;
+			const users = await User.paginate({}, { offset, limit, populate: { path: 'user', select: '-salt -hash' } });
+			return res.send({ users });
+		} catch (e) {
+			next(e);
+		}
+	}
+
 	// GET /search/:search/orders
 	async searchOrders(req, res, next) {
 		const { offset, limit } = req.query;
@@ -32,6 +49,76 @@ class userController {
 			next(e);
 		}
 	}
+
+	// GET /admin/:id
+	async showAdmin(req, res, next) {
+		try {
+			const user = await User.findOne({ _id: req.params.id });
+			return res.send({ user });
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	// GET /admin/:id/orders
+	async showUserOrders(req, res, next) {
+		const { offset, limit } = req.query;
+		try {
+			const orders = await Order.paginate(
+				{ user: req.params.id },
+				{
+					offset: Number(offset || 0),
+					limit: Number(limit || 30),
+					populate: ['payment'],
+				}
+			);
+			orders.docs = await Promise.all(
+				orders.docs.map(async order => {
+					order.cart = await Promise.all(
+						order.cart.map(async item => {
+							item.movie = await Movie.findById(item.movie);
+							return item;
+						})
+					);
+					return order;
+				})
+			);
+			return res.send({ orders });
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	// PUT /admin/:id
+	async updateAdmin(req, res, next) {
+		const { name, email } = req.body;
+		try {
+			const user = await User.findById(req.params.id);
+			if (name) user.name = name;
+			if (email) user.email = email;
+
+			await user.save();
+			return res.send({ user });
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	async removeAdmin(req, res, next) {
+		try {
+			const user = await User.findById(req.params.id);
+			if (!user) return res.status(400).send({ error: 'User not found.' });
+			await user.remove();
+			return res.send({ deleted: true });
+		} catch (e) {
+			next(e);
+		}
+	}
+
+	/**
+	 *
+	 * 		USERS
+	 */
 
 	//POST /register
 	async create(req, res, next) {
@@ -64,18 +151,6 @@ class userController {
 	}
 
 	//GET /
-	async indexAdmin(req, res, next) {
-		try {
-			const offset = Number(req.query.offset) || 0;
-			const limit = Number(req.query.limit) || 30;
-			const users = await User.paginate({}, { offset, limit, populate: { path: 'user', select: '-salt -hash' } });
-			return res.send({ users });
-		} catch (e) {
-			next(e);
-		}
-	}
-
-	//GET /
 	async index(req, res, next) {
 		try {
 			const user = await User.findById(req.payload.id);
@@ -86,20 +161,13 @@ class userController {
 		}
 	}
 
-	//Get /:id
+	//Get /
 	async show(req, res, next) {
 		try {
-			const user = await User.findById(req.params.id);
+			const user = await User.findById(req.payload.id);
 			if (!user) return res.status(401).json({ errors: 'User not registered.' });
 
-			return res.json({
-				user: {
-					name: user.name,
-					email: user.email,
-					role: user.role,
-					movies: user.movies,
-				},
-			});
+			return res.send({ user });
 		} catch (e) {
 			next(e);
 		}
@@ -128,6 +196,7 @@ class userController {
 			const user = await User.findById(req.payload.id);
 			if (!user) return res.status(401).json({ errors: 'User not registered.' });
 
+			user.deleted = true;
 			user.remove();
 			return res.json({ deleted: true });
 		} catch (e) {

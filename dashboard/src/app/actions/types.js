@@ -5,3 +5,7 @@ export const GET_ORDER = 'GET_ORDER';
 export const CLEAN_ORDER = 'CLEAN_ORDER';
 export const CANCEL_ORDER = 'CANCEL_ORDER';
 export const GET_USERS = 'GET_USERS';
+export const GET_USER = 'GET_USER';
+export const CLEAN_USER = 'CLEAN_USER';
+export const REMOVE_USER = 'REMOVE_USER';
+export const GET_USER_ORDERS = 'GET_USER_ORDERS';
