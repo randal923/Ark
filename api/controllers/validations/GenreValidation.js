@@ -59,8 +59,6 @@ const GenreValidation = {
 				.alphanum()
 				.length(24)
 				.required(),
-			limit: Joi.number().required(),
-			offset: Joi.number().required(),
 		},
 	},
 };

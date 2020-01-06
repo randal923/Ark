@@ -190,7 +190,12 @@ class MovieController {
 		const offset = Number(req.query.offset) || 0;
 		const limit = Number(req.query.limit) || 30;
 		try {
-			const movies = await Movie.paginate({ offset, limit, sort: getSort(req.query.sortType) });
+			const movies = await Movie.paginate({
+				offset,
+				limit,
+				sort: getSort(req.query.sortType),
+				populate: ['genre'],
+			});
 
 			return res.send({ movies });
 		} catch (e) {
@@ -210,7 +215,7 @@ class MovieController {
 					description: { $regex: search },
 					sku: { $regex: search },
 				},
-				{ offset, limit, sort: getSort(req.query.sortType) }
+				{ offset, limit, sort: getSort(req.query.sortType), populate: ['genre'] }
 			);
 
 			return res.send({ movies });

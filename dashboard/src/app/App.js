@@ -23,6 +23,7 @@ import Order from './containers/Order';
 import Users from './containers/Users';
 import User from './containers/User';
 import Genres from './containers/Genres';
+import NewGenre from './containers/Genres/NewGenre';
 import Genre from './containers/Genre';
 import Movies from './containers/Movies';
 import Movie from './containers/Movie';
@@ -46,27 +47,28 @@ class App extends Component {
 				<Provider store={store}>
 					<Router>
 						<Route path={'/'} exact component={base(Orders)} />
-						<Route path={'/order/:id'} component={base(Order)} />
+						<Route path={'/order/:id'} exact component={base(Order)} />
 
-						<Route path={'/users'} component={base(Users)} />
-						<Route path={'/user/:id'} component={base(User)} />
+						<Route path={'/users'} exact component={base(Users)} />
+						<Route path={'/user/:id'} exact component={base(User)} />
 
-						<Route path={'/genres'} component={base(Genres)} />
-						<Route path={'/genre/:id'} component={base(Genre)} />
+						<Route path={'/genres'} exact component={base(Genres)} />
+						<Route path={'/genres/new'} exact component={base(NewGenre)} />
+						<Route path={'/genre/:id'} exact component={base(Genre)} />
 
-						<Route path={'/movies'} component={base(Movies)} />
-						<Route path={'/movie/:id'} component={base(Movie)} />
+						<Route path={'/movies'} exact component={base(Movies)} />
+						<Route path={'/movie/:id'} exact component={base(Movie)} />
 
-						<Route path={'/reviews/:id'} component={base(Reviews)} />
-						<Route path={'/review/:id'} component={base(Review)} />
+						<Route path={'/reviews/:id'} exact component={base(Reviews)} />
+						<Route path={'/review/:id'} exact component={base(Review)} />
 
-						<Route path={'/settings'} component={base(Settings)} />
+						<Route path={'/settings'} exact component={base(Settings)} />
 
-						<Route path={'/profile'} component={base(Profile)} />
+						<Route path={'/profile'} exact component={base(Profile)} />
 
-						<Route path={'/login'} component={noAuth(Login)} />
-						<Route path={'/password-recovery'} component={noAuth(PasswordRecovery)} />
-						<Route path={'/password-reset/:token'} component={noAuth(PasswordReset)} />
+						<Route path={'/login'} exact component={noAuth(Login)} />
+						<Route path={'/password-recovery'} exact component={noAuth(PasswordRecovery)} />
+						<Route path={'/password-reset/:token'} exact component={noAuth(PasswordReset)} />
 					</Router>
 				</Provider>
 				<GlobalStyle />

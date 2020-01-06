@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { Container } from './styles';
 
+import { Link } from 'react-router-dom';
 import Title from '../../components/Text/Title';
 import Search from '../../components/Input/Search';
 import Table from '../../components/Input/Table';
 import Pagination from '../../components/Pagination';
 import Card from '../../components/Card';
+
+import { MdAdd } from 'react-icons/md';
+
+import { connect } from 'react-redux';
+import * as actions from '../../actions/genres';
 
 class Genres extends Component {
 	state = {
@@ -17,24 +23,34 @@ class Genres extends Component {
 
 	changeCurrentPageNumber = currentPageNumber => this.setState({ currentPageNumber });
 
+	getGenres() {
+		this.props.getGenres();
+	}
+
+	componentDidMount() {
+		this.getGenres();
+	}
+
+	renderNewGenre() {
+		return (
+			<Link to="/genres/new">
+				<MdAdd size={20} />
+				<span>&nbsp; New Genre</span>
+			</Link>
+		);
+	}
+
 	render() {
-		const data = [
-			{
-				Genre: 'Fantasy',
-				Quantity: 20,
-				Action: '/genre/fantasy',
-			},
-			{
-				Genre: 'Horror',
-				Quantity: 2,
-				Action: '/genre/horror',
-			},
-			{
-				Genre: 'Action',
-				Quantity: 350,
-				Action: '/genre/action',
-			},
-		];
+		const { genres } = this.props;
+		const data = [];
+
+		(genres || []).forEach(item => {
+			data.push({
+				Genre: item.name,
+				Quantity: item.movies.length,
+				Action: `/genre/${item._id}`,
+			});
+		});
 		return (
 			<Card size={'100vh'}>
 				<Container>
@@ -46,6 +62,7 @@ class Genres extends Component {
 						onChange={e => this.onChangeSearch(e)}
 						onClick={() => alert('Search')}
 					/>
+					{this.renderNewGenre()}
 					<br />
 					<Table
 						header={['Genre', 'Quantity', 'Action']}
@@ -65,4 +82,8 @@ class Genres extends Component {
 	}
 }
 
-export default Genres;
+const mapStateToProps = state => ({
+	genres: state.genre.genres,
+});
+
+export default connect(mapStateToProps, actions)(Genres);

@@ -30,8 +30,8 @@ class GenreController {
 	// GET /
 	async index(req, res, next) {
 		try {
-			const genre = await Genre.find().select('_id movies name');
-			res.send({ genre });
+			const genres = await Genre.find().select('_id movies name');
+			res.send({ genres });
 		} catch (e) {
 			next(e);
 		}

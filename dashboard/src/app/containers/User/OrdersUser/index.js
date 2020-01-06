@@ -18,7 +18,6 @@ class OrdersUser extends Component {
 	getOrders() {
 		const { offset, limit } = this.state;
 		const { user } = this.props;
-		console.log(user);
 
 		if (!user) return null;
 		this.props.getUserOrders(user._id, offset, limit);
@@ -32,6 +31,7 @@ class OrdersUser extends Component {
 	}
 
 	changeCurrentNumber = offset => this.setState({ offset }, () => this.getOrders());
+
 	render() {
 		const { userOrders } = this.props;
 		if (!userOrders) return <div></div>;
