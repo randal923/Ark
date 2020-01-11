@@ -52,6 +52,9 @@ const MovieValidation = {
 			releasedate: Joi.string().optional(),
 			duration: Joi.string().optional(),
 			price: Joi.number().optional(),
+			posters: Joi.array()
+				.items(Joi.string())
+				.optional(),
 			salePrice: Joi.number().optional(),
 			description: Joi.string().optional(),
 			subtitles: Joi.array().items(Joi.string()),

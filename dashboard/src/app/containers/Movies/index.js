@@ -8,77 +8,84 @@ import Table from '../../components/Input/Table';
 import Pagination from '../../components/Pagination';
 import Card from '../../components/Card';
 
+import { Link } from 'react-router-dom';
+import * as actions from '../../actions/movies';
+import { connect } from 'react-redux';
+
 class Movies extends Component {
 	state = {
 		search: '',
 		currentPageNumber: 0,
+		offset: 0,
+		limit: 10,
+		order: 'alphabetical_a-z',
 	};
 
-	onChangeSearch = e => this.setState({ search: e.target.value });
+	getMovies(props) {
+		const { offset, limit, search, order } = this.state;
+		if (search) props.getMoviesSearch(search, order, offset, limit);
+		else props.getMovies(order, offset, limit);
+	}
 
-	changeCurrentPageNumber = currentPageNumber => this.setState({ currentPageNumber });
+	componentDidMount() {
+		this.getMovies(this.props);
+	}
 
+	onChangeSearch = e => this.setState({ search: e.target.value }, () => this.handleSearchSubmit());
+
+	changeCurrentPageNumber = currentPageNumber =>
+		this.setState({ currentPageNumber }, () => this.getMovies(this.props));
+
+	handleSearchSubmit() {
+		this.setState({ offset: 0 }, () => {
+			this.getMovies(this.props);
+		});
+	}
+
+	changeOrder = e => this.setState({ order: e.target.value }, () => this.getMovies(this.props));
+
+	renderNewMovie() {
+		return <Link to="/movies/new">New Movie</Link>;
+	}
 	render() {
-		const data = [
-			{
-				Movie: 'Movie 1',
-				Genre: 'Horror',
-				Price: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Action: '/movie/123512341234SAsfsdfsfd',
-			},
-			{
-				Movie: 'Movie 2',
-				Genre: 'Fantasy',
-				Price: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Action: '/movie/12351dfgadsfafwasdvcxcvxcvxcvd',
-			},
-			{
-				Movie: 'Movie 3',
-				Genre: 'Action',
-				Price: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Action: '/movie/123512dsgfgnbvcbnDcbvcvmgmnbn',
-			},
-			{
-				Movie: 'Movie 4',
-				Genre: 'Horror',
-				Price: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Action: '/movie/12asdsdczxcADA123141231231231',
-			},
-			{
-				Movie: 'Movie 4',
-				Genre: 'Horror',
-				Price: 89.9,
-				Date: moment().format('dddd, MMMM Do YYYY'),
-				Action: '/movie/12asdsdczxcADA123141231231231',
-			},
-		];
+		const { search, order } = this.state;
+		const { movies } = this.props;
+
+		const data = [];
+
+		(movies ? movies.docs : []).forEach(item => {
+			data.push({
+				Movie: item.title,
+				Genre: item.genre ? item.genre.name : '',
+				Price: item.price,
+				Date: moment(item.releaseDate).format('dddd, MMMM Do YYYY'),
+				Action: `/movies/${item._id}`,
+			});
+		});
 		return (
 			<Card size={'100vh'}>
 				<Container>
 					<Title type="h2" title="Orders" />
 					<br />
 					<Search
-						value={this.state.search}
+						value={search}
 						placeHolder={"Search by movies's name"}
 						onChange={e => this.onChangeSearch(e)}
-						onClick={() => alert('Search')}
+						onClick={() => this.handleSearchSubmit()}
 					/>
 					<OrderBy>
 						<label>
 							<small>Order By:</small>
 						</label>
-						<select defaultValue="">
+						<select value={order} onChange={this.changeOrder}>
 							<option>Random</option>
-							<option value={'oaA-Z'}>Alphabetical A-Z</option>
-							<option value={'oaZ-A'}>Alphabetical Z-A</option>
-							<option value={'price-low'}>Price High</option>
-							<option value={'price-high'}>Price Low</option>
+							<option value={'alphabetical_a-z'}>Alphabetical A-Z</option>
+							<option value={'alphabetical_z-a'}>Alphabetical Z-A</option>
+							<option value={'lowest-to-highest'}>Price Low-High</option>
+							<option value={'highest-to-lowest'}>Price High-Low</option>
 						</select>
 					</OrderBy>
+					{this.renderNewMovie()}
 					<br />
 					<Table
 						header={['Movie', 'Genre', 'Price', 'Date', 'Action']}
@@ -88,8 +95,8 @@ class Movies extends Component {
 					/>
 					<Pagination
 						offset={this.state.currentPageNumber}
-						total={25}
-						limit={5}
+						total={this.props.movies ? this.props.movies.total : 0}
+						limit={this.state.limit}
 						onClick={currentPageNumber => this.changeCurrentPageNumber(currentPageNumber)}
 					/>
 				</Container>
@@ -98,4 +105,10 @@ class Movies extends Component {
 	}
 }
 
-export default Movies;
+const mapStateToProps = state => {
+	return {
+		movies: state.movie.movies,
+	};
+};
+
+export default connect(mapStateToProps, actions)(Movies);

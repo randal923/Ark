@@ -110,7 +110,18 @@ class MovieController {
 	// PUT /:id
 
 	async update(req, res, next) {
-		const { title, releasedate, availability, duration, country, price, salePrice, description } = req.body;
+		const {
+			title,
+			releasedate,
+			availability,
+			duration,
+			posters,
+			country,
+			price,
+			salePrice,
+			description,
+			genre,
+		} = req.body;
 
 		try {
 			const movie = await Movie.findById(req.params.id);
@@ -120,6 +131,7 @@ class MovieController {
 			if (releasedate) movie.releasedate = releasedate;
 			if (availability !== undefined) movie.availability = availability;
 			if (duration) movie.duration = duration;
+			if (posters) movie.posters = posters;
 			if (country) movie.country = country;
 			if (price) movie.price = price;
 			if (salePrice) movie.sale = sale;
@@ -190,12 +202,15 @@ class MovieController {
 		const offset = Number(req.query.offset) || 0;
 		const limit = Number(req.query.limit) || 30;
 		try {
-			const movies = await Movie.paginate({
-				offset,
-				limit,
-				sort: getSort(req.query.sortType),
-				populate: ['genre'],
-			});
+			const movies = await Movie.paginate(
+				{},
+				{
+					offset,
+					limit,
+					sort: getSort(req.query.sortType),
+					populate: ['genre'],
+				}
+			);
 
 			return res.send({ movies });
 		} catch (e) {
@@ -211,9 +226,7 @@ class MovieController {
 		try {
 			const movies = await Movie.paginate(
 				{
-					title: { $regex: search },
-					description: { $regex: search },
-					sku: { $regex: search },
+					$or: [{ title: { $regex: search } }, { description: { $regex: search } }],
 				},
 				{ offset, limit, sort: getSort(req.query.sortType), populate: ['genre'] }
 			);

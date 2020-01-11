@@ -30,7 +30,6 @@ class PaymentDetails extends Component {
 	render() {
 		const { order } = this.props;
 		const { warning } = this.state;
-		console.log(order);
 		if (!order) return <div></div>;
 		const status = (order.registration || []).reduce(
 			(all, item) => (item.type === 'payment' ? all.concat([item.status]) : all),

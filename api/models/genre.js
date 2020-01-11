@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const GenreSchema = new Schema(
 	{
-		name: { type: String, unique: true },
+		name: { type: String, unique: true, index: true },
 		movies: { type: [{ type: Schema.Types.ObjectId, ref: 'Movie' }] },
 	},
 	{ timestamps: true }

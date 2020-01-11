@@ -26,6 +26,7 @@ import Genres from './containers/Genres';
 import NewGenre from './containers/Genres/NewGenre';
 import Genre from './containers/Genre';
 import Movies from './containers/Movies';
+import NewMovie from './containers/Movies/NewMovie';
 import Movie from './containers/Movie';
 import Reviews from './containers/Reviews';
 import Review from './containers/Review';
@@ -57,6 +58,7 @@ class App extends Component {
 						<Route path={'/genre/:id'} exact component={base(Genre)} />
 
 						<Route path={'/movies'} exact component={base(Movies)} />
+						<Route path={'/movies/new'} exact component={base(NewMovie)} />
 						<Route path={'/movie/:id'} exact component={base(Movie)} />
 
 						<Route path={'/reviews/:id'} exact component={base(Reviews)} />
