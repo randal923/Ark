@@ -8,7 +8,11 @@ const ReviewValidation = {
 			movie: Joi.string()
 				.alphanum()
 				.length(24)
-				.required(),
+				.optional(),
+			user: Joi.string()
+				.alphanum()
+				.length(24)
+				.optional(),
 		},
 	},
 	show: {

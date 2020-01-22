@@ -90,10 +90,13 @@ class Movie extends Component {
 									label: item.name,
 								}))}
 								onChange={this.addGenreToState}
-								defaultValue={(genre ? genre : []).map(item => ({
-									value: item._id,
-									label: item.name,
-								}))}
+								defaultValue={
+									genre &&
+									genre.map(item => ({
+										value: item._id,
+										label: item.name,
+									}))
+								}
 								isMulti
 							/>
 						</DropDown>

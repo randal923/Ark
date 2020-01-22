@@ -49,3 +49,17 @@ export const getUser = () => {
 			.catch(error => console.log(error));
 	};
 };
+
+export const updateUser = (data, cb) => {
+	console.log(data);
+	return function(dispatch) {
+		axios
+			.put(`${api}/${version}/api/users`, data, getHeaders())
+			.then(response => {
+				setCookie('user', response.data.user.token);
+				dispatch({ type: USER_LOGIN, payload: response.data });
+				cb(null);
+			})
+			.catch(error => cb(console.log(error)));
+	};
+};

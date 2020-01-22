@@ -35,7 +35,7 @@ const UserValidation = {
 			email: Joi.string()
 				.email()
 				.optional(),
-			password: Joi.string().required(),
+			password: Joi.string().optional(),
 		},
 	},
 	login: {

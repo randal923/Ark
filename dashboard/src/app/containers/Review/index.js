@@ -1,33 +1,81 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Container, Header } from './styles';
 
 import Card from '../../components/Card';
 import Title from '../../components/Text/Title';
 import Button from '../../components/Button';
+import General from '../../components/Alerts/General';
+import Back from '../../components/Links/Back';
+
+import { connect } from 'react-redux';
+import * as actions from '../../actions/reviews';
 
 class Review extends Component {
+	state = {
+		warning: null,
+	};
+
+	getReview(props) {
+		const { user, movie } = props;
+		if (!user || !movie) return;
+
+		const { id: review } = props.match.params;
+
+		this.props.getReview(review, movie._id);
+	}
+
+	componentDidMount() {
+		this.getReview(this.props);
+	}
+
+	componentDidUpdate(prevProps) {
+		if ((!prevProps.movie || !this.props.user) && this.props.movie) this.getReview(this.props);
+	}
+
+	componentWillUnmount() {
+		this.props.cleanReview();
+	}
+
+	removeReview() {
+		const { user, movie, review } = this.props;
+		if (!user || !movie || !review) return null;
+
+		if (window.confirm('Would you really like to remove this review?')) {
+			this.props.removeReview(review._id, movie._id, error => {
+				if (error) return this.setState({ warning: { status: false, msg: error.message } });
+				else this.props.history.goBack();
+			});
+		}
+	}
 	render() {
+		const { review, movie, user } = this.props;
+
 		return (
 			<Card>
-				<Link to="/reviews/:id">Back</Link>
+				<Back history={this.props.history} />
+				<General wanring={this.state.warning} />
 				<Header>
-					<Title type="h1" title="Review - Movie 1" />
-					<Title type="h2" title="User - User 1" />
-					<Button type="danger" onClick={() => alert('Deleted')} label={'Remove'} />
+					<Title
+						type="h1"
+						title={`Review - ${movie ? movie.title : 'No Movie Title'} - Stars: 
+							${review ? review.stars : 'No Stars'}`}
+					/>
+					<Title type="h2" title={`User - ${user ? user.name : 'No User Name'}`} />
+					<Button type="danger" onClick={() => this.removeReview()} label={'Remove'} />
 				</Header>
-				<Container>
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-					industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-					and scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-					leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
-					with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-					publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-				</Container>
+				<Container>{review ? review.text : 'No Review Text'}</Container>
 			</Card>
 		);
 	}
 }
 
-export default Review;
+const mapStateToProps = state => {
+	return {
+		user: state.auth.user,
+		review: state.review.review,
+		movie: state.movie.movie,
+	};
+};
+
+export default connect(mapStateToProps, actions)(Review);

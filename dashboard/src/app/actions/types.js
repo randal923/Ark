@@ -22,3 +22,7 @@ export const GET_MOVIE_GENRES = 'GET_MOVIE_GENRES';
 export const CREATE_MOVIE = 'CREATE_MOVIE';
 export const CLEAN_MOVIE = 'CLEAN_MOVIE';
 export const GET_MOVIE = 'GET_MOVIE';
+export const GET_REVIEW = 'GET_REVIEW';
+export const GET_REVIEWS = 'GET_REVIEWS';
+export const CLEAN_REVIEW = 'CLEAN_REVIEW';
+export const REMOVE_REVIEW = 'REMOVE_REVIEW';
