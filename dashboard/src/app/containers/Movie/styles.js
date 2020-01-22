@@ -25,6 +25,20 @@ const Header = styled.div`
 	}
 `;
 
+const DropDown = styled.div`
+	margin: 1rem;
+	div {
+		background: #22252a;
+		border-radius: 3px;
+		border: 1px solid transparent;
+		color: var(--medium-text-color);
+	}
+	:hover,
+	:focus {
+		color: var(--blue);
+	}
+`;
+
 const Images = styled.div``;
 
-export { Container, Header, Images };
+export { Container, Header, Images, DropDown };

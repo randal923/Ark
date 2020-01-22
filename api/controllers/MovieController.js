@@ -136,6 +136,7 @@ class MovieController {
 			if (price) movie.price = price;
 			if (salePrice) movie.sale = sale;
 			if (description) movie.description = description;
+			if (genre) movie.genre = genre;
 
 			await movie.save();
 
@@ -240,7 +241,8 @@ class MovieController {
 	// GET /:id
 	async show(req, res, next) {
 		try {
-			const movie = await Movie.findById(req.params.id);
+			const movie = await Movie.findById(req.params.id).populate('genre');
+
 			return res.send({ movie });
 		} catch (e) {
 			next(e);

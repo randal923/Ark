@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+import { api } from '../../../config';
 import { Container, Images } from './styles';
+import Button from '../../Button';
 
 class ImageBlock extends Component {
 	render() {
@@ -10,8 +11,8 @@ class ImageBlock extends Component {
 				<input type="file" onChange={handleSubmit} />
 				{images.map((src, index) => {
 					return (
-						<Images images={src} key={index}>
-							<span onClick={() => onRemove(index)}>{'-'}</span>
+						<Images style={{ backgroundImage: `url("${api}/public/images/${src}")` }} key={index}>
+							<Button type="danger" label=" - " onClick={() => onRemove(index)} />
 						</Images>
 					);
 				})}

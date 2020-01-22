@@ -1,4 +1,12 @@
-import { GET_MOVIES, GET_DIRECTORS, GET_ACTORS, GET_WRITERS, GET_MOVIE_GENRES } from '../actions/types';
+import {
+	GET_MOVIES,
+	GET_DIRECTORS,
+	GET_ACTORS,
+	GET_WRITERS,
+	GET_MOVIE_GENRES,
+	GET_MOVIE,
+	CLEAN_MOVIE,
+} from '../actions/types';
 
 export default (state = {}, action) => {
 	switch (action.type) {
@@ -26,6 +34,17 @@ export default (state = {}, action) => {
 			return {
 				...state,
 				movieGenres: action.payload.genres,
+			};
+
+		case GET_MOVIE:
+			return {
+				...state,
+				movie: action.payload.movie,
+			};
+		case CLEAN_MOVIE:
+			return {
+				...state,
+				movie: null,
 			};
 
 		default:

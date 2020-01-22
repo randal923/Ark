@@ -20,3 +20,5 @@ export const GET_ACTORS = 'GET_ACTORS';
 export const GET_WRITERS = 'GET_WRITERS';
 export const GET_MOVIE_GENRES = 'GET_MOVIE_GENRES';
 export const CREATE_MOVIE = 'CREATE_MOVIE';
+export const CLEAN_MOVIE = 'CLEAN_MOVIE';
+export const GET_MOVIE = 'GET_MOVIE';

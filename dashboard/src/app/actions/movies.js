@@ -1,7 +1,16 @@
 import axios from 'axios';
 import { api, version } from '../config';
 import { getHeaders } from '../utilities/cookie';
-import { GET_MOVIES, GET_DIRECTORS, GET_ACTORS, GET_WRITERS, GET_MOVIE_GENRES, CREATE_MOVIE } from './types';
+import {
+	GET_MOVIES,
+	GET_DIRECTORS,
+	GET_ACTORS,
+	GET_WRITERS,
+	GET_MOVIE_GENRES,
+	CREATE_MOVIE,
+	GET_MOVIE,
+	CLEAN_MOVIE,
+} from './types';
 
 export const getMovies = (order, offset, limit) => {
 	return function(dispatch) {
@@ -103,6 +112,68 @@ export const getMovieGenres = () => {
 			.get(`${api}/${version}/api/genres`, getHeaders())
 			.then(response => {
 				dispatch({ type: GET_MOVIE_GENRES, payload: response.data });
+			})
+			.catch(error => console.log(error));
+	};
+};
+
+export const getMovie = id => {
+	return function(dispatch) {
+		axios
+			.get(`${api}/${version}/api/movies/${id}`, getHeaders())
+			.then(response => {
+				dispatch({ type: GET_MOVIE, payload: response.data });
+			})
+			.catch(error => console.log(error));
+	};
+};
+
+export const cleanMovie = () => ({ type: CLEAN_MOVIE });
+
+export const updateMovie = (movie, id, cb) => {
+	return function(dispatch) {
+		axios
+			.put(
+				`${api}/${version}/api/movies/${id}`,
+				{
+					title: movie.title,
+					releasedate: movie.releasedate,
+					duration: movie.duration,
+					country: movie.country,
+					price: movie.price,
+					description: movie.description,
+					subtitles: movie.subtitles,
+					genre: movie.genre.map(item => (item.value ? item.value : item._id)),
+				},
+				getHeaders()
+			)
+			.then(response => {
+				dispatch({ type: GET_MOVIE, payload: response.data });
+				cb(null);
+			})
+			.catch(error => console.log(error));
+	};
+};
+
+export const removeMovieImages = (posters, id, cb) => {
+	return function(dispatch) {
+		axios
+			.put(`${api}/${version}/api/movies/${id}`, { posters }, getHeaders())
+			.then(response => {
+				dispatch({ type: GET_MOVIE, payload: response.data });
+				cb(null);
+			})
+			.catch(error => console.log(error));
+	};
+};
+
+export const updateMovieImages = (data, id, cb) => {
+	return function(dispatch) {
+		axios
+			.put(`${api}/${version}/api/movies/images/${id}`, data, getHeaders())
+			.then(response => {
+				dispatch({ type: GET_MOVIE, payload: response.data });
+				cb(null);
 			})
 			.catch(error => console.log(error));
 	};

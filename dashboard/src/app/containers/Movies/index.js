@@ -59,7 +59,7 @@ class Movies extends Component {
 				Genre: item.genre ? item.genre.name : '',
 				Price: item.price,
 				Date: moment(item.releaseDate).format('dddd, MMMM Do YYYY'),
-				Action: `/movies/${item._id}`,
+				Action: `/movie/${item._id}`,
 			});
 		});
 		return (
