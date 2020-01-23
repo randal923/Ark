@@ -8,9 +8,9 @@ import Input from '../../../components/Input/Input';
 import General from '../../../components/Alerts/General';
 
 import { connect } from 'react-redux';
-import * as actions from '../../../actions/genres';
+import * as actions from '../../../actions/actors';
 
-class newGenre extends Component {
+class newActor extends Component {
 	state = {
 		name: '',
 		errors: {},
@@ -25,14 +25,14 @@ class newGenre extends Component {
 		this.setState({ errors });
 		return !(Object.keys(errors).length > 0);
 	}
-	createGenre() {
+	createActor() {
 		if (!this.validate()) return null;
 
-		this.props.createGenre(this.state, error => {
+		this.props.createActor(this.state, error => {
 			this.setState({
 				warning: {
 					status: !error,
-					msg: error ? error.message : 'New category created successfully',
+					msg: error ? error.message : 'New actor created successfully',
 				},
 			});
 		});
@@ -43,7 +43,7 @@ class newGenre extends Component {
 		return (
 			<Header>
 				<Title type="h1" title={name || 'New Genre'} />
-				<Button label="Save" type="success" onClick={() => this.createGenre()} />
+				<Button label="Save" type="success" onClick={() => this.createActor()} />
 			</Header>
 		);
 	}
@@ -78,4 +78,4 @@ class newGenre extends Component {
 	}
 }
 
-export default connect(null, actions)(newGenre);
+export default connect(null, actions)(newActor);

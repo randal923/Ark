@@ -5,7 +5,8 @@ import orderReducer from './order_reducer';
 import userReducer from './user_reducer';
 import genreReducer from './genre_reducers';
 import movieReducer from './movie_reducer';
-import reviewREducer from './review_reducer';
+import reviewReducer from './review_reducer';
+import actorReducer from './actor_reducer';
 
 const reducers = combineReducers({
 	auth: authReducer,
@@ -13,7 +14,8 @@ const reducers = combineReducers({
 	user: userReducer,
 	genre: genreReducer,
 	movie: movieReducer,
-	review: reviewREducer,
+	review: reviewReducer,
+	actors: actorReducer,
 });
 
 export default reducers;

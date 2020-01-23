@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Active } from './styles';
 
-import { MdContentCopy, MdGroup, MdPerson, MdMovie, MdSettings, MdStyle } from 'react-icons/md';
+import { GiDirectorChair } from 'react-icons/gi';
+import { FaTheaterMasks } from 'react-icons/fa';
+import { MdContentCopy, MdGroup, MdPerson, MdSettings, MdStyle, MdCreate, MdMovie } from 'react-icons/md';
 
 const items = [
 	{
@@ -16,14 +18,29 @@ const items = [
 		title: 'Users',
 	},
 	{
+		route: '/movies',
+		icon: <MdMovie />,
+		title: 'Movies',
+	},
+	{
 		route: '/genres',
 		icon: <MdStyle />,
 		title: 'Genres',
 	},
 	{
-		route: '/movies',
-		icon: <MdMovie />,
-		title: 'Movies',
+		route: '/directors',
+		icon: <GiDirectorChair />,
+		title: 'Directors',
+	},
+	{
+		route: '/writers',
+		icon: <MdCreate />,
+		title: 'Writers',
+	},
+	{
+		route: '/actors',
+		icon: <FaTheaterMasks />,
+		title: 'Actors',
 	},
 	{
 		route: '/settings',

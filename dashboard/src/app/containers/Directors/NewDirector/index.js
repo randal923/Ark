@@ -10,7 +10,7 @@ import General from '../../../components/Alerts/General';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions/genres';
 
-class newGenre extends Component {
+class newDirector extends Component {
 	state = {
 		name: '',
 		errors: {},
@@ -78,4 +78,8 @@ class newGenre extends Component {
 	}
 }
 
-export default connect(null, actions)(newGenre);
+const mapStateToProps = state => ({
+	user: state.auth.user,
+});
+
+export default connect(mapStateToProps, actions)(newDirector);

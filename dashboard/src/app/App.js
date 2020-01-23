@@ -25,6 +25,15 @@ import User from './containers/User';
 import Genres from './containers/Genres';
 import NewGenre from './containers/Genres/NewGenre';
 import Genre from './containers/Genre';
+import Directors from './containers/Directors';
+import NewDirector from './containers/Directors/NewDirector';
+import Director from './containers/Director';
+import Writers from './containers/Writers';
+import NewWriter from './containers/Writers/NewWriter';
+import Writer from './containers/Writer';
+import Actors from './containers/Actors';
+import NewActor from './containers/Actors/NewActor';
+import Actor from './containers/Actor';
 import Movies from './containers/Movies';
 import NewMovie from './containers/Movies/NewMovie';
 import Movie from './containers/Movie';
@@ -56,6 +65,18 @@ class App extends Component {
 						<Route path={'/genres'} exact component={base(Genres)} />
 						<Route path={'/genres/new'} exact component={base(NewGenre)} />
 						<Route path={'/genre/:id'} exact component={base(Genre)} />
+
+						<Route path={'/directors'} exact component={base(Directors)} />
+						<Route path={'/directors/new'} exact component={base(NewDirector)} />
+						<Route path={'/director/:id'} exact component={base(Director)} />
+
+						<Route path={'/writers'} exact component={base(Writers)} />
+						<Route path={'/writers/new'} exact component={base(NewWriter)} />
+						<Route path={'/writer/:id'} exact component={base(Writer)} />
+
+						<Route path={'/actors'} exact component={base(Actors)} />
+						<Route path={'/actors/new'} exact component={base(NewActor)} />
+						<Route path={'/actor/:id'} exact component={base(Actor)} />
 
 						<Route path={'/movies'} exact component={base(Movies)} />
 						<Route path={'/movies/new'} exact component={base(NewMovie)} />
