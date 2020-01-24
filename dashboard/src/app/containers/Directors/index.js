@@ -11,7 +11,8 @@ import Card from '../../components/Card';
 import { MdAdd } from 'react-icons/md';
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions/genres';
+import * as directorsActions from '../../actions/directors';
+import * as moviesActions from '../../actions/movies';
 
 class Directors extends Component {
 	state = {
@@ -23,53 +24,47 @@ class Directors extends Component {
 
 	changeCurrentPageNumber = currentPageNumber => this.setState({ currentPageNumber });
 
-	getGenres() {
-		this.props.getGenres();
+	getDirectors() {
+		this.props.getDirectors();
 	}
 
 	componentDidMount() {
-		this.getGenres();
+		this.getDirectors();
 	}
 
-	renderNewGenre() {
+	renderNewDirector() {
 		return (
-			<Link to="/genres/new">
+			<Link to="/directors/new">
 				<MdAdd size={20} />
-				<span>&nbsp; New Genre</span>
+				<span>&nbsp; New Director</span>
 			</Link>
 		);
 	}
 
 	render() {
-		const { genres } = this.props;
+		const { directors } = this.props;
 		const data = [];
 
-		(genres || []).forEach(item => {
+		(directors || []).forEach(item => {
 			data.push({
-				Genre: item.name,
-				Quantity: item.movies.length,
-				Action: `/genre/${item._id}`,
+				Directors: item.name,
+				Action: `/director/${item._id}`,
 			});
 		});
 		return (
 			<Card size={'100vh'}>
 				<Container>
-					<Title type="h2" title="Genres" />
+					<Title type="h2" title="Directors" />
 					<br />
 					<Search
 						value={this.state.search}
-						placeHolder={"Search by genres's name"}
+						placeHolder={"Search by directors's name"}
 						onChange={e => this.onChangeSearch(e)}
 						onClick={() => alert('Search')}
 					/>
-					{this.renderNewGenre()}
+					{this.renderNewDirector()}
 					<br />
-					<Table
-						header={['Genre', 'Quantity', 'Action']}
-						data={data}
-						buttonType={'ark'}
-						buttonLabel={'View'}
-					/>
+					<Table header={['Directors', 'Action']} data={data} buttonType={'ark'} buttonLabel={'View'} />
 					<Pagination
 						offset={this.state.currentPageNumber}
 						total={25}
@@ -83,7 +78,7 @@ class Directors extends Component {
 }
 
 const mapStateToProps = state => ({
-	genres: state.genre.genres,
+	directors: state.movie.directors,
 });
 
-export default connect(mapStateToProps, actions)(Directors);
+export default connect(mapStateToProps, { ...directorsActions, ...moviesActions })(Directors);

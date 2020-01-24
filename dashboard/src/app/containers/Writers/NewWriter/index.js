@@ -8,7 +8,7 @@ import Input from '../../../components/Input/Input';
 import General from '../../../components/Alerts/General';
 
 import { connect } from 'react-redux';
-import * as actions from '../../../actions/genres';
+import * as actions from '../../../actions/writers';
 
 class newWriter extends Component {
 	state = {
@@ -25,14 +25,14 @@ class newWriter extends Component {
 		this.setState({ errors });
 		return !(Object.keys(errors).length > 0);
 	}
-	createGenre() {
+	createWriter() {
 		if (!this.validate()) return null;
 
-		this.props.createGenre(this.state, error => {
+		this.props.createWriter(this.state, error => {
 			this.setState({
 				warning: {
 					status: !error,
-					msg: error ? error.message : 'New category created successfully',
+					msg: error ? error.message : 'New writer created successfully',
 				},
 			});
 		});
@@ -42,8 +42,8 @@ class newWriter extends Component {
 
 		return (
 			<Header>
-				<Title type="h1" title={name || 'New Genre'} />
-				<Button label="Save" type="success" onClick={() => this.createGenre()} />
+				<Title type="h1" title={name || ''} />
+				<Button label="Save" type="success" onClick={() => this.createWriter()} />
 			</Header>
 		);
 	}
@@ -78,8 +78,4 @@ class newWriter extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	user: state.auth.user,
-});
-
-export default connect(mapStateToProps, actions)(newWriter);
+export default connect(null, actions)(newWriter);

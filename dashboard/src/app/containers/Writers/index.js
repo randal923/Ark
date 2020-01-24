@@ -11,7 +11,8 @@ import Card from '../../components/Card';
 import { MdAdd } from 'react-icons/md';
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions/genres';
+import * as writersActions from '../../actions/writers';
+import * as moviesActions from '../../actions/movies';
 
 class Writers extends Component {
 	state = {
@@ -23,53 +24,47 @@ class Writers extends Component {
 
 	changeCurrentPageNumber = currentPageNumber => this.setState({ currentPageNumber });
 
-	getGenres() {
-		this.props.getGenres();
+	getWriters() {
+		this.props.getWriters();
 	}
 
 	componentDidMount() {
-		this.getGenres();
+		this.getWriters();
 	}
 
-	renderNewGenre() {
+	renderNewWriter() {
 		return (
-			<Link to="/genres/new">
+			<Link to="/writers/new">
 				<MdAdd size={20} />
-				<span>&nbsp; New Genre</span>
+				<span>&nbsp; New Writer</span>
 			</Link>
 		);
 	}
 
 	render() {
-		const { genres } = this.props;
+		const { writers } = this.props;
 		const data = [];
 
-		(genres || []).forEach(item => {
+		(writers || []).forEach(item => {
 			data.push({
-				Genre: item.name,
-				Quantity: item.movies.length,
-				Action: `/genre/${item._id}`,
+				Writers: item.name,
+				Action: `/writer/${item._id}`,
 			});
 		});
 		return (
 			<Card size={'100vh'}>
 				<Container>
-					<Title type="h2" title="Genres" />
+					<Title type="h2" title="Writers" />
 					<br />
 					<Search
 						value={this.state.search}
-						placeHolder={"Search by genres's name"}
+						placeHolder={"Search by writer's name"}
 						onChange={e => this.onChangeSearch(e)}
 						onClick={() => alert('Search')}
 					/>
-					{this.renderNewGenre()}
+					{this.renderNewWriter()}
 					<br />
-					<Table
-						header={['Genre', 'Quantity', 'Action']}
-						data={data}
-						buttonType={'ark'}
-						buttonLabel={'View'}
-					/>
+					<Table header={['Writers', 'Action']} data={data} buttonType={'ark'} buttonLabel={'View'} />
 					<Pagination
 						offset={this.state.currentPageNumber}
 						total={25}
@@ -83,7 +78,7 @@ class Writers extends Component {
 }
 
 const mapStateToProps = state => ({
-	genres: state.genre.genres,
+	writers: state.movie.writers,
 });
 
-export default connect(mapStateToProps, actions)(Writers);
+export default connect(mapStateToProps, { ...writersActions, ...moviesActions })(Writers);

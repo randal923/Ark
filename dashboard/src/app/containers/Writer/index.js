@@ -14,19 +14,19 @@ import Table from '../../components/Input/Table';
 import General from '../../components/Alerts/General';
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions/genres';
+import * as actions from '../../actions/writers';
 
 class Writer extends Component {
-	generateGenreState = props => {
+	generateWriterState = props => {
 		return {
-			name: props.genre ? props.genre.name : '',
+			name: props.writer ? props.writer.name : '',
 		};
 	};
 
 	constructor(props) {
 		super();
 		this.state = {
-			...this.generateGenreState(props),
+			...this.generateWriterState(props),
 			errors: {},
 			warning: null,
 			offset: 0,
@@ -34,57 +34,49 @@ class Writer extends Component {
 		};
 	}
 
-	getMoviesGenre(props) {
-		const { offset, limit } = this.state;
-		const { genre } = props;
-		if (!genre) return null;
-
-		props.getMoviesGenre(genre._id, offset, limit);
-	}
-
 	componentDidMount() {
 		const { id } = this.props.match.params;
 		if (!id) return null;
-		this.props.getGenre(id);
-		this.getMoviesGenre(this.props);
+		this.props.getWriter(id);
 	}
 
 	componentDidUpdate(prevProps) {
-		if (!prevProps.genre && this.props.genre) this.getMoviesGenre(this.props);
 		if (
-			(!prevProps.genre && this.props.genre) ||
-			(prevProps.genre && this.props.genre && prevProps.genre.updatedAt !== this.props.genre.updatedAt)
+			(!prevProps.writer && this.props.writer) ||
+			(prevProps.writer && this.props.writer && prevProps.writer.updatedAt !== this.props.writer.updatedAt)
 		) {
-			this.setState(this.generateGenreState(this.props));
+			this.setState(this.generateWriterState(this.props));
 		}
 	}
 
 	componentWillUnmount() {
-		this.props.cleanGenre();
+		this.props.cleanWriter();
 	}
 
 	handleSubmit = (field, value) => {
 		this.setState({ [field]: value });
 	};
 
-	saveGenre() {
-		const { genre } = this.props;
-		if (!genre) return null;
+	saveWriter() {
+		const { writer } = this.props;
+		if (!writer) return null;
 		if (!this.validate()) return null;
-		this.props.updateGenre(this.state, genre._id, error => {
-			this.setState({ warning: { status: !error, msg: error ? error.message : 'Genre updated successfully' } });
+		this.props.updateWriter(this.state, writer._id, error => {
+			this.setState({
+				warning: { status: !error, msg: error ? error.message : 'Writer updated successfully' },
+			});
 		});
 	}
 
-	removeGenre() {
-		const { genre } = this.props;
-		if (!genre) return null;
+	removeWriter() {
+		const { writer } = this.props;
+		if (!writer) return null;
 
-		if (!window.confirm('Do you really want to remove this genre?')) return;
+		if (!window.confirm('Do you really want to remove this writer?')) return;
 
-		this.props.removeGenre(genre._id, error => {
+		this.props.removeWriter(writer._id, error => {
 			this.setState({
-				warning: { status: !error, msg: error ? error.message : 'Genre removed successfully' },
+				warning: { status: !error, msg: error ? error.message : 'writer removed successfully' },
 			});
 		});
 	}
@@ -105,24 +97,24 @@ class Writer extends Component {
 	}
 	render() {
 		const { name, errors } = this.state;
-		const { genreMovies } = this.props;
+		const { writer } = this.props;
 		const data = [];
 
-		(genreMovies ? genreMovies.docs : []).forEach(item => {
+		(writer ? writer.movies : []).forEach(item => {
 			data.push({
 				Movie: item.title,
 				Price: item.price,
 				Date: moment(item.createdAt).format('MM/DD/YYYY'),
-				Action: `/movies/${item._id}`,
+				Action: `/movie/${item._id}`,
 			});
 		});
 
 		return (
 			<Card>
 				<Header>
-					<Title type="h1" title={this.state.name} />
-					<Button type="success" onClick={() => this.saveGenre()} label={'Save'} />
-					<Button type="danger" onClick={() => this.removeGenre()} label={'Remove'} />
+					<Title type="h1" title={name} />
+					<Button type="success" onClick={() => this.saveWriter()} label={'Save'} />
+					<Button type="danger" onClick={() => this.removeWriter()} label={'Remove'} />
 				</Header>
 				<General warning={this.state.warning} />
 				<Container>
@@ -165,8 +157,7 @@ class Writer extends Component {
 }
 
 const mapStateToProps = state => ({
-	genre: state.genre.genre,
-	genreMovies: state.genre.genreMovies,
+	writer: state.writers.writer,
 });
 
 export default connect(mapStateToProps, actions)(Writer);

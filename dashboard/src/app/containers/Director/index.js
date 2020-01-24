@@ -14,19 +14,19 @@ import Table from '../../components/Input/Table';
 import General from '../../components/Alerts/General';
 
 import { connect } from 'react-redux';
-import * as actions from '../../actions/genres';
+import * as actions from '../../actions/directors';
 
 class Director extends Component {
-	generateGenreState = props => {
+	generateDirectorState = props => {
 		return {
-			name: props.genre ? props.genre.name : '',
+			name: props.director ? props.director.name : '',
 		};
 	};
 
 	constructor(props) {
 		super();
 		this.state = {
-			...this.generateGenreState(props),
+			...this.generateDirectorState(props),
 			errors: {},
 			warning: null,
 			offset: 0,
@@ -34,57 +34,51 @@ class Director extends Component {
 		};
 	}
 
-	getMoviesGenre(props) {
-		const { offset, limit } = this.state;
-		const { genre } = props;
-		if (!genre) return null;
-
-		props.getMoviesGenre(genre._id, offset, limit);
-	}
-
 	componentDidMount() {
 		const { id } = this.props.match.params;
 		if (!id) return null;
-		this.props.getGenre(id);
-		this.getMoviesGenre(this.props);
+		this.props.getDirector(id);
 	}
 
 	componentDidUpdate(prevProps) {
-		if (!prevProps.genre && this.props.genre) this.getMoviesGenre(this.props);
 		if (
-			(!prevProps.genre && this.props.genre) ||
-			(prevProps.genre && this.props.genre && prevProps.genre.updatedAt !== this.props.genre.updatedAt)
+			(!prevProps.director && this.props.director) ||
+			(prevProps.director &&
+				this.props.director &&
+				prevProps.director.updatedAt !== this.props.director.updatedAt)
 		) {
-			this.setState(this.generateGenreState(this.props));
+			this.setState(this.generateDirectorState(this.props));
 		}
 	}
 
 	componentWillUnmount() {
-		this.props.cleanGenre();
+		this.props.cleanDirector();
 	}
 
 	handleSubmit = (field, value) => {
 		this.setState({ [field]: value });
 	};
 
-	saveGenre() {
-		const { genre } = this.props;
-		if (!genre) return null;
+	saveDirector() {
+		const { director } = this.props;
+		if (!director) return null;
 		if (!this.validate()) return null;
-		this.props.updateGenre(this.state, genre._id, error => {
-			this.setState({ warning: { status: !error, msg: error ? error.message : 'Genre updated successfully' } });
+		this.props.updateDirector(this.state, director._id, error => {
+			this.setState({
+				warning: { status: !error, msg: error ? error.message : 'Director updated successfully' },
+			});
 		});
 	}
 
-	removeGenre() {
-		const { genre } = this.props;
-		if (!genre) return null;
+	removeDirector() {
+		const { director } = this.props;
+		if (!director) return null;
 
-		if (!window.confirm('Do you really want to remove this genre?')) return;
+		if (!window.confirm('Do you really want to remove this director?')) return;
 
-		this.props.removeGenre(genre._id, error => {
+		this.props.removeDirector(director._id, error => {
 			this.setState({
-				warning: { status: !error, msg: error ? error.message : 'Genre removed successfully' },
+				warning: { status: !error, msg: error ? error.message : 'director removed successfully' },
 			});
 		});
 	}
@@ -105,24 +99,24 @@ class Director extends Component {
 	}
 	render() {
 		const { name, errors } = this.state;
-		const { genreMovies } = this.props;
+		const { director } = this.props;
 		const data = [];
 
-		(genreMovies ? genreMovies.docs : []).forEach(item => {
+		(director ? director.movies : []).forEach(item => {
 			data.push({
 				Movie: item.title,
 				Price: item.price,
 				Date: moment(item.createdAt).format('MM/DD/YYYY'),
-				Action: `/movies/${item._id}`,
+				Action: `/movie/${item._id}`,
 			});
 		});
 
 		return (
 			<Card>
 				<Header>
-					<Title type="h1" title={this.state.name} />
-					<Button type="success" onClick={() => this.saveGenre()} label={'Save'} />
-					<Button type="danger" onClick={() => this.removeGenre()} label={'Remove'} />
+					<Title type="h1" title={name} />
+					<Button type="success" onClick={() => this.saveDirector()} label={'Save'} />
+					<Button type="danger" onClick={() => this.removeDirector()} label={'Remove'} />
 				</Header>
 				<General warning={this.state.warning} />
 				<Container>
@@ -165,8 +159,7 @@ class Director extends Component {
 }
 
 const mapStateToProps = state => ({
-	genre: state.genre.genre,
-	genreMovies: state.genre.genreMovies,
+	director: state.directors.director,
 });
 
 export default connect(mapStateToProps, actions)(Director);

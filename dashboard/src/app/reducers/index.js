@@ -7,6 +7,8 @@ import genreReducer from './genre_reducers';
 import movieReducer from './movie_reducer';
 import reviewReducer from './review_reducer';
 import actorReducer from './actor_reducer';
+import directorReducer from './director_reducer';
+import writerReducer from './writer_reducer';
 
 const reducers = combineReducers({
 	auth: authReducer,
@@ -16,6 +18,8 @@ const reducers = combineReducers({
 	movie: movieReducer,
 	review: reviewReducer,
 	actors: actorReducer,
+	directors: directorReducer,
+	writers: writerReducer,
 });
 
 export default reducers;

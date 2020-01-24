@@ -35,3 +35,11 @@ export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 export const GET_ACTOR = 'GET_ACTOR';
 export const CLEAN_ACTOR = 'CLEAN_ACTOR';
 export const REMOVE_ACTOR = 'REMOVE_ACTOR';
+
+export const GET_DIRECTOR = 'GET_DIRECTOR';
+export const CLEAN_DIRECTOR = 'CLEAN_DIRECTOR';
+export const REMOVE_DIRECTOR = 'REMOVE_DIRECTOR';
+
+export const GET_WRITER = 'GET_WRITER';
+export const CLEAN_WRITER = 'CLEAN_WRITER';
+export const REMOVE_WRITER = 'REMOVE_WRITER';

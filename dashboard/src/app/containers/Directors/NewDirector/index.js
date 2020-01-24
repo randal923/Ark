@@ -8,7 +8,7 @@ import Input from '../../../components/Input/Input';
 import General from '../../../components/Alerts/General';
 
 import { connect } from 'react-redux';
-import * as actions from '../../../actions/genres';
+import * as actions from '../../../actions/directors';
 
 class newDirector extends Component {
 	state = {
@@ -25,14 +25,14 @@ class newDirector extends Component {
 		this.setState({ errors });
 		return !(Object.keys(errors).length > 0);
 	}
-	createGenre() {
+	createDirector() {
 		if (!this.validate()) return null;
 
-		this.props.createGenre(this.state, error => {
+		this.props.createDirector(this.state, error => {
 			this.setState({
 				warning: {
 					status: !error,
-					msg: error ? error.message : 'New category created successfully',
+					msg: error ? error.message : 'New director created successfully',
 				},
 			});
 		});
@@ -42,8 +42,8 @@ class newDirector extends Component {
 
 		return (
 			<Header>
-				<Title type="h1" title={name || 'New Genre'} />
-				<Button label="Save" type="success" onClick={() => this.createGenre()} />
+				<Title type="h1" title={name || 'New Director'} />
+				<Button label="Save" type="success" onClick={() => this.createDirector()} />
 			</Header>
 		);
 	}
@@ -78,8 +78,4 @@ class newDirector extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	user: state.auth.user,
-});
-
-export default connect(mapStateToProps, actions)(newDirector);
+export default connect(null, actions)(newDirector);
