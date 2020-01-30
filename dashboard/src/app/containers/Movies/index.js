@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, OrderBy } from './styles';
+import { Container, OrderBy, Order } from './styles';
 
 import moment from 'moment';
 import Title from '../../components/Text/Title';
@@ -44,9 +44,6 @@ class Movies extends Component {
 
 	changeOrder = e => this.setState({ order: e.target.value }, () => this.getMovies(this.props));
 
-	renderNewMovie() {
-		return <Link to="/movies/new">New Movie</Link>;
-	}
 	render() {
 		const { search, order } = this.state;
 		const { movies } = this.props;
@@ -73,19 +70,18 @@ class Movies extends Component {
 						onChange={e => this.onChangeSearch(e)}
 						onClick={() => this.handleSearchSubmit()}
 					/>
-					<OrderBy>
-						<label>
-							<small>Order By:</small>
-						</label>
-						<select value={order} onChange={this.changeOrder}>
-							<option>Random</option>
-							<option value={'alphabetical_a-z'}>Alphabetical A-Z</option>
-							<option value={'alphabetical_z-a'}>Alphabetical Z-A</option>
-							<option value={'lowest-to-highest'}>Price Low-High</option>
-							<option value={'highest-to-lowest'}>Price High-Low</option>
-						</select>
-					</OrderBy>
-					{this.renderNewMovie()}
+					<Order>
+						<Link to="/movies/new">New Movie</Link>
+						<OrderBy>
+							<select value={order} onChange={this.changeOrder}>
+								<option>Random</option>
+								<option value={'alphabetical_a-z'}>Alphabetical A-Z</option>
+								<option value={'alphabetical_z-a'}>Alphabetical Z-A</option>
+								<option value={'lowest-to-highest'}>Price Low-High</option>
+								<option value={'highest-to-lowest'}>Price High-Low</option>
+							</select>
+						</OrderBy>
+					</Order>
 					<br />
 					<Table
 						header={['Movie', 'Genre', 'Price', 'Date', 'Action']}

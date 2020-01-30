@@ -121,6 +121,7 @@ class MovieController {
 			salePrice,
 			description,
 			genre,
+			writers,
 		} = req.body;
 
 		try {
@@ -137,6 +138,7 @@ class MovieController {
 			if (salePrice) movie.sale = sale;
 			if (description) movie.description = description;
 			if (genre) movie.genre = genre;
+			if (writers) movie.writers = writers;
 
 			await movie.save();
 
@@ -241,7 +243,7 @@ class MovieController {
 	// GET /:id
 	async show(req, res, next) {
 		try {
-			const movie = await Movie.findById(req.params.id).populate('genre');
+			const movie = await Movie.findById(req.params.id).populate('genre writers directors actors');
 
 			return res.send({ movie });
 		} catch (e) {

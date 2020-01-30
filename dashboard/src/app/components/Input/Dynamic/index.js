@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from './styles';
 
+import Input from '../Input';
 import { MdModeEdit, MdCheck, MdClose } from 'react-icons/md';
 
 class Dynamic extends Component {
@@ -26,7 +27,7 @@ class Dynamic extends Component {
 		const { value } = this.state;
 		return (
 			<Container>
-				<input value={value} onChange={this.onChange} />
+				<Input value={value} onChange={this.onChange} />
 				<MdCheck size={15} onClick={() => this.handleSubmit(value)} />
 				<MdClose size={15} onClick={this.toggleForm} />
 			</Container>

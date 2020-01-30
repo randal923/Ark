@@ -4,7 +4,7 @@ const Container = styled.div`
 	color: var(--medium-text-color);
 	span {
 		font-size: 1.7rem;
-		margin: 0.4rem;
+		margin-right: 2rem;
 		cursor: pointer;
 
 		:hover {

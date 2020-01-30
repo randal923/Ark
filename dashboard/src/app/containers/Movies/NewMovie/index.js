@@ -97,6 +97,7 @@ class NewMovie extends Component {
 		const { directors, actors, writers, movieGenres } = this.props;
 		return (
 			<DropDown>
+				<br />
 				<Select
 					placeholder="Select Director"
 					options={(directors ? directors : []).map(item => ({
@@ -107,6 +108,7 @@ class NewMovie extends Component {
 					value={this.state.directors}
 					isMulti
 				/>
+				<br />
 				<Select
 					placeholder="Select Actor"
 					options={(actors ? actors : []).map(item => ({
@@ -117,6 +119,7 @@ class NewMovie extends Component {
 					value={this.state.actors}
 					isMulti
 				/>
+				<br />
 				<Select
 					placeholder="Select Writer"
 					options={(writers ? writers : []).map(item => ({
@@ -127,6 +130,7 @@ class NewMovie extends Component {
 					value={this.state.writers}
 					isMulti
 				/>
+				<br />
 				<Select
 					placeholder="Select Genre"
 					options={(movieGenres ? movieGenres : []).map(item => ({
@@ -137,6 +141,7 @@ class NewMovie extends Component {
 					value={this.state.movieGenres}
 					isMulti
 				/>
+				<br />
 			</DropDown>
 		);
 	}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { api } from '../../../config';
-import { Container, Images } from './styles';
+import { Container, Images, ImagesDiv } from './styles';
 import Button from '../../Button';
 
 class ImageBlock extends Component {

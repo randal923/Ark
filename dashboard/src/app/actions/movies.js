@@ -144,6 +144,7 @@ export const updateMovie = (movie, id, cb) => {
 					description: movie.description,
 					subtitles: movie.subtitles,
 					genre: movie.genre.map(item => (item.value ? item.value : item._id)),
+					writers: movie.writers.map(item => (item.value ? item.value : item._id)),
 				},
 				getHeaders()
 			)

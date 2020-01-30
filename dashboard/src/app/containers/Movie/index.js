@@ -4,7 +4,6 @@ import { Container, Header, Images, DropDown } from './styles';
 import Select from 'react-select';
 
 import Button from '../../components/Button';
-import Title from '../../components/Text/Title';
 import Card from '../../components/Card';
 import InfoTable from '../../components/Text/InfoTable';
 import Dynamic from '../../components/Input/Dynamic';
@@ -13,15 +12,25 @@ import ImageBlock from '../../components/Images/Block';
 import { connect } from 'react-redux';
 import * as actionsMovies from '../../actions/movies';
 import * as actionsGenre from '../../actions/genres';
+import * as actionsWriters from '../../actions/writers';
+import * as actionsDirectors from '../../actions/directors';
+import * as actionsActors from '../../actions/actors';
+
 import General from '../../components/Alerts/General';
 
 class Movie extends Component {
 	genereStateMovie = props => ({
 		title: props.movie ? props.movie.title : '',
 		description: props.movie ? props.movie.description : '',
-		genre: props.movie ? props.movie.genre : [],
+		genre: props.movie ? props.movie.genre : '',
 		posters: props.movie ? props.movie.posters : '',
 		price: props.movie ? props.movie.price : '',
+		country: props.movie ? props.movie.country : '',
+		subtitles: props.movie ? props.movie.subtitles : '',
+		releasedate: props.movie ? props.movie.releasedate : '',
+		writers: props.movie ? props.movie.writers : '',
+		directors: props.movie ? props.movie.directors : '',
+		actors: props.movie ? props.movie.actors : '',
 	});
 
 	constructor(props) {
@@ -37,10 +46,13 @@ class Movie extends Component {
 	}
 
 	componentDidMount() {
-		const { getMovie, getGenres } = this.props;
+		const { getMovie, getGenres, getWriters, getDirectors, getActors } = this.props;
 		const { id } = this.props.match.params;
 		getMovie(id);
-		getGenres(id);
+		getGenres();
+		getWriters();
+		getDirectors();
+		getActors();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -49,10 +61,13 @@ class Movie extends Component {
 			(prevProps.movie && this.props.movie && prevProps.movie.updatedAt !== this.props.movie.updatedAt)
 		) {
 			this.setState(this.genereStateMovie(this.props));
-			const { getMovie, getGenres } = this.props;
+			const { getMovie, getGenres, getWriters, getDirectors, getActors } = this.props;
 			const { id } = this.props.match.params;
 			getMovie(id);
-			getGenres(id);
+			getGenres();
+			getWriters();
+			getDirectors();
+			getActors();
 		}
 	}
 
@@ -61,38 +76,103 @@ class Movie extends Component {
 	addGenreToState = genre => {
 		this.setState({ genre });
 	};
+	addWritersToState = writers => {
+		this.setState({ writers });
+	};
+	addDirectorsToState = directors => {
+		this.setState({ directors });
+	};
+
+	addActorsToState = actors => {
+		this.setState({ actors });
+	};
 
 	renderContent() {
-		const { title, description, price, genre, salePrice, errors } = this.state;
+		const { releasedate, subtitles, country, description, price, salePrice, errors } = this.state;
 
-		const { genres, movie } = this.props;
+		const { movie } = this.props;
 		return (
 			<Container>
 				{movie && <Link to={`/reviews/${movie._id}`}>Reviews</Link>}
 				<InfoTable
-					name="Title"
-					value={
-						<Dynamic
-							errors={errors.title}
-							value={title}
-							name="name"
-							handleSubmit={value => this.onChangeInput('title', value)}
-						/>
-					}
-				/>
-				<InfoTable
-					name="Genre"
+					name="Genres"
 					value={
 						<DropDown>
 							<Select
-								options={(genres ? genres : []).map(item => ({
+								options={(this.props.genres ? this.props.genres : []).map(item => ({
 									value: item._id,
 									label: item.name,
 								}))}
 								onChange={this.addGenreToState}
 								defaultValue={
-									genre &&
-									genre.map(item => ({
+									this.state.genre &&
+									this.state.genre.map(item => ({
+										value: item._id,
+										label: item.name,
+									}))
+								}
+								isMulti
+							/>
+						</DropDown>
+					}
+				/>
+				<InfoTable
+					name="Writers"
+					value={
+						<DropDown>
+							<Select
+								options={(this.props.writers ? this.props.writers : []).map(item => ({
+									value: item._id,
+									label: item.name,
+								}))}
+								onChange={this.addWritersToState}
+								defaultValue={
+									this.state.writers &&
+									this.state.writers.map(item => ({
+										value: item._id,
+										label: item.name,
+									}))
+								}
+								isMulti
+							/>
+						</DropDown>
+					}
+				/>
+				<InfoTable
+					name="Directors"
+					value={
+						<DropDown>
+							<Select
+								options={(this.props.directors ? this.props.directors : []).map(item => ({
+									value: item._id,
+									label: item.name,
+								}))}
+								onChange={this.addDirectorsToState}
+								defaultValue={
+									this.state.directors &&
+									this.state.directors.map(item => ({
+										value: item._id,
+										label: item.name,
+									}))
+								}
+								isMulti
+							/>
+						</DropDown>
+					}
+				/>
+				<InfoTable
+					name="Actors"
+					value={
+						<DropDown>
+							<Select
+								options={(this.props.actors ? this.props.actors : []).map(item => ({
+									value: item._id,
+									label: item.name,
+								}))}
+								onChange={this.addActorsToState}
+								defaultValue={
+									this.state.actors &&
+									this.state.actors.map(item => ({
 										value: item._id,
 										label: item.name,
 									}))
@@ -110,6 +190,42 @@ class Movie extends Component {
 							errors={errors.description}
 							name="description"
 							handleSubmit={value => this.onChangeInput('description', value)}
+						/>
+					}
+				/>
+
+				<InfoTable
+					name="Country"
+					value={
+						<Dynamic
+							value={country}
+							errors={errors.country}
+							name="country"
+							handleSubmit={value => this.onChangeInput('country', value)}
+						/>
+					}
+				/>
+
+				<InfoTable
+					name="Subtitles"
+					value={
+						<Dynamic
+							value={subtitles}
+							errors={errors.subtitles}
+							name="subtitles"
+							handleSubmit={value => this.onChangeInput('subtitles', value)}
+						/>
+					}
+				/>
+
+				<InfoTable
+					name="Releasedate"
+					value={
+						<Dynamic
+							value={releasedate}
+							errors={errors.releasedate}
+							name="releasedate"
+							handleSubmit={value => this.onChangeInput('releasedate', value)}
 						/>
 					}
 				/>
@@ -201,11 +317,16 @@ class Movie extends Component {
 	}
 
 	render() {
+		console.log(this.props);
 		return (
 			<Card>
+				<General warning={this.state.warning} />
 				<Header>
-					<General warning={this.state.warning} />
-					<Title type="h1" title="Movie" />
+					<Dynamic
+						name="Name"
+						value={this.state.title}
+						handleSubmit={value => this.onChangeInput('name', value)}
+					/>
 					<Button type="success" label="Save" onClick={this.updateMovie} />
 				</Header>
 				{this.renderContent()}
@@ -218,6 +339,15 @@ class Movie extends Component {
 const mapStateToProps = state => ({
 	movie: state.movie.movie,
 	genres: state.genre.genres,
+	writers: state.writers.writers,
+	directors: state.directors.directors,
+	actors: state.actors.actors,
 });
 
-export default connect(mapStateToProps, { ...actionsMovies, ...actionsGenre })(Movie);
+export default connect(mapStateToProps, {
+	...actionsMovies,
+	...actionsGenre,
+	...actionsWriters,
+	...actionsDirectors,
+	...actionsActors,
+})(Movie);

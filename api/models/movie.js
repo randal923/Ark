@@ -17,8 +17,8 @@ const MovieSchema = new Schema(
 		reviews: { type: [{ type: Schema.Types.ObjectId, ref: 'Review' }] },
 		genre: { type: [{ type: Schema.Types.ObjectId, ref: 'Genre' }] },
 		directors: { type: [{ type: Schema.Types.ObjectId, ref: 'Director' }] },
-		writers: { type: [{ type: Schema.Types.ObjectId, ref: 'Director' }] },
-		actors: { type: [{ type: Schema.Types.ObjectId, ref: 'Director' }] },
+		writers: { type: [{ type: Schema.Types.ObjectId, ref: 'Writer' }] },
+		actors: { type: [{ type: Schema.Types.ObjectId, ref: 'Actor' }] },
 	},
 
 	{ timestamps: true }

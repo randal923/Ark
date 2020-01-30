@@ -9,14 +9,22 @@ const Container = styled.div`
 		color: var(--medium-text-color);
 		font: inherit;
 	}
+
+	a {
+		color: var(--blue);
+	}
 `;
 
 const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	h1 {
-		color: var(--light-text-color);
+	margin: 2rem;
+
+	span:first-child {
+		font-size: 1.8rem;
+		font-weight: bold;
+		margin-right: auto;
 	}
 
 	button {
@@ -32,13 +40,17 @@ const DropDown = styled.div`
 		border-radius: 3px;
 		border: 1px solid transparent;
 		color: var(--medium-text-color);
-	}
-	:hover,
-	:focus {
-		color: var(--blue);
+
+		:hover,
+		:focus {
+			color: var(--blue);
+			cursor: pointer;
+		}
 	}
 `;
 
-const Images = styled.div``;
+const Images = styled.div`
+	margin: 2rem;
+`;
 
 export { Container, Header, Images, DropDown };

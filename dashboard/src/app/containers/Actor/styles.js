@@ -18,7 +18,9 @@ const Header = styled.div`
 	margin: 1rem;
 	align-items: center;
 
-	h1 {
+	span:first-child {
+		font-size: 1.8rem;
+		font-weight: bold;
 		margin-right: auto;
 	}
 `;
