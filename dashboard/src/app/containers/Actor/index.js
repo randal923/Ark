@@ -4,9 +4,7 @@ import { Container, Header } from './styles';
 
 import moment from 'moment';
 import Button from '../../components/Button';
-import Title from '../../components/Text/Title';
 import Card from '../../components/Card';
-import InfoTable from '../../components/Text/InfoTable';
 import Dynamic from '../../components/Input/Dynamic';
 import Pagination from '../../components/Pagination';
 import Search from '../../components/Input/Search';

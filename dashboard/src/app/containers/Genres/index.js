@@ -3,9 +3,9 @@ import { Container, NewGenre } from './styles';
 
 import { Link } from 'react-router-dom';
 import Title from '../../components/Text/Title';
-import Search from '../../components/Input/Search';
 import Table from '../../components/Input/Table';
 import Pagination from '../../components/Pagination';
+import Search from '../../components/Input/Search';
 import Card from '../../components/Card';
 
 import { connect } from 'react-redux';
@@ -55,7 +55,7 @@ class Genres extends Component {
 					<br />
 					<Search
 						value={this.state.search}
-						placeHolder={"Search by genres's name"}
+						placeHolder={"Search by directors's name"}
 						onChange={e => this.onChangeSearch(e)}
 						onClick={() => alert('Search')}
 					/>
