@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-	display: grid;
-	grid-template-rows: 1fr;
-	margin: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 2rem 2rem 2rem;
 
 	button {
 		padding: 0.5rem 0.8rem;
@@ -11,6 +12,13 @@ const Container = styled.div`
 	> :last-child {
 		justify-self: end;
 	}
+
+	div {
+		width: 100%;
+	}
+`;
+const TableArea = styled.div`
+	margin: 2rem;
 `;
 
-export { Container };
+export { Container, TableArea };

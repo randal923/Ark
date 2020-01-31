@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from './styles';
+import { Container, TableArea } from './styles';
 import moment from 'moment';
 
 import { currency } from '../../../actions/index';
@@ -46,16 +46,18 @@ class OrdersUser extends Component {
 			});
 		});
 		return (
-			<Container>
-				<Title type="h2" title="Completed Orders" />
+			<TableArea>
+				<Title type="h2" title="Orders" />
 				<br />
-				<Table
-					header={['ID', 'Total', 'Date', 'Status', 'Action']}
-					data={data}
-					buttonType={'ark'}
-					buttonLabel={'View'}
-				/>
-			</Container>
+				<Container>
+					<Table
+						header={['ID', 'Total', 'Date', 'Status', 'Action']}
+						data={data}
+						buttonType={'ark'}
+						buttonLabel={'View'}
+					/>
+				</Container>
+			</TableArea>
 		);
 	}
 }

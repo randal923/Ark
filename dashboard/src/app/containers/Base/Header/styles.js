@@ -8,15 +8,24 @@ export const Container = styled.div`
 	align-items: center;
 
 	a {
-		margin: 1rem;
+		margin: 2rem;
 		text-decoration: none;
 		color: white;
-		font-size: 1.5rem;
+		font-size: 1.6rem;
+		width: 4rem;
+		:hover {
+			color: var(--blue);
+			cursor: pointer;
+		}
 	}
 
 	span {
-		margin: 1rem;
+		margin: 2rem;
 		justify-self: end;
-		font-size: 1.5rem;
+		font-size: 1.6rem;
+		:hover {
+			color: var(--blue);
+			cursor: pointer;
+		}
 	}
 `;

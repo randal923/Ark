@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Header = styled.div`
 	display: flex;
-	margin: 1rem;
+	margin: 2rem;
 	align-items: center;
 
 	span:first-child {
