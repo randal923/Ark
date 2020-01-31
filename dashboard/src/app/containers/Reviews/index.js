@@ -38,11 +38,12 @@ class Reviews extends Component {
 		return (
 			<Card size={'100vh'}>
 				<Container>
-					<Title type="h2" title={`Reviews - ${movie ? movie.title : 'No Movie Title'}`} />
 					<Back history={this.props.history} />
 					<br />
-					<Table header={['User', 'Date', 'Action']} data={data} buttonType={'ark'} buttonLabel={'View'} />
+					<Title type="h2" title={`${movie ? movie.title : 'No Movie Title'}`} />
 				</Container>
+				<br />
+				<Table header={['User', 'Date', 'Action']} data={data} buttonType={'ark'} buttonLabel={'View'} />
 			</Card>
 		);
 	}

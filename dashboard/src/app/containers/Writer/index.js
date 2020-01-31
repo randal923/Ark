@@ -112,24 +112,17 @@ class Writer extends Component {
 		return (
 			<Card>
 				<Header>
-					<Title type="h1" title={name} />
+					<Dynamic
+						name="Name"
+						error={errors.name}
+						value={name}
+						handleSubmit={value => this.onChangeInput('name', value)}
+					/>
 					<Button type="success" onClick={() => this.saveWriter()} label={'Save'} />
 					<Button type="danger" onClick={() => this.removeWriter()} label={'Remove'} />
 				</Header>
 				<General warning={this.state.warning} />
 				<Container>
-					<InfoTable
-						name="Name"
-						value={
-							<Dynamic
-								name="Name"
-								error={errors.name}
-								value={name}
-								handleSubmit={value => this.onChangeInput('name', value)}
-							/>
-						}
-					/>
-
 					<Search
 						value={this.state.search}
 						placeHolder={"Search by movies's name"}

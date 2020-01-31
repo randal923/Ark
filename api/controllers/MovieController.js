@@ -117,11 +117,14 @@ class MovieController {
 			duration,
 			posters,
 			country,
+			subtitles,
 			price,
 			salePrice,
 			description,
 			genre,
 			writers,
+			directors,
+			actors,
 		} = req.body;
 
 		try {
@@ -134,11 +137,14 @@ class MovieController {
 			if (duration) movie.duration = duration;
 			if (posters) movie.posters = posters;
 			if (country) movie.country = country;
+			if (subtitles) movie.subtitles = subtitles;
 			if (price) movie.price = price;
 			if (salePrice) movie.sale = sale;
 			if (description) movie.description = description;
 			if (genre) movie.genre = genre;
 			if (writers) movie.writers = writers;
+			if (directors) movie.directors = directors;
+			if (actors) movie.actors = actors;
 
 			await movie.save();
 

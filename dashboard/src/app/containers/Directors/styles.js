@@ -5,9 +5,25 @@ const Container = styled.div`
 	grid-template-rows: 1fr;
 	margin: 2rem;
 
+	h2 {
+		margin-left: 1rem;
+	}
+	button {
+		padding: 0.5rem 0.8rem;
+	}
 	> :last-child {
 		justify-self: end;
 	}
 `;
 
-export { Container };
+const NewDirector = styled.div`
+	display: flex;
+	align-items: center;
+	height: 2.7rem;
+	margin: 1rem;
+	a {
+		color: var(--blue);
+		font-size: 1.3rem;
+	}
+`;
+export { Container, NewDirector };

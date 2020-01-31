@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Container, Header } from './styles';
+import { Container, Header, TextArea } from './styles';
 
 import Card from '../../components/Card';
 import Title from '../../components/Text/Title';
@@ -53,18 +53,19 @@ class Review extends Component {
 
 		return (
 			<Card>
-				<Back history={this.props.history} />
 				<General wanring={this.state.warning} />
 				<Header>
-					<Title
-						type="h1"
-						title={`Review - ${movie ? movie.title : 'No Movie Title'} - Stars: 
-							${review ? review.stars : 'No Stars'}`}
-					/>
-					<Title type="h2" title={`User - ${user ? user.name : 'No User Name'}`} />
+					<Back history={this.props.history} />
 					<Button type="danger" onClick={() => this.removeReview()} label={'Remove'} />
 				</Header>
-				<Container>{review ? review.text : 'No Review Text'}</Container>
+				<Container>
+					<Title
+						type="h1"
+						title={`${user ? user.name : 'No User Name'} - ${movie ? movie.title : 'No Movie Title'}`}
+					/>
+					<Title type="h2" title={`Stars: ${review ? review.stars : 'No Stars'}`} />
+					<TextArea>{review ? review.text : 'No Review Text'}</TextArea>
+				</Container>
 			</Card>
 		);
 	}

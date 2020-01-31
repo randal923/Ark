@@ -15,10 +15,12 @@ const Container = styled.div`
 
 const Header = styled.div`
 	display: flex;
-	margin: 1rem;
+	margin: 2rem;
 	align-items: center;
 
-	h1 {
+	span:first-child {
+		font-size: 1.8rem;
+		font-weight: bold;
 		margin-right: auto;
 	}
 `;

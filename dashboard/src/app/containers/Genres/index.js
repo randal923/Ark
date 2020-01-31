@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from './styles';
+import { Container, NewGenre } from './styles';
 
 import { Link } from 'react-router-dom';
 import Title from '../../components/Text/Title';
@@ -7,8 +7,6 @@ import Search from '../../components/Input/Search';
 import Table from '../../components/Input/Table';
 import Pagination from '../../components/Pagination';
 import Card from '../../components/Card';
-
-import { MdAdd } from 'react-icons/md';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions/genres';
@@ -33,10 +31,9 @@ class Genres extends Component {
 
 	renderNewGenre() {
 		return (
-			<Link to="/genres/new">
-				<MdAdd size={20} />
-				<span>&nbsp; New Genre</span>
-			</Link>
+			<NewGenre>
+				<Link to="/genres/new">New Genre</Link>
+			</NewGenre>
 		);
 	}
 

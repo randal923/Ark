@@ -22,11 +22,12 @@ class Movie extends Component {
 	genereStateMovie = props => ({
 		title: props.movie ? props.movie.title : '',
 		description: props.movie ? props.movie.description : '',
+		duration: props.movie ? props.movie.duration : '',
 		genre: props.movie ? props.movie.genre : '',
 		posters: props.movie ? props.movie.posters : '',
 		price: props.movie ? props.movie.price : '',
-		country: props.movie ? props.movie.country : '',
-		subtitles: props.movie ? props.movie.subtitles : '',
+		country: props.movie ? props.movie.country : [],
+		subtitles: props.movie ? props.movie.subtitles : [],
 		releasedate: props.movie ? props.movie.releasedate : '',
 		writers: props.movie ? props.movie.writers : '',
 		directors: props.movie ? props.movie.directors : '',
@@ -72,6 +73,7 @@ class Movie extends Component {
 	}
 
 	onChangeInput = (field, value) => this.setState({ [field]: value }, () => this.validate());
+	onChangeInputArray = (field, value) => this.setState({ [field]: [value] });
 
 	addGenreToState = genre => {
 		this.setState({ genre });
@@ -88,7 +90,7 @@ class Movie extends Component {
 	};
 
 	renderContent() {
-		const { releasedate, subtitles, country, description, price, salePrice, errors } = this.state;
+		const { releasedate, duration, subtitles, country, description, price, salePrice, errors } = this.state;
 
 		const { movie } = this.props;
 		return (
@@ -193,6 +195,17 @@ class Movie extends Component {
 						/>
 					}
 				/>
+				<InfoTable
+					name="Duration"
+					value={
+						<Dynamic
+							value={duration}
+							errors={errors.duration}
+							name="duration"
+							handleSubmit={value => this.onChangeInput('duration', value)}
+						/>
+					}
+				/>
 
 				<InfoTable
 					name="Country"
@@ -201,7 +214,7 @@ class Movie extends Component {
 							value={country}
 							errors={errors.country}
 							name="country"
-							handleSubmit={value => this.onChangeInput('country', value)}
+							handleSubmit={value => this.onChangeInputArray('country', value)}
 						/>
 					}
 				/>
@@ -213,7 +226,7 @@ class Movie extends Component {
 							value={subtitles}
 							errors={errors.subtitles}
 							name="subtitles"
-							handleSubmit={value => this.onChangeInput('subtitles', value)}
+							handleSubmit={value => this.onChangeInputArray('subtitles', value)}
 						/>
 					}
 				/>
@@ -317,15 +330,14 @@ class Movie extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<Card>
 				<General warning={this.state.warning} />
 				<Header>
 					<Dynamic
-						name="Name"
+						name="Title"
 						value={this.state.title}
-						handleSubmit={value => this.onChangeInput('name', value)}
+						handleSubmit={value => this.onChangeInput('title', value)}
 					/>
 					<Button type="success" label="Save" onClick={this.updateMovie} />
 				</Header>

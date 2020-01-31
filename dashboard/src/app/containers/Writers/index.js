@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from './styles';
+import { Container, NewWriter } from './styles';
 
 import { Link } from 'react-router-dom';
 import Title from '../../components/Text/Title';
@@ -7,8 +7,6 @@ import Search from '../../components/Input/Search';
 import Table from '../../components/Input/Table';
 import Pagination from '../../components/Pagination';
 import Card from '../../components/Card';
-
-import { MdAdd } from 'react-icons/md';
 
 import { connect } from 'react-redux';
 import * as writersActions from '../../actions/writers';
@@ -34,10 +32,9 @@ class Writers extends Component {
 
 	renderNewWriter() {
 		return (
-			<Link to="/writers/new">
-				<MdAdd size={20} />
-				<span>&nbsp; New Writer</span>
-			</Link>
+			<NewWriter>
+				<Link to="/writers/new">New Writer</Link>
+			</NewWriter>
 		);
 	}
 

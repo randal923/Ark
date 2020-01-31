@@ -1,115 +1,108 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const Movie = mongoose.model("Movie");
-const User = mongoose.model("User");
-const Review = mongoose.model("Review");
+const Movie = mongoose.model('Movie');
+const User = mongoose.model('User');
+const Review = mongoose.model('Review');
 
 class ReviewController {
+	// GET /
+	async index(req, res, next) {
+		const { movie, user } = req.query;
+		try {
+			const reviews = await Review.find({ $or: [{ movie }, { user }] });
 
-  // GET /
-  async index(req, res, next) {
-    const { movie, user } = req.query;
-    try {
-      const reviews = await Review.find({ $or: [{ movie }, { user }] });
+			return res.send({ reviews });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-      return res.send({ reviews });
-    } catch (e) {
-      next(e);
-    }
-  }
+	// GET /:id
+	async show(req, res, next) {
+		const { movie, user } = req.query;
+		const { id: _id } = req.params;
 
-  // GET /:id
-  async show(req, res, next) {
-    const { movie, user } = req.query;
-    const { id: _id } = req.params;
+		try {
+			const review = await Review.findOne({ _id, $or: [{ movie }, { user }] });
+			return res.send({ review });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-    try {
-      const review = await Review.findOne({ _id, $or: [{ movie }, { user }] });
-      return res.send({ review });
-    } catch (e) {
-      next(e);
-    }
-  }
+	// POST /
+	async create(req, res, next) {
+		const { text, stars } = req.body;
+		const { movie } = req.query;
 
-  // POST /
-  async create(req, res, next) {
-    const { text, stars } = req.body;
-    const { movie, user } = req.query;
+		try {
+			const _movie = await Movie.findById(movie);
+			if (!_movie) return res.status(422).send({ error: "Movie doesn't exist." });
 
+			const user = await User.findById(req.payload.id);
+			if (!user) return res.status(422).send({ error: 'User not logged in.' });
 
-    try {
-      const review = new Review({ name: req.payload.name, text, stars, movie, user });
+			const review = new Review({ name: req.payload.name, text, stars, movie, user: req.payload.id });
 
-      const _movie = await Movie.findById(movie);
-      if (!_movie) return res.status(422).send({ error: "Movie doesn't exist." });
+			user.reviews.push(review._id);
+			_movie.reviews.push(review._id);
 
-      const _user = await User.findById(user);
-      if (!_user) return res.status(422).send({ error: "User not logged in." });
+			await user.save();
+			await _movie.save();
+			await review.save();
 
-      _user.reviews.push(review._id);
-      _movie.reviews.push(review._id);
+			return res.send({ review });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-      await _user.save();
-      await _movie.save();
-      await review.save();
+	// DELETE /:id
+	async delete(req, res, next) {
+		try {
+			const review = await Review.findById(req.params.id);
+			const movie = await Movie.findById(review.movie);
+			const user = await User.findById(review.user);
 
-      return res.send({ review });
-    } catch (e) {
-      next(e);
-    }
-  }
+			if (!user.reviews.includes(req.params.id))
+				return res.status(401).send({ error: 'User not authorized to edit this review.' });
 
-  // DELETE /:id
-  async delete(req, res, next) {
-    try {
-      const review = await Review.findById(req.params.id);
-      const movie = await Movie.findById(review.movie);
-      const user = await User.findById(review.user);
+			user.reviews = movie.reviews.filter(item => item.toString() !== review._id.toString());
 
-      if (!user.reviews.includes(req.params.id)) return res.status(401).send({ error: "User not authorized to edit this review." });
+			movie.reviews = movie.reviews.filter(item => item.toString() !== review._id.toString());
 
+			await movie.save();
+			await user.save();
+			await review.remove();
 
-      user.reviews = movie.reviews.filter(
-        item => item.toString() !== review._id.toString()
-      );
+			return res.send({ deleted: true });
+		} catch (e) {
+			next(e);
+		}
+	}
 
-      movie.reviews = movie.reviews.filter(
-        item => item.toString() !== review._id.toString()
-      );
+	// PUT /:id
+	async update(req, res, next) {
+		const { text, stars } = req.body;
 
-      await movie.save();
-      await user.save();
-      await review.remove();
+		try {
+			const review = await Review.findById(req.params.id);
+			if (!review) return res.status(400).send({ error: 'Review not found' });
+			const user = await User.findById(review.user);
 
-      return res.send({ deleted: true });
-    } catch (e) {
-      next(e);
-    }
-  }
+			if (!user.reviews.includes(req.params.id))
+				return res.status(401).send({ error: 'User not authorized to edit this review.' });
 
-  // PUT /:id
-  async update(req, res, next) {
-    const { text, stars } = req.body;
+			if (text) review.text = text;
+			if (stars) review.stars = stars;
 
-    try {
-      const review = await Review.findById(req.params.id);
-      if (!review) return res.status(400).send({ error: "Review not found" });
-      const user = await User.findById(review.user);
+			await review.save();
 
-      if (!user.reviews.includes(req.params.id)) return res.status(401).send({ error: "User not authorized to edit this review." });
-
-      if (text) review.text = text;
-      if (stars) review.stars = stars;
-
-
-      await review.save();
-
-      return res.send({ review });
-    } catch (e) {
-      next(e);
-    }
-  }
-
+			return res.send({ review });
+		} catch (e) {
+			next(e);
+		}
+	}
 }
 
 module.exports = ReviewController;
