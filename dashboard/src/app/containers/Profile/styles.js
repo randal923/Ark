@@ -15,6 +15,7 @@ const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin: 2rem;
 	h1 {
 		color: var(--light-text-color);
 	}

@@ -1,0 +1,2 @@
+export const REGISTER = 'REGISTER';
+export const AUTHENTICATE_TOKEN = 'AUTHENTICATE_TOKEN';

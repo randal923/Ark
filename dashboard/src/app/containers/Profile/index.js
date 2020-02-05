@@ -145,7 +145,7 @@ class Profile extends Component {
 			<Card>
 				<Header>
 					<General warning={this.state.warning} />
-					<Title type="h1" title="Profile - User 1" />
+					<Title type="h1" title={`${this.state.name}`} />
 					<Button type="success" label="Save" onClick={() => this.updateUser()} />
 				</Header>
 				{this.renderSettings()}
