@@ -4,6 +4,8 @@ import { Container, LogoStyle } from './styles';
 
 import Logo from '../../components/Logo';
 import Login from '../../components/Login';
+import Menu from '../../components/Menu';
+import SubMenu from '../../components/SubMenu';
 
 class Header extends Component {
 	renderSimpleHeader() {
@@ -20,8 +22,10 @@ class Header extends Component {
 				<LogoStyle>
 					<Logo />
 					<h1>Ark</h1>
+					<Menu />
 				</LogoStyle>
 				<Login />
+				<SubMenu />
 			</Container>
 		);
 	}

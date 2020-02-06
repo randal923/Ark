@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Container = styled.span`
 	grid-column: 2 / span 3;
 	justify-self: end;
+	margin-right: 5rem;
 	a {
 		color: var(--blue);
 		text-decoration: none;
@@ -18,18 +19,6 @@ const Container = styled.span`
 		padding-left: 1rem;
 		border-radius: 0.4rem;
 	}
-
-	div {
-		display: flex;
-		align-items: center;
-		margin: 0.5rem;
-		:hover {
-			color: var(--blue);
-		}
-		svg {
-			color: var(--blue);
-		}
-	}
 `;
 
 const LoginText = styled.span`
@@ -37,4 +26,17 @@ const LoginText = styled.span`
 	padding-right: 0.5rem;
 `;
 
-export { Container, LoginText };
+const Country = styled.span`
+	display: flex;
+	align-items: center;
+	margin: 0.5rem;
+	:hover {
+		color: var(--blue);
+		cursor: pointer;
+	}
+	svg {
+		color: var(--blue);
+	}
+`;
+
+export { Container, LoginText, Country };

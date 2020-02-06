@@ -15,7 +15,7 @@ const Button = ({ type, route, onClick, label, icon }) => {
 		return (
 			<Container type={type}>
 				<button onClick={onClick}>
-					{icon}&nbsp;
+					{icon}
 					{label}
 				</button>
 			</Container>
