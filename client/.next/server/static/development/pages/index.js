@@ -441,15 +441,18 @@ const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Button */ "./components/Button/index.js");
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Modal */ "./components/Modal/index.js");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/md */ "react-icons/md");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles */ "./components/Login/styles.js");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @jesstelford/react-portal-universal */ "@jesstelford/react-portal-universal");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Button */ "./components/Button/index.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Modal */ "./components/Modal/index.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/md */ "react-icons/md");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles */ "./components/Login/styles.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/components/Login/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
  // Components
 
@@ -461,18 +464,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
-  constructor(...args) {
-    super(...args);
-
-    _defineProperty(this, "state", {
-      showModal: false
-    });
+  constructor() {
+    super(...arguments);
 
     _defineProperty(this, "handleModal", () => {
       this.setState({
         showModal: !this.state.showModal
       });
     });
+
+    this.state = {
+      showModal: false
+    };
   }
 
   countryDropDown() {
@@ -484,76 +487,77 @@ class Login extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["Container"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 32
-      },
-      __self: this
-    }, __jsx("span", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 33
-      },
-      __self: this
-    }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["LoginText"], {
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_styles__WEBPACK_IMPORTED_MODULE_5__["Container"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 34
+      },
+      __self: this
+    }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_5__["LoginText"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35
       },
       __self: this
     }, __jsx("a", {
       onClick: () => this.handleModal(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 36
       },
       __self: this
     }, "Login"), "\xA0 or \xA0", __jsx("a", {
       onClick: () => this.handleModal(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 37
+        lineNumber: 38
       },
       __self: this
-    }, "Create Account")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["Country"], {
+    }, "Create Account")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_5__["Country"], {
       onClick: () => this.countryDropDown(),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    }, "Country ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
-      size: 15,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 40
       },
       __self: this
-    })), __jsx(_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, "Country ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_4__["MdKeyboardArrowDown"], {
+      size: 15,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 41
+      },
+      __self: this
+    })), __jsx(_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
       type: "ark",
       label: "Install Ark",
-      icon: __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdCloudDownload"], {
+      icon: __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_4__["MdCloudDownload"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 46
         },
         __self: this
       }),
       onClick: () => this.installButton(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 43
       },
       __self: this
-    }))), this.state.showModal && __jsx(_Modal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    })), this.state.showModal && __jsx(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_1__["UniversalPortal"], {
+      selector: "#modal",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51
+      },
+      __self: this
+    }, __jsx(_Modal__WEBPACK_IMPORTED_MODULE_3__["default"], {
       handleModal: this.handleModal,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 52
       },
       __self: this
-    }));
+    })));
   }
 
 }
@@ -580,7 +584,7 @@ __webpack_require__.r(__webpack_exports__);
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
   displayName: "styles__Container",
   componentId: "x5edgr-0"
-})(["grid-column:2 / span 3;justify-self:end;margin-right:5rem;a{color:var(--blue);text-decoration:none;:hover{color:var(--light-text-color);}}> span{display:flex;align-items:center;background:#353535;padding-left:1rem;border-radius:0.4rem;}"]);
+})(["display:flex;align-items:center;width:29.8rem;background:#353535;padding-left:1rem;border-radius:0.4rem;justify-self:end;margin-right:2rem;a{color:var(--blue);text-decoration:none;:hover{color:var(--light-text-color);}}"]);
 const LoginText = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
   displayName: "styles__LoginText",
   componentId: "x5edgr-1"
@@ -983,11 +987,11 @@ const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.w
 const BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__BackDrop",
   componentId: "sc-1omickw-1"
-})(["position:absolute;top:0;bottom:0;width:100%;z-index:1;background-color:rgba(0,0,0,0.4);"]);
+})(["position:absolute;top:0;bottom:0;width:100%;z-index:2;overflow:hidden;background-color:rgba(0,0,0,0.4);"]);
 const Content = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Content",
   componentId: "sc-1omickw-2"
-})(["background:linear-gradient(#1f1f1f,#242424);border:1px solid rgba(0,166,255,0.4);border-radius:5px;width:60rem;height:40rem;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;justify-items:center;align-items:center;"]);
+})(["background:linear-gradient(#1f1f1f,#242424);border:1px solid rgba(0,166,255,0.4);border-radius:5px;width:60rem;height:40rem;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;justify-items:center;align-items:center;"]);
 const Login = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Login",
   componentId: "sc-1omickw-3"
@@ -1063,79 +1067,134 @@ const SubMenu = () => {
       lineNumber: 18
     },
     __self: undefined
-  }, "Films")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, "Films ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: undefined
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 22
     },
     __self: undefined
   }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: undefined
-  }, "Documentaries")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23
     },
     __self: undefined
-  }, __jsx("a", {
+  }, "Documentaries ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24
     },
     __self: undefined
-  }, "Animations")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26
-    },
-    __self: undefined
-  }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27
     },
     __self: undefined
-  }, "TV Shows")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: undefined
+  }, "Animations ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
     },
     __self: undefined
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30
-    },
-    __self: undefined
-  }, "TV Shows")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["Search"], {
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32
+    },
+    __self: undefined
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: undefined
+  }, "TV Shows ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: undefined
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: undefined
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: undefined
+  }, "TV Shows ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: undefined
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
+    },
+    __self: undefined
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: undefined
+  }, "Short Films ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
+  }))), __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["Search"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
     },
     __self: undefined
   }, __jsx(_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
     placeholder: "Search...",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 48
     },
     __self: undefined
-  }), __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdSearch"], {
-    size: 20,
+  }), __jsx("button", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 49
     },
     __self: undefined
-  })));
+  }, __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdSearch"], {
+    size: 25,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: undefined
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SubMenu);
@@ -1159,11 +1218,11 @@ __webpack_require__.r(__webpack_exports__);
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-1wi7dc9-0"
-})(["background:linear-gradient(#393939,#424242);width:100%;grid-column:1 / span 3;align-self:center;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:flex;align-items:center;justify-content:center;a{font-size:1.6rem;color:rgba(255,255,255,0.7);text-decoration:none;margin:1rem;:hover{color:white;}}span{margin-left:auto;}input{background:#2e2e2e;border:1px solid #232323;border-radius:15px;width:100%;height:25px;color:white;padding:0 0 0 10px;}svg:first-child{margin-right:auto;background:#383737;padding:2px;border:1px solid #323232;}svg{margin-right:3rem;}"]);
+})(["background:linear-gradient(#393939,#424242);width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:flex;align-items:center;justify-content:center;position:relative;a{font-size:1.6rem;color:rgba(255,255,255,0.7);text-decoration:none;margin:1rem;display:flex;align-items:center;:hover{color:white;}}span{position:absolute;right:1rem;}> svg:first-child{position:absolute;left:1.5rem;background:#383737;color:white;padding:2px;border:1px solid #323232;}svg{color:var(--blue);}"]);
 const Search = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
   displayName: "styles__Search",
   componentId: "sc-1wi7dc9-1"
-})([""]);
+})(["display:flex;align-items:center;position:relative;input{background:#2e2e2e;border:1px solid #232323;border-radius:1.5rem;width:20rem;height:2.5rem;color:white;padding:0 0 0 10px;}button{position:absolute;top:-1.3rem;right:2rem;background:transparent;border:0;}"]);
 
 
 /***/ }),
@@ -1282,37 +1341,37 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 21
       },
       __self: this
-    }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_1__["LogoStyle"], {
+    }, __jsx(_components_Login__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 22
       },
       __self: this
-    }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), __jsx(_styles__WEBPACK_IMPORTED_MODULE_1__["LogoStyle"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 23
       },
       __self: this
-    }), __jsx("h1", {
+    }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 24
       },
       __self: this
-    }, "Ark"), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }), __jsx("h1", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 25
       },
       __self: this
-    })), __jsx(_components_Login__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, "Ark"), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 26
       },
       __self: this
-    }), __jsx(_components_SubMenu__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    })), __jsx(_components_SubMenu__WEBPACK_IMPORTED_MODULE_5__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28
@@ -1351,11 +1410,11 @@ __webpack_require__.r(__webpack_exports__);
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Container",
   componentId: "w2b10l-0"
-})(["display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;background:linear-gradient(#181f2d,#212225);"]);
-const LogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
+})(["display:grid;grid-template-columns:1fr;grid-template-rows:2.6rem 10rem 3.5rem;background:linear-gradient(#181f2d,#212225);"]);
+const LogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__LogoStyle",
   componentId: "w2b10l-1"
-})(["display:flex;align-items:center;margin:3.5rem 1.5rem 0 1.5rem;h1{font-size:5rem;}> img{height:8rem;width:8rem;}"]);
+})(["display:flex;align-items:center;h1{font-size:5rem;}> img{height:8rem;width:8rem;}"]);
 
 
 /***/ }),
@@ -3493,6 +3552,17 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 module.exports = __webpack_require__(/*! /mnt/c/Users/randa/Desktop/HD/Code/Ark/client/pages/index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "@jesstelford/react-portal-universal":
+/*!******************************************************!*\
+  !*** external "@jesstelford/react-portal-universal" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@jesstelford/react-portal-universal");
 
 /***/ }),
 

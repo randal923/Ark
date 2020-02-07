@@ -2,15 +2,14 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr;
+	grid-template-rows: 2.6rem 10rem 3.5rem;
 	background: linear-gradient(#181f2d, #212225);
 `;
 
-const LogoStyle = styled.span`
+const LogoStyle = styled.div`
 	display: flex;
 	align-items: center;
-	margin: 3.5rem 1.5rem 0 1.5rem;
 	h1 {
 		font-size: 5rem;
 	}

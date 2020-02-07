@@ -354,10 +354,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../Button */ "./components/Button/index.js");
-/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Modal */ "./components/Modal/index.js");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.esm.js");
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./styles */ "./components/Login/styles.js");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @jesstelford/react-portal-universal */ "./node_modules/@jesstelford/react-portal-universal/index.js");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Button */ "./components/Button/index.js");
+/* harmony import */ var _Modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Modal */ "./components/Modal/index.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.esm.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./styles */ "./components/Login/styles.js");
 
 
 
@@ -367,6 +369,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/components/Login/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
+
  // Components
 
 
@@ -382,21 +385,11 @@ function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_5__["default"])(Login, _Component);
 
   function Login() {
-    var _getPrototypeOf2;
-
     var _this;
 
     Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Login);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Login)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
-      showModal: false
-    });
+    _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Login).apply(this, arguments));
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "handleModal", function () {
       _this.setState({
@@ -404,6 +397,9 @@ function (_Component) {
       });
     });
 
+    _this.state = {
+      showModal: false
+    };
     return _this;
   }
 
@@ -422,22 +418,16 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return __jsx(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, __jsx(_styles__WEBPACK_IMPORTED_MODULE_11__["Container"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32
-        },
-        __self: this
-      }, __jsx("span", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 33
-        },
-        __self: this
-      }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_11__["LoginText"], {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, __jsx(_styles__WEBPACK_IMPORTED_MODULE_12__["Container"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 34
+        },
+        __self: this
+      }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_12__["LoginText"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
         },
         __self: this
       }, __jsx("a", {
@@ -446,7 +436,7 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 36
         },
         __self: this
       }, "Login"), "\xA0 or \xA0", __jsx("a", {
@@ -455,32 +445,32 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 38
         },
         __self: this
-      }, "Create Account")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_11__["Country"], {
+      }, "Create Account")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_12__["Country"], {
         onClick: function onClick() {
           return _this2.countryDropDown();
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
-        },
-        __self: this
-      }, "Country ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_10__["MdKeyboardArrowDown"], {
-        size: 15,
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 40
         },
         __self: this
-      })), __jsx(_Button__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }, "Country ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_11__["MdKeyboardArrowDown"], {
+        size: 15,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        },
+        __self: this
+      })), __jsx(_Button__WEBPACK_IMPORTED_MODULE_9__["default"], {
         type: "ark",
         label: "Install Ark",
-        icon: __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_10__["MdCloudDownload"], {
+        icon: __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_11__["MdCloudDownload"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 46
           },
           __self: this
         }),
@@ -489,17 +479,24 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 43
         },
         __self: this
-      }))), this.state.showModal && __jsx(_Modal__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      })), this.state.showModal && __jsx(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_8__["UniversalPortal"], {
+        selector: "#modal",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        },
+        __self: this
+      }, __jsx(_Modal__WEBPACK_IMPORTED_MODULE_10__["default"], {
         handleModal: this.handleModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 50
+          lineNumber: 52
         },
         __self: this
-      }));
+      })));
     }
   }]);
 
@@ -527,7 +524,7 @@ __webpack_require__.r(__webpack_exports__);
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "styles__Container",
   componentId: "x5edgr-0"
-})(["grid-column:2 / span 3;justify-self:end;margin-right:5rem;a{color:var(--blue);text-decoration:none;:hover{color:var(--light-text-color);}}> span{display:flex;align-items:center;background:#353535;padding-left:1rem;border-radius:0.4rem;}"]);
+})(["display:flex;align-items:center;width:29.8rem;background:#353535;padding-left:1rem;border-radius:0.4rem;justify-self:end;margin-right:2rem;a{color:var(--blue);text-decoration:none;:hover{color:var(--light-text-color);}}"]);
 var LoginText = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "styles__LoginText",
   componentId: "x5edgr-1"
@@ -972,11 +969,11 @@ var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.wi
 var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__BackDrop",
   componentId: "sc-1omickw-1"
-})(["position:absolute;top:0;bottom:0;width:100%;z-index:1;background-color:rgba(0,0,0,0.4);"]);
+})(["position:absolute;top:0;bottom:0;width:100%;z-index:2;overflow:hidden;background-color:rgba(0,0,0,0.4);"]);
 var Content = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Content",
   componentId: "sc-1omickw-2"
-})(["background:linear-gradient(#1f1f1f,#242424);border:1px solid rgba(0,166,255,0.4);border-radius:5px;width:60rem;height:40rem;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;justify-items:center;align-items:center;"]);
+})(["background:linear-gradient(#1f1f1f,#242424);border:1px solid rgba(0,166,255,0.4);border-radius:5px;width:60rem;height:40rem;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;justify-items:center;align-items:center;"]);
 var Login = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Login",
   componentId: "sc-1omickw-3"
@@ -1051,79 +1048,134 @@ var SubMenu = function SubMenu() {
       lineNumber: 18
     },
     __self: this
-  }, "Films")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, "Films ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 22
     },
     __self: this
   }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: this
-  }, "Documentaries")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 23
     },
     __self: this
-  }, __jsx("a", {
+  }, "Documentaries ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 24
     },
     __self: this
-  }, "Animations")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26
-    },
-    __self: this
-  }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27
     },
     __self: this
-  }, "TV Shows")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: this
+  }, "Animations ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 29
     },
     __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 30
-    },
-    __self: this
-  }, "TV Shows")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["Search"], {
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: this
+  }, "TV Shows ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: this
+  }, "TV Shows ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
+  }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 42
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 43
+    },
+    __self: this
+  }, "Short Films ", __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdKeyboardArrowDown"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: this
+  }))), __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["Search"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
     },
     __self: this
   }, __jsx(_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
     placeholder: "Search...",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 48
     },
     __self: this
-  }), __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdSearch"], {
-    size: 20,
+  }), __jsx("button", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 49
     },
     __self: this
-  })));
+  }, __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_3__["MdSearch"], {
+    size: 25,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: this
+  }))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SubMenu);
@@ -1146,11 +1198,11 @@ __webpack_require__.r(__webpack_exports__);
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-1wi7dc9-0"
-})(["background:linear-gradient(#393939,#424242);width:100%;grid-column:1 / span 3;align-self:center;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:flex;align-items:center;justify-content:center;a{font-size:1.6rem;color:rgba(255,255,255,0.7);text-decoration:none;margin:1rem;:hover{color:white;}}span{margin-left:auto;}input{background:#2e2e2e;border:1px solid #232323;border-radius:15px;width:100%;height:25px;color:white;padding:0 0 0 10px;}svg:first-child{margin-right:auto;background:#383737;padding:2px;border:1px solid #323232;}svg{margin-right:3rem;}"]);
+})(["background:linear-gradient(#393939,#424242);width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:flex;align-items:center;justify-content:center;position:relative;a{font-size:1.6rem;color:rgba(255,255,255,0.7);text-decoration:none;margin:1rem;display:flex;align-items:center;:hover{color:white;}}span{position:absolute;right:1rem;}> svg:first-child{position:absolute;left:1.5rem;background:#383737;color:white;padding:2px;border:1px solid #323232;}svg{color:var(--blue);}"]);
 var Search = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "styles__Search",
   componentId: "sc-1wi7dc9-1"
-})([""]);
+})(["display:flex;align-items:center;position:relative;input{background:#2e2e2e;border:1px solid #232323;border-radius:1.5rem;width:20rem;height:2.5rem;color:white;padding:0 0 0 10px;}button{position:absolute;top:-1.3rem;right:2rem;background:transparent;border:0;}"]);
 
 
 /***/ }),
@@ -1292,37 +1344,37 @@ function (_Component) {
           lineNumber: 21
         },
         __self: this
-      }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_6__["LogoStyle"], {
+      }, __jsx(_components_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 22
         },
         __self: this
-      }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }), __jsx(_styles__WEBPACK_IMPORTED_MODULE_6__["LogoStyle"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 23
         },
         __self: this
-      }), __jsx("h1", {
+      }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_7__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 24
         },
         __self: this
-      }, "Ark"), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }), __jsx("h1", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 25
         },
         __self: this
-      })), __jsx(_components_Login__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }, "Ark"), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 26
         },
         __self: this
-      }), __jsx(_components_SubMenu__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      })), __jsx(_components_SubMenu__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 28
@@ -1361,11 +1413,11 @@ __webpack_require__.r(__webpack_exports__);
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Container",
   componentId: "w2b10l-0"
-})(["display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;background:linear-gradient(#181f2d,#212225);"]);
-var LogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
+})(["display:grid;grid-template-columns:1fr;grid-template-rows:2.6rem 10rem 3.5rem;background:linear-gradient(#181f2d,#212225);"]);
+var LogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__LogoStyle",
   componentId: "w2b10l-1"
-})(["display:flex;align-items:center;margin:3.5rem 1.5rem 0 1.5rem;h1{font-size:5rem;}> img{height:8rem;width:8rem;}"]);
+})(["display:flex;align-items:center;h1{font-size:5rem;}> img{height:8rem;width:8rem;}"]);
 
 
 /***/ }),
@@ -3203,6 +3255,61 @@ var unitlessKeys = {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (unitlessKeys);
+
+
+/***/ }),
+
+/***/ "./node_modules/@jesstelford/react-portal-universal/PortalManager.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@jesstelford/react-portal-universal/PortalManager.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const PortalContext = React.createContext([]);
+exports.PortalConsumer = PortalContext.Consumer;
+exports.PortalManager = ({ children, portals }) => (React.createElement(PortalContext.Provider, { value: portals }, children));
+
+
+/***/ }),
+
+/***/ "./node_modules/@jesstelford/react-portal-universal/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@jesstelford/react-portal-universal/index.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+const PortalManager_1 = __webpack_require__(/*! ./PortalManager */ "./node_modules/@jesstelford/react-portal-universal/PortalManager.js");
+function canUseDOM() {
+    return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+}
+function createUniversalPortal(children, selector, portals) {
+    if (!canUseDOM()) {
+        portals.push([children, selector]); // yes, mutation (҂◡_◡)
+        return null; // do not render anything on the server
+    }
+    // TODO: Do not cast to any when typings are updated for createPortal
+    return ReactDOM.createPortal(children, document.querySelector(selector));
+}
+function prepareClientPortals() {
+    if (canUseDOM()) {
+        Array.prototype.slice.call(document.querySelectorAll("[data-react-universal-portal]")).forEach(function (node) {
+            node.remove();
+        });
+    }
+}
+exports.prepareClientPortals = prepareClientPortals;
+exports.UniversalPortal = ({ children, selector }) => (React.createElement(PortalManager_1.PortalConsumer, null, (portals) => createUniversalPortal(children, selector, portals)));
 
 
 /***/ }),
@@ -11551,6 +11658,17 @@ var objectKeys = Object.keys || function (obj) {
 exports.decode = exports.parse = __webpack_require__(/*! ./decode */ "./node_modules/querystring-es3/decode.js");
 exports.encode = exports.stringify = __webpack_require__(/*! ./encode */ "./node_modules/querystring-es3/encode.js");
 
+
+/***/ }),
+
+/***/ "./node_modules/react-dom/index.js":
+/*!***********************************************************************************************!*\
+  !*** delegated ./node_modules/react-dom/index.js from dll-reference dll_ef0ff7c60362f24a921f ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(/*! dll-reference dll_ef0ff7c60362f24a921f */ "dll-reference dll_ef0ff7c60362f24a921f"))("./node_modules/react-dom/index.js");
 
 /***/ }),
 

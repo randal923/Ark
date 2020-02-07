@@ -7,7 +7,8 @@ const BackDrop = styled.div`
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	z-index: 1;
+	z-index: 2;
+	overflow: hidden;
 	background-color: rgba(0, 0, 0, 0.4);
 `;
 
@@ -21,7 +22,7 @@ const Content = styled.div`
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 2;
+	z-index: 3;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;

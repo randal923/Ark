@@ -19,12 +19,12 @@ class Header extends Component {
 	renderHeader() {
 		return (
 			<Container>
+				<Login />
 				<LogoStyle>
 					<Logo />
 					<h1>Ark</h1>
 					<Menu />
 				</LogoStyle>
-				<Login />
 				<SubMenu />
 			</Container>
 		);

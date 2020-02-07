@@ -408,6 +408,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-redux-wrapper */ "next-redux-wrapper");
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./redux */ "./pages/redux/index.js");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @jesstelford/react-portal-universal */ "@jesstelford/react-portal-universal");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/pages/_app.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -418,6 +420,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
+
+
+if (false) {}
 
 class Main extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
   static async getInitialProps({
@@ -435,17 +440,24 @@ class Main extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       pageProps,
       store
     } = this.props;
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(react_redux__WEBPACK_IMPORTED_MODULE_1__["Provider"], {
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+      id: "modal",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26
+      },
+      __self: this
+    }), __jsx(react_redux__WEBPACK_IMPORTED_MODULE_1__["Provider"], {
       store: store,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 27
       },
       __self: this
     }, __jsx(Component, _extends({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 28
       },
       __self: this
     }))));
@@ -559,6 +571,17 @@ const AUTHENTICATE_TOKEN = 'AUTHENTICATE_TOKEN';
 
 module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_app.js");
 
+
+/***/ }),
+
+/***/ "@jesstelford/react-portal-universal":
+/*!******************************************************!*\
+  !*** external "@jesstelford/react-portal-universal" ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@jesstelford/react-portal-universal");
 
 /***/ }),
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Input from '../Input';
 
 // Icons
-import { MdSearch, MdReorder } from 'react-icons/md';
+import { MdSearch, MdReorder, MdKeyboardArrowDown } from 'react-icons/md';
 
 // Style
 import { Container, Search } from './styles';
@@ -15,23 +15,40 @@ const SubMenu = () => {
 		<Container>
 			<MdReorder size={25} />
 			<Link href="/">
-				<a>Films</a>
+				<a>
+					Films <MdKeyboardArrowDown />
+				</a>
 			</Link>
 			<Link href="/">
-				<a>Documentaries</a>
+				<a>
+					Documentaries <MdKeyboardArrowDown />
+				</a>
 			</Link>
 			<Link href="/">
-				<a>Animations</a>
+				<a>
+					Animations <MdKeyboardArrowDown />
+				</a>
 			</Link>
 			<Link href="/">
-				<a>TV Shows</a>
+				<a>
+					TV Shows <MdKeyboardArrowDown />
+				</a>
 			</Link>
 			<Link href="/">
-				<a>TV Shows</a>
+				<a>
+					TV Shows <MdKeyboardArrowDown />
+				</a>
+			</Link>
+			<Link href="/">
+				<a>
+					Short Films <MdKeyboardArrowDown />
+				</a>
 			</Link>
 			<Search>
 				<Input placeholder="Search..." />
-				<MdSearch size={20} />
+				<button>
+					<MdSearch size={25} />
+				</button>
 			</Search>
 		</Container>
 	);

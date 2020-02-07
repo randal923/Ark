@@ -909,6 +909,61 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/@jesstelford/react-portal-universal/PortalManager.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@jesstelford/react-portal-universal/PortalManager.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const PortalContext = React.createContext([]);
+exports.PortalConsumer = PortalContext.Consumer;
+exports.PortalManager = ({ children, portals }) => (React.createElement(PortalContext.Provider, { value: portals }, children));
+
+
+/***/ }),
+
+/***/ "./node_modules/@jesstelford/react-portal-universal/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@jesstelford/react-portal-universal/index.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+const ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+const PortalManager_1 = __webpack_require__(/*! ./PortalManager */ "./node_modules/@jesstelford/react-portal-universal/PortalManager.js");
+function canUseDOM() {
+    return !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+}
+function createUniversalPortal(children, selector, portals) {
+    if (!canUseDOM()) {
+        portals.push([children, selector]); // yes, mutation (҂◡_◡)
+        return null; // do not render anything on the server
+    }
+    // TODO: Do not cast to any when typings are updated for createPortal
+    return ReactDOM.createPortal(children, document.querySelector(selector));
+}
+function prepareClientPortals() {
+    if (canUseDOM()) {
+        Array.prototype.slice.call(document.querySelectorAll("[data-react-universal-portal]")).forEach(function (node) {
+            node.remove();
+        });
+    }
+}
+exports.prepareClientPortals = prepareClientPortals;
+exports.UniversalPortal = ({ children, selector }) => (React.createElement(PortalManager_1.PortalConsumer, null, (portals) => createUniversalPortal(children, selector, portals)));
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/library/fn/array/is-array.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/library/fn/array/is-array.js ***!
@@ -12507,6 +12562,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_app__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(next_app__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var next_redux_wrapper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! next-redux-wrapper */ "./node_modules/next-redux-wrapper/es6/index.js");
 /* harmony import */ var _redux__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./redux */ "./pages/redux/index.js");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @jesstelford/react-portal-universal */ "./node_modules/@jesstelford/react-portal-universal/index.js");
+/* harmony import */ var _jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_12__);
 
 
 
@@ -12521,6 +12578,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 
 
+
+
+if (true) {
+  // On the client, we have to run this once before React attempts a render.
+  // Here in _app is a great place to do it as this file is only required once,
+  // and right now (outside the constructor) is before React is invoked.
+  Object(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_12__["prepareClientPortals"])();
+}
 
 var Main =
 /*#__PURE__*/
@@ -12540,17 +12605,24 @@ function (_App) {
           Component = _this$props.Component,
           pageProps = _this$props.pageProps,
           store = _this$props.store;
-      return __jsx(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, __jsx(react_redux__WEBPACK_IMPORTED_MODULE_8__["Provider"], {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, __jsx("div", {
+        id: "modal",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }), __jsx(react_redux__WEBPACK_IMPORTED_MODULE_8__["Provider"], {
         store: store,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 27
         },
         __self: this
       }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 28
         },
         __self: this
       }))));
