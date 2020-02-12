@@ -3,47 +3,35 @@ import Link from 'next/link';
 
 // Components
 import Input from '../Input';
+import Logo from '../Logo';
 
 // Icons
 import { MdSearch, MdReorder, MdKeyboardArrowDown } from 'react-icons/md';
 
 // Style
-import { Container, Search } from './styles';
+import { Container, Search, Menu } from './styles';
 
 const SubMenu = () => {
 	return (
 		<Container>
 			<MdReorder size={25} />
-			<Link href="/">
-				<a>
-					Films <MdKeyboardArrowDown />
-				</a>
-			</Link>
-			<Link href="/">
-				<a>
-					Documentaries <MdKeyboardArrowDown />
-				</a>
-			</Link>
-			<Link href="/">
-				<a>
-					Animations <MdKeyboardArrowDown />
-				</a>
-			</Link>
-			<Link href="/">
-				<a>
-					TV Shows <MdKeyboardArrowDown />
-				</a>
-			</Link>
-			<Link href="/">
-				<a>
-					TV Shows <MdKeyboardArrowDown />
-				</a>
-			</Link>
-			<Link href="/">
-				<a>
-					Short Films <MdKeyboardArrowDown />
-				</a>
-			</Link>
+			<Menu>
+				<Link href="/">
+					<a>Home</a>
+				</Link>
+				<Link href="/">
+					<a>Documentaries</a>
+				</Link>
+				<Link href="/">
+					<a>Animations</a>
+				</Link>
+				<Link href="/">
+					<a>TV Shows</a>
+				</Link>
+				<Link href="/">
+					<a>Short Films</a>
+				</Link>
+			</Menu>
 			<Search>
 				<Input placeholder="Search..." />
 				<button>

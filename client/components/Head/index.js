@@ -22,6 +22,7 @@ const Head = props => (
 		<meta property="og:image" content={props.ogImage || defaultOGImage} />
 		<meta property="og:image:width" content="600" />
 		<meta property="og:image:height" content="600" />
+		<link rel="stylesheet" href="/style.css" />
 		{props.children}
 	</NextHead>
 );

@@ -25,6 +25,31 @@ export default createGlobalStyle`
 
         --warning: #f0af03;
         --warning-hover: #29323a;
+
+        --wrap-1 {
+            flex-basis: calc(100% - 50px);
+            max-width: calc(100% - 50px);
+        }
+
+        --wrap-2 { 
+        flex-basis: calc(50% - 50px);
+        max-width: calc(50% - 50px);
+        }
+
+        --wrap-3 { 
+            flex-basis: calc(32% - 50px);
+            max-width: calc(32% - 50px);
+        }
+
+        --wrap-4 { 
+            flex-basis: calc(25% - 50px);
+            max-width: calc(25% - 50px);
+        }
+        
+        --wrap-5 { 
+            flex-basis: calc(20% - 50px);
+            max-width: calc(20% - 50px);
+        }
     }
     *,
     *::after,
@@ -55,5 +80,7 @@ export default createGlobalStyle`
     ul {
         list-style: none;
     }
+
+
 
 `;

@@ -6,10 +6,9 @@ import Layout from '../containers/Layout';
 import GlobalStyle from '../global/styles';
 
 import Header from '../containers/Header';
-// import Banners from '../components/Header';
-// import Benificios from '../components/Header';
-// import InitialPage from '../components/Header';
-// import Footer from '../components/Footer';
+import Banners from '../containers/Banners';
+import Movies from '../containers/MovieList';
+import Footer from '../containers/Footer';
 
 class Index extends Component {
 	render() {
@@ -17,10 +16,9 @@ class Index extends Component {
 			<>
 				<Layout title="Ark - Find Everything">
 					<Header />
-					{/* <Banners />
-					<Benificios />
-					<InitialPage />
-					<Footer /> */}
+					<Banners />
+					<Movies />
+					<Footer />
 				</Layout>
 				<GlobalStyle />
 			</>
