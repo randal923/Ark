@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 
 import Layout from '../containers/Layout';
 
-// Styles
-import GlobalStyle from '../global/styles';
-
 import Header from '../containers/Header';
 import Banners from '../containers/Banners';
 import Movies from '../containers/MovieList';
@@ -20,7 +17,6 @@ class Index extends Component {
 					<Movies />
 					<Footer />
 				</Layout>
-				<GlobalStyle />
 			</>
 		);
 	}

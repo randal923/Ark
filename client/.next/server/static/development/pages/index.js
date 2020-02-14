@@ -210,31 +210,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/Footer/About/styles.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/components/Footer/About/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+ // Styles
 
 
-const About = () => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h3", {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 7
-  },
-  __self: undefined
-}, "Ark"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/footer/about",
+
+const About = () => __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Container"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 8
   },
   __self: undefined
-}, __jsx("span", {
+}, __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Ark"], {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 9
   },
   __self: undefined
-}, "About Ark")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+}, __jsx("h3", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 10
+  },
+  __self: undefined
+}, "Ark"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/about",
   __source: {
     fileName: _jsxFileName,
@@ -247,7 +249,7 @@ const About = () => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment,
     lineNumber: 12
   },
   __self: undefined
-}, "Terms of Sale")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+}, "About Ark")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/about",
   __source: {
     fileName: _jsxFileName,
@@ -260,26 +262,32 @@ const About = () => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment,
     lineNumber: 15
   },
   __self: undefined
-}, "Release Notes"))), __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h3", {
+}, "Terms of Sale")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/footer/about",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 19
-  },
-  __self: undefined
-}, "Avalon Corporation"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-  href: "/footer/corporation",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 20
+    lineNumber: 17
   },
   __self: undefined
 }, __jsx("span", {
   __source: {
     fileName: _jsxFileName,
+    lineNumber: 18
+  },
+  __self: undefined
+}, "Release Notes"))), __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Avalon"], {
+  __source: {
+    fileName: _jsxFileName,
     lineNumber: 21
   },
   __self: undefined
-}, "Legal Notices")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+}, __jsx("h3", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 22
+  },
+  __self: undefined
+}, "Avalon Corporation"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/corporation",
   __source: {
     fileName: _jsxFileName,
@@ -292,7 +300,7 @@ const About = () => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment,
     lineNumber: 24
   },
   __self: undefined
-}, "Terms of Service")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+}, "Legal Notices")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/corporation",
   __source: {
     fileName: _jsxFileName,
@@ -305,7 +313,7 @@ const About = () => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment,
     lineNumber: 27
   },
   __self: undefined
-}, "Privacy Policy")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+}, "Terms of Service")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/corporation",
   __source: {
     fileName: _jsxFileName,
@@ -318,54 +326,109 @@ const About = () => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment,
     lineNumber: 30
   },
   __self: undefined
-}, "Corporate Information"))), __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h3", {
+}, "Privacy Policy")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  href: "/footer/corporation",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 35
+    lineNumber: 32
+  },
+  __self: undefined
+}, __jsx("span", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 33
+  },
+  __self: undefined
+}, "Corporate Information"))), __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Customer"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 36
+  },
+  __self: undefined
+}, __jsx("h3", {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 37
   },
   __self: undefined
 }, "Customer Service"), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/customer",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 36
+    lineNumber: 38
   },
   __self: undefined
 }, __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 37
+    lineNumber: 39
   },
   __self: undefined
 }, "Help Center")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/customer",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 39
+    lineNumber: 41
   },
   __self: undefined
 }, __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 40
+    lineNumber: 42
   },
   __self: undefined
 }, "FAQs")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
   href: "/footer/customer",
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 42
+    lineNumber: 44
   },
   __self: undefined
 }, __jsx("span", {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 43
+    lineNumber: 45
   },
   __self: undefined
 }, "Constact Us"))));
 
 /* harmony default export */ __webpack_exports__["default"] = (About);
+
+/***/ }),
+
+/***/ "./components/Footer/About/styles.js":
+/*!*******************************************!*\
+  !*** ./components/Footer/About/styles.js ***!
+  \*******************************************/
+/*! exports provided: Container, Ark, Avalon, Customer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ark", function() { return Ark; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Avalon", function() { return Avalon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Customer", function() { return Customer; });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__Container",
+  componentId: "ba258a-0"
+})(["display:flex;margin:1rem;flex:1;span{:hover{cursor:pointer;color:var(--blue);}}"]);
+const Ark = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__Ark",
+  componentId: "ba258a-1"
+})(["display:flex;flex-direction:column;margin:1rem;"]);
+const Avalon = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__Avalon",
+  componentId: "ba258a-2"
+})(["display:flex;flex-direction:column;margin:1rem;"]);
+const Customer = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__Customer",
+  componentId: "ba258a-3"
+})(["display:flex;flex-direction:column;margin:1rem;"]);
+
 
 /***/ }),
 
@@ -380,39 +443,163 @@ const About = () => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment,
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Logo */ "./components/Logo/index.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles */ "./components/Footer/TradeMark/styles.js");
+/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Logo */ "./components/Logo/index.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/components/Footer/TradeMark/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
  // Components
 
 
 
 class TradeMark extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("span", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 10
-      },
-      __self: this
-    }, "\xA9 2013 Ark Inc. Trademakrs belong to their respective owners. All rights reserved."), __jsx("span", {
+    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_1__["Container"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 11
       },
       __self: this
-    }, "Prices are in US Dollars, and is applicable to the entire world."), __jsx(_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_1__["Text"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 12
       },
       __self: this
-    }));
+    }, __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      },
+      __self: this
+    }, "\xA9 2013 Ark Inc. Trademakrs belong to their respective owners. All rights reserved."), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      },
+      __self: this
+    }, "Prices are in US Dollars, and is applicable to the entire world.")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_1__["FooterLogo"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }, __jsx(_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      },
+      __self: this
+    }), __jsx("h1", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, "Ark")));
   }
 
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (TradeMark);
+
+/***/ }),
+
+/***/ "./components/Footer/TradeMark/styles.js":
+/*!***********************************************!*\
+  !*** ./components/Footer/TradeMark/styles.js ***!
+  \***********************************************/
+/*! exports provided: Container, FooterLogo, Text */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterLogo", function() { return FooterLogo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return Text; });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__Container",
+  componentId: "sc-1m6i744-0"
+})(["display:flex;flex:1;padding:1rem;border-left:1px solid #454545;img{height:8rem;width:8rem;}"]);
+const Text = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__Text",
+  componentId: "sc-1m6i744-1"
+})(["width:20rem;"]);
+const FooterLogo = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__FooterLogo",
+  componentId: "sc-1m6i744-2"
+})(["display:flex;align-items:center;"]);
+
+
+/***/ }),
+
+/***/ "./components/Genre/index.js":
+/*!***********************************!*\
+  !*** ./components/Genre/index.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/components/Genre/index.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+class Genre extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      genre: [{
+        id: 1,
+        name: 'Fantasy'
+      }, {
+        id: 2,
+        name: 'Action'
+      }, {
+        id: 3,
+        name: 'Horror'
+      }]
+    });
+  }
+
+  render() {
+    const {
+      genre
+    } = this.state;
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, genre.map(genre => {
+      return __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+        href: `/genre/${genre.name}?id=${genre.id}`,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
+        },
+        __self: this
+      }, __jsx("a", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        },
+        __self: this
+      }, genre.name));
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Genre);
 
 /***/ }),
 
@@ -1471,7 +1658,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Input */ "./components/Input/index.js");
-/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Logo */ "./components/Logo/index.js");
+/* harmony import */ var _components_Genre__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Genre */ "./components/Genre/index.js");
 /* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/md */ "react-icons/md");
 /* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles */ "./components/SubMenu/styles.js");
@@ -1507,95 +1694,120 @@ const SubMenu = () => {
       lineNumber: 18
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
+  }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_5__["DropDown"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: undefined
-  }, __jsx("a", {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20
     },
     __self: undefined
-  }, "Home")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: undefined
+  }, "Movies")), __jsx(_styles__WEBPACK_IMPORTED_MODULE_5__["DropDownContent"], {
+    className: "dropdown-content",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: undefined
+  }, __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: undefined
+  }, __jsx(_components_Genre__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: undefined
+  })))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 29
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 30
     },
     __self: undefined
   }, "Documentaries")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 32
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 33
     },
     __self: undefined
   }, "Animations")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 35
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 36
     },
     __self: undefined
   }, "TV Shows")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 38
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 39
     },
     __self: undefined
   }, "Short Films"))), __jsx(_styles__WEBPACK_IMPORTED_MODULE_5__["Search"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 42
     },
     __self: undefined
   }, __jsx(_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
     placeholder: "Search...",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 43
     },
     __self: undefined
   }), __jsx("button", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 44
     },
     __self: undefined
   }, __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_4__["MdSearch"], {
     size: 25,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 45
     },
     __self: undefined
   }))));
@@ -1609,7 +1821,7 @@ const SubMenu = () => {
 /*!**************************************!*\
   !*** ./components/SubMenu/styles.js ***!
   \**************************************/
-/*! exports provided: Container, Search, Menu */
+/*! exports provided: Container, Search, Menu, DropDown, DropDownContent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1617,6 +1829,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Search", function() { return Search; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Menu", function() { return Menu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropDown", function() { return DropDown; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropDownContent", function() { return DropDownContent; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -1632,6 +1846,14 @@ const Search = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.wit
   displayName: "styles__Search",
   componentId: "sc-1wi7dc9-2"
 })(["display:flex;align-items:center;position:relative;input{background:#2e2e2e;border:1px solid #232323;border-radius:1.5rem;width:20rem;height:2.5rem;color:white;padding:0 0 0 10px;}button{position:absolute;top:0rem;right:1rem;background:transparent;border:0;}"]);
+const DropDown = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
+  displayName: "styles__DropDown",
+  componentId: "sc-1wi7dc9-3"
+})(["position:relative;display:inline-block;:hover .dropdown-content{display:block;}"]);
+const DropDownContent = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
+  displayName: "styles__DropDownContent",
+  componentId: "sc-1wi7dc9-4"
+})(["display:none;position:absolute;background-color:var(--background);min-width:12rem;box-shadow:0px 0.8rem 1.6rem 0px rgba(0,0,0,0.2);padding:1.2rem 1.6rem;z-index:1;> div{display:flex;flex-direction:column;margin:0.5rem;}"]);
 
 
 /***/ }),
@@ -1901,7 +2123,7 @@ __webpack_require__.r(__webpack_exports__);
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-76c70j-0"
-})([""]);
+})(["display:flex;align-items:center;"]);
 
 
 /***/ }),
@@ -2062,9 +2284,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Head */ "./components/Head/index.js");
 /* harmony import */ var _Body__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Body */ "./containers/Layout/Body/index.js");
+/* harmony import */ var _global_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../global/styles */ "./global/styles.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/containers/Layout/index.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+ // Styles
 
 
 
@@ -2081,14 +2306,20 @@ const Layout = ({
   ogImage: image,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 6
+    lineNumber: 9
   },
   __self: undefined
 }), __jsx(_Body__WEBPACK_IMPORTED_MODULE_2__["default"], {
   children: children,
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 10
+  },
+  __self: undefined
+}), __jsx(_global_styles__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11
   },
   __self: undefined
 }));
@@ -2110,7 +2341,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Movies__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Movies */ "./components/Movies/index.js");
 /* harmony import */ var _components_Title__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Title */ "./components/Title/index.js");
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles */ "./containers/MovieList/styles.js");
+/* harmony import */ var _utilities_movies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/movies */ "./utilities/movies.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles */ "./containers/MovieList/styles.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/containers/MovieList/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  // Components
@@ -2118,51 +2350,30 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const MOVIES = [{
-  id: 1231495333,
-  images: ['/movies/harry_potter.jpg'],
-  title: "Harry Potter and the Philosopher's Stone",
-  genre: ['Fantasy'],
-  price: 15.99,
-  sale: 14.99
-}, {
-  id: 4234234222,
-  images: ['/movies/io.jpg'],
-  title: 'IO',
-  genre: ['Fantasy'],
-  price: 15.99,
-  sale: 14.99
-}, {
-  id: 1245645623,
-  images: ['/movies/matrix.jpg'],
-  title: 'The Matrix',
-  genre: ['Fantasy', 'Action'],
-  price: 15.99,
-  sale: 14.99
-}];
+
 
 class MovieList extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
-    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_3__["Container"], {
+    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_4__["Container"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 13
       },
       __self: this
     }, __jsx(_components_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      title: "Fantasy Movies",
+      title: "Action Movies",
       type: "h2",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 14
       },
       __self: this
     }), __jsx(_components_Movies__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      movies: MOVIES,
+      movies: _utilities_movies__WEBPACK_IMPORTED_MODULE_3__["MOVIES"],
       moviesPerLine: 4,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 15
       },
       __self: this
     }));
@@ -2211,6 +2422,7 @@ __webpack_require__.r(__webpack_exports__);
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
     html {
+        --background: #202225;
         --light-text-color: #fffcf3;
         --medium-text-color: #8c909a;
         --dark-text-color: #727377;
@@ -4233,15 +4445,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _containers_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../containers/Layout */ "./containers/Layout/index.js");
-/* harmony import */ var _global_styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../global/styles */ "./global/styles.js");
-/* harmony import */ var _containers_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/Header */ "./containers/Header/index.js");
-/* harmony import */ var _containers_Banners__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../containers/Banners */ "./containers/Banners/index.js");
-/* harmony import */ var _containers_MovieList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../containers/MovieList */ "./containers/MovieList/index.js");
-/* harmony import */ var _containers_Footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../containers/Footer */ "./containers/Footer/index.js");
+/* harmony import */ var _containers_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../containers/Header */ "./containers/Header/index.js");
+/* harmony import */ var _containers_Banners__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../containers/Banners */ "./containers/Banners/index.js");
+/* harmony import */ var _containers_MovieList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../containers/MovieList */ "./containers/MovieList/index.js");
+/* harmony import */ var _containers_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../containers/Footer */ "./containers/Footer/index.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
- // Styles
 
 
 
@@ -4255,45 +4464,81 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       title: "Ark - Find Everything",
       __source: {
         fileName: _jsxFileName,
+        lineNumber: 14
+      },
+      __self: this
+    }, __jsx(_containers_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }), __jsx(_containers_Banners__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }), __jsx(_containers_MovieList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      __source: {
+        fileName: _jsxFileName,
         lineNumber: 17
       },
       __self: this
-    }, __jsx(_containers_Header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), __jsx(_containers_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 18
       },
       __self: this
-    }), __jsx(_containers_Banners__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19
-      },
-      __self: this
-    }), __jsx(_containers_MovieList__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20
-      },
-      __self: this
-    }), __jsx(_containers_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    })), __jsx(_global_styles__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23
-      },
-      __self: this
-    }));
+    })));
   }
 
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
+
+/***/ }),
+
+/***/ "./utilities/movies.js":
+/*!*****************************!*\
+  !*** ./utilities/movies.js ***!
+  \*****************************/
+/*! exports provided: MOVIES */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MOVIES", function() { return MOVIES; });
+const MOVIES = [{
+  id: 1231495333,
+  images: ['/movies/harry_potter.jpg'],
+  title: "Harry Potter and the Philosopher's Stone",
+  genre: ['Fantasy'],
+  price: 15.99,
+  sale: 14.99
+}, {
+  id: 4234234222,
+  images: ['/movies/io.jpg'],
+  title: 'IO',
+  genre: ['Fantasy'],
+  price: 15.99,
+  sale: 14.99
+}, {
+  id: 1245645623,
+  images: ['/movies/matrix.jpg'],
+  title: 'The Matrix',
+  genre: ['Fantasy', 'Action'],
+  price: 15.99,
+  sale: 14.99
+}, {
+  id: 123149123124333,
+  images: ['/movies/harry_potter.jpg'],
+  title: "Harry Potter and the Philosopher's Stone",
+  genre: ['Fantasy'],
+  price: 15.99,
+  sale: 14.99
+}];
 
 /***/ }),
 

@@ -3,22 +3,29 @@ import Link from 'next/link';
 
 // Components
 import Input from '../Input';
-import Logo from '../Logo';
+import Genre from '../../components/Genre';
 
 // Icons
 import { MdSearch, MdReorder, MdKeyboardArrowDown } from 'react-icons/md';
 
 // Style
-import { Container, Search, Menu } from './styles';
+import { Container, Search, Menu, DropDown, DropDownContent } from './styles';
 
 const SubMenu = () => {
 	return (
 		<Container>
 			<MdReorder size={25} />
 			<Menu>
-				<Link href="/">
-					<a>Home</a>
-				</Link>
+				<DropDown>
+					<Link href="/">
+						<a>Movies</a>
+					</Link>
+					<DropDownContent className="dropdown-content">
+						<div>
+							<Genre />
+						</div>
+					</DropDownContent>
+				</DropDown>
 				<Link href="/">
 					<a>Documentaries</a>
 				</Link>

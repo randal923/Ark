@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 
+import Layout from '../../containers/Layout';
+import Header from '../../containers/Header';
+import MovieDetails from '../../containers/MovieDetails';
+import Footer from '../../containers/Footer';
+
 class Movie extends Component {
 	render() {
 		return (
-			<div>
-				<h2>Ark</h2>
-			</div>
+			<Layout title="Movie Name | Ark - Find Everything">
+				<Header />
+				<MovieDetails />
+				<Footer />
+			</Layout>
 		);
 	}
 }

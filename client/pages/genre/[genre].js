@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 
+import Layout from '../../containers/Layout';
+import Header from '../../containers/Header';
+import Banners from '../../containers/Banners';
+import MovieGenre from '../../containers/MovieGenre';
+import Footer from '../../containers/Footer';
+
 class Genre extends Component {
 	render() {
 		return (
-			<div>
-				<h2>Ark</h2>
-			</div>
+			<Layout title="Fantasy | Ark - Find Everything">
+				<Header />
+				<Banners />
+				<MovieGenre />
+				<Footer />
+			</Layout>
 		);
 	}
 }

@@ -73,4 +73,28 @@ const Search = styled.span`
 	}
 `;
 
-export { Container, Search, Menu };
+const DropDown = styled.span`
+	position: relative;
+	display: inline-block;
+
+	:hover .dropdown-content {
+		display: block;
+	}
+`;
+const DropDownContent = styled.span`
+	display: none;
+	position: absolute;
+	background-color: var(--background);
+	min-width: 12rem;
+	box-shadow: 0px 0.8rem 1.6rem 0px rgba(0, 0, 0, 0.2);
+	padding: 1.2rem 1.6rem;
+	z-index: 1;
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		margin: 0.5rem;
+	}
+`;
+
+export { Container, Search, Menu, DropDown, DropDownContent };

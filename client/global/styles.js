@@ -4,6 +4,7 @@ export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
     html {
+        --background: #202225;
         --light-text-color: #fffcf3;
         --medium-text-color: #8c909a;
         --dark-text-color: #727377;
