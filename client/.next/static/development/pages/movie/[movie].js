@@ -1377,11 +1377,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginText", function() { return LoginText; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Country", function() { return Country; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
+
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "styles__Container",
   componentId: "x5edgr-0"
-})(["display:flex;align-items:center;width:29.8rem;background:#353535;padding-left:1rem;border-radius:0.4rem;justify-self:end;margin-right:2rem;a{color:var(--blue);text-decoration:none;:hover{color:var(--light-text-color);}}@media (max-width:37.5em){display:none;}"]);
+})(["display:flex;align-items:center;width:29.8rem;background:#353535;padding-left:1rem;border-radius:0.4rem;justify-self:end;margin-right:2rem;a{color:var(--blue);text-decoration:none;:hover{color:var(--light-text-color);}}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 var LoginText = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "styles__LoginText",
   componentId: "x5edgr-1"
@@ -1532,11 +1534,13 @@ var Menu = function Menu() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
+
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-1oqebxa-0"
-})(["a:first-child{margin-left:4.5rem;}a{font-size:2rem;color:#b3b3b3;text-decoration:none;margin-left:2rem;:hover{text-shadow:0px 0px 16px white;color:white;}}@media (max-width:37.5em){display:none;}"]);
+})(["a:first-child{margin-left:4.5rem;}a{font-size:2rem;color:#b3b3b3;text-decoration:none;margin-left:2rem;:hover{text-shadow:0px 0px 16px white;color:white;}}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 
 
 /***/ }),
@@ -2334,11 +2338,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropDownContent", function() { return DropDownContent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MobileSubMenu", function() { return MobileSubMenu; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
+
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-1wi7dc9-0"
-})(["background:linear-gradient(#393939,#424242);min-width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:grid;align-items:center;grid-template-columns:1fr 15fr 1fr;align-items:center;justify-items:center;img{display:none;}svg{color:var(--blue);}@media (max-width:37.5em){grid-template-columns:1fr 1fr;align-self:center;border-radius:0;border-width:0;svg{justify-self:start;}}"]);
+})(["background:linear-gradient(#393939,#424242);min-width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:grid;align-items:center;grid-template-columns:1fr 15fr 1fr;align-items:center;justify-items:center;img{display:none;}svg{color:var(--blue);:hover{cursor:pointer;color:white;}}@media (max-width:", "){grid-template-columns:1fr 1fr;align-self:center;border-radius:0;border-width:0;svg{justify-self:start;}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 var Menu = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Menu",
   componentId: "sc-1wi7dc9-1"
@@ -2346,7 +2352,7 @@ var Menu = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withCon
 var Search = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "styles__Search",
   componentId: "sc-1wi7dc9-2"
-})(["display:flex;align-items:center;position:relative;input{background:#2e2e2e;border:1px solid #232323;border-radius:1.5rem;width:20rem;height:2.5rem;color:white;padding:0 0 0 10px;}button{position:absolute;top:0rem;right:1rem;background:transparent;border:0;}@media (max-width:37.5em){justify-self:end;}"]);
+})(["display:flex;align-items:center;position:relative;input{background:#2e2e2e;border:1px solid #232323;border-radius:1.5rem;width:20rem;height:2.5rem;color:white;padding:0 0 0 10px;}button{position:absolute;top:0rem;right:1rem;background:transparent;border:0;}@media (max-width:", "){justify-self:end;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 var DropDown = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "styles__DropDown",
   componentId: "sc-1wi7dc9-3"
@@ -2358,7 +2364,7 @@ var DropDownContent = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].
 var MobileSubMenu = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__MobileSubMenu",
   componentId: "sc-1wi7dc9-5"
-})(["display:none;@media (max-width:37.5em){display:block;display:flex;flex-direction:column;a{font-size:1.5rem;color:var(--light-text-color);width:100%;background:#393939;text-decoration:none;padding:0.7rem;border-bottom:1px solid rgba(69,69,69,0.4);:hover,:focus{color:white;background:var(--blue);}}}"]);
+})(["display:none;@media (max-width:", "){display:block;display:flex;flex-direction:column;a{font-size:1.5rem;color:var(--light-text-color);width:100%;background:#393939;text-decoration:none;padding:0.7rem;border-bottom:1px solid rgba(69,69,69,0.4);:hover,:focus{color:white;background:var(--blue);}}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 
 
 /***/ }),
@@ -2876,6 +2882,25 @@ function _templateObject() {
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
 
+
+/***/ }),
+
+/***/ "./global/breakpoints.js":
+/*!*******************************!*\
+  !*** ./global/breakpoints.js ***!
+  \*******************************/
+/*! exports provided: breakPoints */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "breakPoints", function() { return breakPoints; });
+var breakPoints = {
+  mobile: '576px',
+  tablet: '768px',
+  desktop: '992px',
+  wide: '1200px'
+};
 
 /***/ }),
 

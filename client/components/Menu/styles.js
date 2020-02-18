@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { breakPoints } from '../../global/breakpoints';
+
 const Container = styled.div`
 	a:first-child {
 		margin-left: 4.5rem;
@@ -16,7 +18,7 @@ const Container = styled.div`
 		}
 	}
 
-	@media (max-width: 37.5em) {
+	@media (max-width: ${breakPoints.mobile}) {
 		display: none;
 	} /* 600px */
 `;

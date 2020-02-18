@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { breakPoints } from '../../global/breakpoints';
+
 const Container = styled.span`
 	display: flex;
 	align-items: center;
@@ -17,7 +19,7 @@ const Container = styled.span`
 		}
 	}
 
-	@media (max-width: 37.5em) {
+	@media (max-width: ${breakPoints.mobile}) {
 		display: none;
 	} /* 600px */
 `;

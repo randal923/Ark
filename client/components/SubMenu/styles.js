@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../global/breakpoints';
 
 const Container = styled.div`
 	background: linear-gradient(#393939, #424242);
@@ -21,9 +22,13 @@ const Container = styled.div`
 	}
 	svg {
 		color: var(--blue);
+		:hover {
+			cursor: pointer;
+			color: white;
+		}
 	}
 
-	@media (max-width: 37.5em) {
+	@media (max-width: ${breakPoints.mobile}) {
 		grid-template-columns: 1fr 1fr;
 		align-self: center;
 		border-radius: 0;
@@ -76,7 +81,7 @@ const Search = styled.span`
 		border: 0;
 	}
 
-	@media (max-width: 37.5em) {
+	@media (max-width: ${breakPoints.mobile}) {
 		justify-self: end;
 	} /* 600px */
 `;
@@ -107,8 +112,7 @@ const DropDownContent = styled.span`
 
 const MobileSubMenu = styled.div`
 	display: none;
-
-	@media (max-width: 37.5em) {
+	@media (max-width: ${breakPoints.mobile}) {
 		display: block;
 		display: flex;
 		flex-direction: column;
