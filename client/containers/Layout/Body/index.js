@@ -1,5 +1,7 @@
 import React from 'react';
 
-const Body = ({ children }) => <>{children}</>;
+import { Container } from './styles';
+
+const Body = ({ children }) => <Container>{children}</Container>;
 
 export default Body;

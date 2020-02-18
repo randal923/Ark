@@ -12605,24 +12605,31 @@ function (_App) {
           Component = _this$props.Component,
           pageProps = _this$props.pageProps,
           store = _this$props.store;
-      return __jsx(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, __jsx("div", {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, __jsx("span", {
         id: "modal",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 26
         },
         __self: this
-      }), __jsx(react_redux__WEBPACK_IMPORTED_MODULE_8__["Provider"], {
-        store: store,
+      }), __jsx("span", {
+        id: "mobileModal",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 27
         },
         __self: this
-      }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, pageProps, {
+      }), __jsx(react_redux__WEBPACK_IMPORTED_MODULE_8__["Provider"], {
+        store: store,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 28
+        },
+        __self: this
+      }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, pageProps, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
         },
         __self: this
       }))));

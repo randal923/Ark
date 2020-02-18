@@ -1,1 +1,0 @@
-{"version":3,"file":"static/webpack/static/development/pages/index.js.1a3cd9eac419eb4798a8.hot-update.js","sources":["webpack:///./components/Movies/styles.js"],"sourcesContent":["import styled from 'styled-components';\n\nconst Container = styled.section``;\n\nexport { Container };\n"],"mappings":";;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAEA;AAAA;AAAA;AAAA;;;;;A","sourceRoot":""}

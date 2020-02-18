@@ -15,6 +15,10 @@ const Container = styled.div`
 			color: white;
 		}
 	}
+
+	@media (max-width: 37.5em) {
+		display: none;
+	} /* 600px */
 `;
 
 export { Container };

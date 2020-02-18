@@ -23,7 +23,8 @@ class Main extends App {
 		const { Component, pageProps, store } = this.props;
 		return (
 			<>
-				<div id="modal" />
+				<span id="modal" />
+				<span id="mobileModal" />
 				<Provider store={store}>
 					<Component {...pageProps} />
 				</Provider>

@@ -17,7 +17,7 @@ class Genre extends Component {
 			<>
 				{genre.map(genre => {
 					return (
-						<Link href={`/genre/${genre.name}?id=${genre.id}`}>
+						<Link href={`/genre/${genre.name}?id=${genre.id}`} key={genre.id}>
 							<a>{genre.name}</a>
 						</Link>
 					);

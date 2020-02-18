@@ -16,6 +16,10 @@ const Container = styled.span`
 			color: var(--light-text-color);
 		}
 	}
+
+	@media (max-width: 37.5em) {
+		display: none;
+	} /* 600px */
 `;
 
 const LoginText = styled.span`

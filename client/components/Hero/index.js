@@ -6,10 +6,10 @@ import Title from '../Title';
 import Button from '../Button';
 
 // Styles
-import { Container, Star, Header, Info, Cast, Details, Links } from './styles';
+import { Container, Star, Header, Info, Cast, Details, Links, ButtonContainer, Payment } from './styles';
 import { MdStar } from 'react-icons/md';
 
-const IMAGES = ['/movies/harry_potter.jpg'];
+const IMAGES = ['/movies/Untitled-1.jpg'];
 
 class Hero extends Component {
 	state = {
@@ -27,7 +27,7 @@ class Hero extends Component {
 		return (
 			<>
 				<Header>
-					<Title type="h1" title="Harry Potter" />
+					<Title type="h1" title="Harry Potter and The Chamber of Secrets" />
 					<span>1953</span>
 					<Star>
 						<MdStar size={63} />
@@ -42,31 +42,42 @@ class Hero extends Component {
 				</Header>
 				<Info>
 					<span>PG</span>
-					<span>111 Minutes - </span>
-					<span>Drama - </span>
-					<span>January 31 1523 - </span>
+					<span>111 Minutes</span> - <a href="/">Drama</a> - <a href="/">January 31 1523</a> -{' '}
 					<span>USA</span>
 				</Info>
-				<p>
-					A jaded nightclub owner in war-torn Casablanca, whose loyalties are put to the test when his old
-					flame, Ingrid Bergman, reappears to seek Rick's help in escaping from the Nazis.
-				</p>
+				<ButtonContainer>
+					<p>
+						An ancient prophecy seems to be coming true when a mysterious presence begins stalking the
+						corridors of a school of magic and leaving its victims paralyzed.
+					</p>
+					<Payment>
+						<button>BUY FOR US$15.99</button>
+						<button>RENT FOR US$4.99</button>
+						<span>30 days rental period</span>
+					</Payment>
+				</ButtonContainer>
 				<Cast>
-					<span>Starring: Harry Potter</span>
-					<span>Directors: Harry Potter</span>
-					<span>Writers: Harry Potter</span>
-					<span>Subtitles: Harry Potter</span>
+					<span>
+						Director: <a href="/">Chris Columbus</a>
+					</span>
+					<span>
+						Starring:{' '}
+						<a href="/">
+							Daniel Radcliffe Rupert Grint Emma Watson Kenneth Branagh John Cleese Robbie Coltrane
+							Warwick Davis Richard Griffiths Richard Harris Jason Isaacs Alan Rickman Fiona Shaw Maggie
+							Smith Julie Walters
+						</a>
+					</span>
+					<span>
+						Writers: <a href="/">Harry Potter</a>
+					</span>
+					<span>
+						Actors: <a href="/">Harry Potter</a>
+					</span>
+					<span>
+						Subtitles: <a href="/">English, Portuguese, Spanish, Greek</a>
+					</span>
 				</Cast>
-			</>
-		);
-	}
-
-	renderPaymentSection() {
-		return (
-			<>
-				<Button type="ark" label="Buy for US$ 15.99" />
-				<Button type="ark" label="Rent for US$ 15.99" />
-				<span>30 days rental period</span>
 			</>
 		);
 	}
@@ -75,10 +86,7 @@ class Hero extends Component {
 		return (
 			<Container>
 				{this.renderImage()}
-				<Details>
-					{this.renderDetails()}
-					{this.renderPaymentSection()}
-				</Details>
+				<Details>{this.renderDetails()}</Details>
 			</Container>
 		);
 	}

@@ -440,24 +440,31 @@ class Main extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       pageProps,
       store
     } = this.props;
-    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("span", {
       id: "modal",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 26
       },
       __self: this
-    }), __jsx(react_redux__WEBPACK_IMPORTED_MODULE_1__["Provider"], {
-      store: store,
+    }), __jsx("span", {
+      id: "mobileModal",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 27
       },
       __self: this
-    }, __jsx(Component, _extends({}, pageProps, {
+    }), __jsx(react_redux__WEBPACK_IMPORTED_MODULE_1__["Provider"], {
+      store: store,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28
+      },
+      __self: this
+    }, __jsx(Component, _extends({}, pageProps, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
       },
       __self: this
     }))));

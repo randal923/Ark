@@ -76,6 +76,9 @@ export default createGlobalStyle`
         font-size: 1.2rem;
         color: #fffcf3;
         -webkit-font-smoothing: antialiased !important;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
     }
 
     ul {
