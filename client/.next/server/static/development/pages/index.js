@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1175,100 +1175,96 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/MobileModal/styles.js");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Search */ "./components/Search/index.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles */ "./components/MobileModal/styles.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/components/MobileModal/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+ // Components
 
  // Style
 
 
 
-const MobileModal = props => {
-  return __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Container"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: undefined
-  }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["BackDrop"], {
-    onClick: () => props.handleMobileModal(),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: undefined
-  }), __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Content"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
+const MobileModal = () => {
+  return __jsx(_styles__WEBPACK_IMPORTED_MODULE_3__["Content"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
     },
     __self: undefined
-  }, __jsx("a", {
+  }, __jsx(_Search__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
+    },
+    __self: undefined
+  }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: undefined
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
     },
     __self: undefined
   }, "Login")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 18
     },
     __self: undefined
   }, "Store")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 20
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 21
     },
     __self: undefined
   }, "Library")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 23
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 24
     },
     __self: undefined
   }, "Community")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 26
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 27
     },
     __self: undefined
-  }, "Support"))));
+  }, "Support")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MobileModal);
@@ -1279,29 +1275,20 @@ const MobileModal = props => {
 /*!******************************************!*\
   !*** ./components/MobileModal/styles.js ***!
   \******************************************/
-/*! exports provided: Container, Content, BackDrop */
+/*! exports provided: Content */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Content", function() { return Content; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BackDrop", function() { return BackDrop; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
-const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
-  displayName: "styles__Container",
-  componentId: "cgmaqc-0"
-})([""]);
-const BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
-  displayName: "styles__BackDrop",
-  componentId: "cgmaqc-1"
-})(["position:absolute;top:0;bottom:0;width:100%;min-height:100%;z-index:3;background-color:rgba(0,0,0,0.4);"]);
+const fadeIn = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])(["from{min-height:0%;}to{min-height:100vh;}"]);
 const Content = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Content",
-  componentId: "cgmaqc-2"
-})(["position:absolute;display:flex;flex-direction:column;width:20rem;min-height:100%;z-index:4;border-right:1px solid rgba(0,165,255,0.3);background:linear-gradient(#1f1f1f,#242424);transition:background 0.25s,color 0.25s;a{text-decoration:none;color:var(--ligh-text-color);font-size:1.7rem;padding:0.5rem 1rem;width:100%;border-bottom:1px solid rgba(69,69,69,0.2);:hover,:focus{cursor:pointer;color:var(--blue);}}"]);
+  componentId: "cgmaqc-0"
+})(["position:absolute;display:flex;flex-direction:column;width:100%;margin-top:35px;z-index:4;background:rgba(0,0,0,0.92);animation:", " 0.3s linear;animation-fill-mode:forwards;a{text-decoration:none;color:var(--ligh-text-color);font-size:1.7rem;padding:0.5rem 1rem;width:100%;border-bottom:1px solid rgba(69,69,69,0.2);:hover,:focus{cursor:pointer;color:var(--blue);}}input{border-radius:3px;width:100%;margin:10px;}button{top:10px;right:15px;}"], fadeIn);
 
 
 /***/ }),
@@ -1832,7 +1819,7 @@ class Search extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   }
 
   render() {
-    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["SearchContainer"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 19
@@ -1844,7 +1831,7 @@ class Search extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       onChange: e => this.setState({
         search: e.target.value
       }),
-      placeholder: "Search for movies here...",
+      placeholder: "Search...",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
@@ -1877,37 +1864,19 @@ class Search extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 /*!*************************************!*\
   !*** ./components/Search/styles.js ***!
   \*************************************/
-/*! exports provided: Container */
+/*! exports provided: SearchContainer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchContainer", function() { return SearchContainer; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 
-const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div`
-	display: flex;
-	align-items: center;
-	position: relative;
-
-	input {
-		background: #2e2e2e;
-		border: 1px solid #232323;
-		border-radius: 1.5rem;
-		width: 20rem;
-		height: 2.5rem;
-		color: white;
-		padding: 0 0 0 10px;
-	}
-	button {
-		position: absolute;
-		top: 0rem;
-		right: 1rem;
-		background: transparent;
-		border: 0;
-	}
-`;
+const SearchContainer = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__SearchContainer",
+  componentId: "ol27te-0"
+})(["display:flex;align-items:center;position:relative;> input{background:#2e2e2e;border:1px solid #232323;border-radius:15px;width:200px;height:25px;color:white;padding:0 0 0 10px;}> button{position:absolute;top:0;right:10px;background:transparent;border:0;> svg{color:var(--blue);}}"]);
 
 
 /***/ }),
@@ -2093,7 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-1wi7dc9-0"
-})(["background:linear-gradient(#393939,#424242);min-width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:grid;align-items:center;grid-template-columns:1fr 15fr 1fr;align-items:center;justify-items:center;img{display:none;}svg{color:var(--blue);:hover{cursor:pointer;color:white;}}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
+})(["background:linear-gradient(#393939,#424242);min-width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:grid;grid-template-columns:1fr 15fr 1fr;align-items:center;justify-items:center;img{display:none;}svg{color:var(--blue);:hover{cursor:pointer;color:white;}}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 const Menu = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Menu",
   componentId: "sc-1wi7dc9-1"
@@ -2399,10 +2368,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Menu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Menu */ "./components/Menu/index.js");
 /* harmony import */ var _components_SubMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/SubMenu */ "./components/SubMenu/index.js");
 /* harmony import */ var _components_MobileModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/MobileModal */ "./components/MobileModal/index.js");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/md */ "react-icons/md");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-icons/ai */ "react-icons/ai");
-/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_icons_ai__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/ai */ "react-icons/ai");
+/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_icons_ai__WEBPACK_IMPORTED_MODULE_8__);
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/containers/Header/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2417,7 +2384,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
  // Icons
-
 
 
 
@@ -2438,32 +2404,37 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   renderMobileHeader() {
     return __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["MobileLogoStyle"], {
+      show: this.state.showMobileModal,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["MenuBurger"], {
+      onClick: () => this.handleMobileModal(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 28
       },
       __self: this
-    }, __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_8__["MdReorder"], {
-      size: 25,
-      onClick: () => this.setState({
-        showMobileModal: !this.state.showMobileModal
-      }),
+    }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Burger"], {
+      show: this.state.showMobileModal,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29
       },
       __self: this
-    }), __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: this
-    }), __jsx(react_icons_ai__WEBPACK_IMPORTED_MODULE_9__["AiOutlineShopping"], {
-      size: 25,
+    })), __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 31
+      },
+      __self: this
+    }), __jsx(react_icons_ai__WEBPACK_IMPORTED_MODULE_8__["AiOutlineShopping"], {
+      size: 25,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
       },
       __self: this
     }));
@@ -2473,57 +2444,56 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     return __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Container"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 39
       },
       __self: this
     }, __jsx(_components_Login__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 40
       },
       __self: this
     }), __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["LogoStyle"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 41
       },
       __self: this
     }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 42
       },
       __self: this
     }), __jsx("h1", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 43
       },
       __self: this
     }, "Ark"), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_5__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 44
       },
       __self: this
     })), __jsx(_components_SubMenu__WEBPACK_IMPORTED_MODULE_6__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 45
+        lineNumber: 46
       },
       __self: this
     }), this.renderMobileHeader(), this.state.showMobileModal && __jsx(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_1__["UniversalPortal"], {
       selector: "#mobileModal",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 49
       },
       __self: this
     }, __jsx(_components_MobileModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      handleMobileModal: () => this.handleMobileModal(),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 50
       },
       __self: this
     })));
@@ -2543,7 +2513,7 @@ class Header extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 /*!*************************************!*\
   !*** ./containers/Header/styles.js ***!
   \*************************************/
-/*! exports provided: Container, LogoStyle, MobileLogoStyle */
+/*! exports provided: Container, LogoStyle, MobileLogoStyle, MenuBurger, Burger */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2551,11 +2521,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogoStyle", function() { return LogoStyle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MobileLogoStyle", function() { return MobileLogoStyle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuBurger", function() { return MenuBurger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Burger", function() { return Burger; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
 
 
+const fadeOut = styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"]`
+	from {
+		opacity: 100%;
+	}
+
+  to {
+	opacity: 0%;
+  }
+`;
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Container",
   componentId: "w2b10l-0"
@@ -2567,7 +2548,23 @@ const LogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.w
 const MobileLogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__MobileLogoStyle",
   componentId: "w2b10l-2"
-})(["display:none;@media (max-width:", "){display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.92);img{height:30px;width:30px;}svg{margin-right:10px;margin-left:10px;:nth-child(3){text-shadow:0px 0px 1px red;color:white;}}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
+})(["display:none;@media (max-width:", "){display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.92);img{height:30px;width:30px;}svg{margin-right:10px;margin-left:10px;", "}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile, props => {
+  if (props.show) {
+    return Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])([":nth-child(3){animation:", " 0.2s linear;animation-fill-mode:forwards;}"], fadeOut);
+  }
+});
+const MenuBurger = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__MenuBurger",
+  componentId: "w2b10l-3"
+})(["position:relative;display:flex;justify-content:center;align-items:center;width:25px;height:25px;cursor:pointer;transition:all 0.4s ease-in-out;margin-left:10px;"]);
+const Burger = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
+  displayName: "styles__Burger",
+  componentId: "w2b10l-4"
+})(["width:15px;height:1px;background:transparent;transition:all 0.4s ease-in-out;::before,::after{content:'';position:absolute;width:15px;height:1px;background:white;transition:all 0.4s ease-in-out;}::before{transform:translateY(-3px);}::after{transform:translateY(3px);}", ""], props => {
+  if (props.show) {
+    return Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])(["background:transparent;::before{transform:rotate(45deg);}::after{transform:rotate(-45deg);}"]);
+  }
+});
 
 
 /***/ }),
@@ -4919,7 +4916,7 @@ const MOVIES = [{
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

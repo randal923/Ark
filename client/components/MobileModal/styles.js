@@ -1,27 +1,26 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const Container = styled.div``;
+const fadeIn = keyframes`
+	from {
+		min-height: 0%;
+	}
 
-const BackDrop = styled.div`
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	min-height: 100%;
-	z-index: 3;
-	background-color: rgba(0, 0, 0, 0.4);
+	to {
+		min-height: 100vh;
+	}
 `;
 
 const Content = styled.div`
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	width: 20rem;
-	min-height: 100%;
+	width: 100%;
+	margin-top: 35px;
 	z-index: 4;
-	border-right: 1px solid rgba(0, 165, 255, 0.3);
-	background: linear-gradient(#1f1f1f, #242424);
-	transition: background 0.25s, color 0.25s;
+	background: rgba(0, 0, 0, 0.92);
+	animation: ${fadeIn} 0.3s linear;
+	animation-fill-mode: forwards;
+
 	a {
 		text-decoration: none;
 		color: var(--ligh-text-color);
@@ -35,6 +34,16 @@ const Content = styled.div`
 			color: var(--blue);
 		}
 	}
+
+	input {
+		border-radius: 3px;
+		width: 100%;
+		margin: 10px;
+	}
+	button {
+		top: 10px;
+		right: 15px;
+	}
 `;
 
-export { Container, Content, BackDrop };
+export { Content };

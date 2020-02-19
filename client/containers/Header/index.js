@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { UniversalPortal } from '@jesstelford/react-portal-universal';
 
-import { Container, LogoStyle, MobileLogoStyle } from './styles';
+import { Container, LogoStyle, MobileLogoStyle, MenuBurger, Burger } from './styles';
 
 // Components
 import Logo from '../../components/Logo';
@@ -11,7 +11,6 @@ import SubMenu from '../../components/SubMenu';
 import MobileModal from '../../components/MobileModal';
 
 // Icons
-import { MdSearch, MdReorder } from 'react-icons/md';
 import { AiOutlineShopping } from 'react-icons/ai';
 
 class Header extends Component {
@@ -25,8 +24,10 @@ class Header extends Component {
 
 	renderMobileHeader() {
 		return (
-			<MobileLogoStyle>
-				<MdReorder size={25} onClick={() => this.setState({ showMobileModal: !this.state.showMobileModal })} />
+			<MobileLogoStyle show={this.state.showMobileModal}>
+				<MenuBurger onClick={() => this.handleMobileModal()}>
+					<Burger show={this.state.showMobileModal}></Burger>
+				</MenuBurger>
 				<Logo />
 				<AiOutlineShopping size={25} />
 			</MobileLogoStyle>
@@ -46,7 +47,7 @@ class Header extends Component {
 				{this.renderMobileHeader()}
 				{this.state.showMobileModal && (
 					<UniversalPortal selector="#mobileModal">
-						<MobileModal handleMobileModal={() => this.handleMobileModal()} />
+						<MobileModal />
 					</UniversalPortal>
 				)}
 			</Container>

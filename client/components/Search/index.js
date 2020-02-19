@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { MdSearch } from 'react-icons/md';
 
 // Style
-import { Container } from './styles';
+import { SearchContainer } from './styles';
 
 class Search extends Component {
 	state = {
@@ -16,17 +16,17 @@ class Search extends Component {
 	}
 	render() {
 		return (
-			<Container>
+			<SearchContainer>
 				<input
 					name="search"
 					value={this.state.search}
 					onChange={e => this.setState({ search: e.target.value })}
-					placeholder="Search for movies here..."
+					placeholder="Search..."
 				/>
 				<button onClick={() => this.searchSubmit()}>
 					<MdSearch size={25} />
 				</button>
-			</Container>
+			</SearchContainer>
 		);
 	}
 }

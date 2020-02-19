@@ -1,1 +1,0 @@
-{"version":3,"file":"static/webpack/static/development/pages/index.js.02b7e1e03087200e915a.hot-update.js","sources":["webpack:///./containers/Layout/Body/styles.js"],"sourcesContent":["import styled, { css } from 'styled-components';\n\nconst Container = styled.div``;\nexport { Container };\n"],"mappings":";;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAEA;AAAA;AAAA;AAAA;;;;;A","sourceRoot":""}

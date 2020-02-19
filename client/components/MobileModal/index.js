@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
-// Style
-import { Container, Content, BackDrop } from './styles';
+// Components
+import Search from '../Search';
 
-const MobileModal = props => {
+// Style
+import { Content } from './styles';
+
+const MobileModal = () => {
 	return (
-		<Container>
-			<BackDrop onClick={() => props.handleMobileModal()} />
-			<Content>
-				<Link href="/">
-					<a>Login</a>
-				</Link>
-				<Link href="/">
-					<a>Store</a>
-				</Link>
-				<Link href="/">
-					<a>Library</a>
-				</Link>
-				<Link href="/">
-					<a>Community</a>
-				</Link>
-				<Link href="/">
-					<a>Support</a>
-				</Link>
-			</Content>
-		</Container>
+		<Content>
+			<Search />
+			<Link href="/">
+				<a>Login</a>
+			</Link>
+			<Link href="/">
+				<a>Store</a>
+			</Link>
+			<Link href="/">
+				<a>Library</a>
+			</Link>
+			<Link href="/">
+				<a>Community</a>
+			</Link>
+			<Link href="/">
+				<a>Support</a>
+			</Link>
+		</Content>
 	);
 };
 

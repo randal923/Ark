@@ -1169,102 +1169,96 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./components/MobileModal/styles.js");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Search */ "./components/Search/index.js");
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles */ "./components/MobileModal/styles.js");
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/components/MobileModal/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+ // Components
 
  // Style
 
 
 
-var MobileModal = function MobileModal(props) {
-  return __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Container"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: this
-  }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["BackDrop"], {
-    onClick: function onClick() {
-      return props.handleMobileModal();
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  }), __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Content"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: this
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/",
+var MobileModal = function MobileModal() {
+  return __jsx(_styles__WEBPACK_IMPORTED_MODULE_3__["Content"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
     },
     __self: this
-  }, __jsx("a", {
+  }, __jsx(_Search__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
+    },
+    __self: this
+  }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: "/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
     },
     __self: this
   }, "Login")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 18
     },
     __self: this
   }, "Store")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 20
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 21
     },
     __self: this
   }, "Library")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 23
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 24
     },
     __self: this
   }, "Community")), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 26
     },
     __self: this
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 27
     },
     __self: this
-  }, "Support"))));
+  }, "Support")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MobileModal);
@@ -1275,28 +1269,19 @@ var MobileModal = function MobileModal(props) {
 /*!******************************************!*\
   !*** ./components/MobileModal/styles.js ***!
   \******************************************/
-/*! exports provided: Container, Content, BackDrop */
+/*! exports provided: Content */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Content", function() { return Content; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BackDrop", function() { return BackDrop; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
-  displayName: "styles__Container",
-  componentId: "cgmaqc-0"
-})([""]);
-var BackDrop = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
-  displayName: "styles__BackDrop",
-  componentId: "cgmaqc-1"
-})(["position:absolute;top:0;bottom:0;width:100%;min-height:100%;z-index:3;background-color:rgba(0,0,0,0.4);"]);
+var fadeIn = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])(["from{min-height:0%;}to{min-height:100vh;}"]);
 var Content = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Content",
-  componentId: "cgmaqc-2"
-})(["position:absolute;display:flex;flex-direction:column;width:20rem;min-height:100%;z-index:4;border-right:1px solid rgba(0,165,255,0.3);background:linear-gradient(#1f1f1f,#242424);transition:background 0.25s,color 0.25s;a{text-decoration:none;color:var(--ligh-text-color);font-size:1.7rem;padding:0.5rem 1rem;width:100%;border-bottom:1px solid rgba(69,69,69,0.2);:hover,:focus{cursor:pointer;color:var(--blue);}}"]);
+  componentId: "cgmaqc-0"
+})(["position:absolute;display:flex;flex-direction:column;width:100%;margin-top:35px;z-index:4;background:rgba(0,0,0,0.92);animation:", " 0.3s linear;animation-fill-mode:forwards;a{text-decoration:none;color:var(--ligh-text-color);font-size:1.7rem;padding:0.5rem 1rem;width:100%;border-bottom:1px solid rgba(69,69,69,0.2);:hover,:focus{cursor:pointer;color:var(--blue);}}input{border-radius:3px;width:100%;margin:10px;}button{top:10px;right:15px;}"], fadeIn);
 
 
 /***/ }),
@@ -1946,7 +1931,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      return __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["Container"], {
+      return __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["SearchContainer"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 19
@@ -1960,7 +1945,7 @@ function (_Component) {
             search: e.target.value
           });
         },
-        placeholder: "Search for movies here...",
+        placeholder: "Search...",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 20
@@ -1997,28 +1982,18 @@ function (_Component) {
 /*!*************************************!*\
   !*** ./components/Search/styles.js ***!
   \*************************************/
-/*! exports provided: Container */
+/*! exports provided: SearchContainer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchContainer", function() { return SearchContainer; });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-
-function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n\tdisplay: flex;\n\talign-items: center;\n\tposition: relative;\n\n\tinput {\n\t\tbackground: #2e2e2e;\n\t\tborder: 1px solid #232323;\n\t\tborder-radius: 1.5rem;\n\t\twidth: 20rem;\n\t\theight: 2.5rem;\n\t\tcolor: white;\n\t\tpadding: 0 0 0 10px;\n\t}\n\tbutton {\n\t\tposition: absolute;\n\t\ttop: 0rem;\n\t\tright: 1rem;\n\t\tbackground: transparent;\n\t\tborder: 0;\n\t}\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-
-var Container = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject());
+var SearchContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+  displayName: "styles__SearchContainer",
+  componentId: "ol27te-0"
+})(["display:flex;align-items:center;position:relative;> input{background:#2e2e2e;border:1px solid #232323;border-radius:15px;width:200px;height:25px;color:white;padding:0 0 0 10px;}> button{position:absolute;top:0;right:10px;background:transparent;border:0;> svg{color:var(--blue);}}"]);
 
 
 /***/ }),
@@ -2227,7 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Container",
   componentId: "sc-1wi7dc9-0"
-})(["background:linear-gradient(#393939,#424242);min-width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:grid;align-items:center;grid-template-columns:1fr 15fr 1fr;align-items:center;justify-items:center;img{display:none;}svg{color:var(--blue);:hover{cursor:pointer;color:white;}}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
+})(["background:linear-gradient(#393939,#424242);min-width:100%;border-radius:1rem;border-style:groove;border-width:1px;border-color:#171717;height:3.5rem;font-family:Arial;padding:0 1rem 0 1rem;display:grid;grid-template-columns:1fr 15fr 1fr;align-items:center;justify-items:center;img{display:none;}svg{color:var(--blue);:hover{cursor:pointer;color:white;}}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 var Menu = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Menu",
   componentId: "sc-1wi7dc9-1"
@@ -2599,8 +2574,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Menu__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../components/Menu */ "./components/Menu/index.js");
 /* harmony import */ var _components_SubMenu__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../components/SubMenu */ "./components/SubMenu/index.js");
 /* harmony import */ var _components_MobileModal__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../components/MobileModal */ "./components/MobileModal/index.js");
-/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.esm.js");
-/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react-icons/ai */ "./node_modules/react-icons/ai/index.esm.js");
+/* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-icons/ai */ "./node_modules/react-icons/ai/index.esm.js");
 
 
 
@@ -2619,7 +2593,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 
  // Icons
-
 
 
 
@@ -2661,34 +2634,39 @@ function (_Component) {
       var _this2 = this;
 
       return __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["MobileLogoStyle"], {
+        show: this.state.showMobileModal,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["MenuBurger"], {
+        onClick: function onClick() {
+          return _this2.handleMobileModal();
+        },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 28
         },
         __self: this
-      }, __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_15__["MdReorder"], {
-        size: 25,
-        onClick: function onClick() {
-          return _this2.setState({
-            showMobileModal: !_this2.state.showMobileModal
-          });
-        },
+      }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["Burger"], {
+        show: this.state.showMobileModal,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 29
         },
         __self: this
-      }), __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 30
-        },
-        __self: this
-      }), __jsx(react_icons_ai__WEBPACK_IMPORTED_MODULE_16__["AiOutlineShopping"], {
-        size: 25,
+      })), __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 31
+        },
+        __self: this
+      }), __jsx(react_icons_ai__WEBPACK_IMPORTED_MODULE_15__["AiOutlineShopping"], {
+        size: 25,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
         },
         __self: this
       }));
@@ -2696,64 +2674,59 @@ function (_Component) {
   }, {
     key: "renderHeader",
     value: function renderHeader() {
-      var _this3 = this;
-
       return __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["Container"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
-      }, __jsx(_components_Login__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 39
         },
         __self: this
-      }), __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["LogoStyle"], {
+      }, __jsx(_components_Login__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 40
         },
         __self: this
-      }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      }), __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["LogoStyle"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 41
         },
         __self: this
-      }), __jsx("h1", {
+      }, __jsx(_components_Logo__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 42
         },
         __self: this
-      }, "Ark"), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      }), __jsx("h1", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 43
         },
         __self: this
+      }, "Ark"), __jsx(_components_Menu__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 44
+        },
+        __self: this
       })), __jsx(_components_SubMenu__WEBPACK_IMPORTED_MODULE_13__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 46
         },
         __self: this
       }), this.renderMobileHeader(), this.state.showMobileModal && __jsx(_jesstelford_react_portal_universal__WEBPACK_IMPORTED_MODULE_8__["UniversalPortal"], {
         selector: "#mobileModal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 49
         },
         __self: this
       }, __jsx(_components_MobileModal__WEBPACK_IMPORTED_MODULE_14__["default"], {
-        handleMobileModal: function handleMobileModal() {
-          return _this3.handleMobileModal();
-        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 50
         },
         __self: this
       })));
@@ -2776,7 +2749,7 @@ function (_Component) {
 /*!*************************************!*\
   !*** ./containers/Header/styles.js ***!
   \*************************************/
-/*! exports provided: Container, LogoStyle, MobileLogoStyle */
+/*! exports provided: Container, LogoStyle, MobileLogoStyle, MenuBurger, Burger */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2784,22 +2757,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogoStyle", function() { return LogoStyle; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MobileLogoStyle", function() { return MobileLogoStyle; });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuBurger", function() { return MenuBurger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Burger", function() { return Burger; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
 
 
-var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n\tfrom {\n\t\topacity: 100%;\n\t}\n\n  to {\n\topacity: 0%;\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+var fadeOut = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["keyframes"])(_templateObject());
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "styles__Container",
   componentId: "w2b10l-0"
-})(["display:grid;grid-template-columns:1fr;grid-template-rows:2.6rem 10rem 3.5rem;background:linear-gradient(#181f2d,#212225);@media (max-width:", "){grid-template-columns:1fr;grid-template-rows:3.5rem 1fr;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
-var LogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+})(["display:grid;grid-template-columns:1fr;grid-template-rows:2.6rem 10rem 3.5rem;background:linear-gradient(#181f2d,#212225);@media (max-width:", "){grid-template-columns:1fr;grid-template-rows:3.5rem 1fr;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_2__["breakPoints"].mobile);
+var LogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "styles__LogoStyle",
   componentId: "w2b10l-1"
-})(["display:flex;align-items:center;h1{font-size:5rem;}> img{height:80px;width:80px;}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
-var MobileLogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
+})(["display:flex;align-items:center;h1{font-size:5rem;}> img{height:80px;width:80px;}@media (max-width:", "){display:none;}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_2__["breakPoints"].mobile);
+var MobileLogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
   displayName: "styles__MobileLogoStyle",
   componentId: "w2b10l-2"
-})(["display:none;@media (max-width:", "){display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.92);img{height:30px;width:30px;}svg{margin-right:10px;margin-left:10px;:nth-child(3){text-shadow:0px 0px 1px red;color:white;}}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
+})(["display:none;@media (max-width:", "){display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.92);img{height:30px;width:30px;}svg{margin-right:10px;margin-left:10px;", "}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_2__["breakPoints"].mobile, function (props) {
+  if (props.show) {
+    return Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["css"])([":nth-child(3){animation:", " 0.2s linear;animation-fill-mode:forwards;}"], fadeOut);
+  }
+});
+var MenuBurger = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "styles__MenuBurger",
+  componentId: "w2b10l-3"
+})(["position:relative;display:flex;justify-content:center;align-items:center;width:25px;height:25px;cursor:pointer;transition:all 0.4s ease-in-out;margin-left:10px;"]);
+var Burger = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+  displayName: "styles__Burger",
+  componentId: "w2b10l-4"
+})(["width:15px;height:1px;background:transparent;transition:all 0.4s ease-in-out;::before,::after{content:'';position:absolute;width:15px;height:1px;background:white;transition:all 0.4s ease-in-out;}::before{transform:translateY(-3px);}::after{transform:translateY(3px);}", ""], function (props) {
+  if (props.show) {
+    return Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["css"])(["background:transparent;::before{transform:rotate(45deg);}::after{transform:rotate(-45deg);}"]);
+  }
+});
 
 
 /***/ }),
@@ -25857,7 +25862,7 @@ var MOVIES = [{
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!***************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fmnt%2Fc%2FUsers%2Franda%2FDesktop%2FHD%2FCode%2FArk%2Fclient%2Fpages%2Findex.js ***!
   \***************************************************************************************************************************************************/
@@ -25880,5 +25885,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[1,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

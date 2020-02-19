@@ -1,5 +1,15 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { breakPoints } from '../../global/breakpoints';
+
+const fadeOut = keyframes`
+	from {
+		opacity: 100%;
+	}
+
+  to {
+	opacity: 0%;
+  }
+`;
 
 const Container = styled.div`
 	display: grid;
@@ -45,12 +55,70 @@ const MobileLogoStyle = styled.div`
 		svg {
 			margin-right: 10px;
 			margin-left: 10px;
-			:nth-child(3) {
-				text-shadow: 0px 0px 1px red;
-				color: white;
-			}
+			${props => {
+				if (props.show) {
+					return css`
+						:nth-child(3) {
+							animation: ${fadeOut} 0.2s linear;
+							animation-fill-mode: forwards;
+						}
+					`;
+				}
+			}}
 		}
 	}
 `;
 
-export { Container, LogoStyle, MobileLogoStyle };
+const MenuBurger = styled.div`
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	transition: all 0.4s ease-in-out;
+	margin-left: 10px;
+`;
+
+const Burger = styled.div`
+	width: 15px;
+	height: 1px;
+	background: transparent;
+	transition: all 0.4s ease-in-out;
+
+	::before,
+	::after {
+		content: '';
+		position: absolute;
+		width: 15px;
+		height: 1px;
+		background: white;
+		transition: all 0.4s ease-in-out;
+	}
+
+	::before {
+		transform: translateY(-3px);
+	}
+
+	::after {
+		transform: translateY(3px);
+	}
+
+	${props => {
+		if (props.show) {
+			return css`
+				background: transparent;
+
+				::before {
+					transform: rotate(45deg);
+				}
+				::after {
+					transform: rotate(-45deg);
+				}
+			`;
+		}
+	}}
+`;
+
+export { Container, LogoStyle, MobileLogoStyle, MenuBurger, Burger };

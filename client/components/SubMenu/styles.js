@@ -12,7 +12,6 @@ const Container = styled.div`
 	font-family: Arial;
 	padding: 0 1rem 0 1rem;
 	display: grid;
-	align-items: center;
 	grid-template-columns: 1fr 15fr 1fr;
 	align-items: center;
 	justify-items: center;

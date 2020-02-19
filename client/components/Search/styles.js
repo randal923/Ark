@@ -1,26 +1,29 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const SearchContainer = styled.div`
 	display: flex;
 	align-items: center;
 	position: relative;
 
-	input {
+	> input {
 		background: #2e2e2e;
 		border: 1px solid #232323;
-		border-radius: 1.5rem;
-		width: 20rem;
-		height: 2.5rem;
+		border-radius: 15px;
+		width: 200px;
+		height: 25px;
 		color: white;
 		padding: 0 0 0 10px;
 	}
-	button {
+	> button {
 		position: absolute;
-		top: 0rem;
-		right: 1rem;
+		top: 0;
+		right: 10px;
 		background: transparent;
 		border: 0;
+		> svg {
+			color: var(--blue);
+		}
 	}
 `;
 
-export { Container };
+export { SearchContainer };
