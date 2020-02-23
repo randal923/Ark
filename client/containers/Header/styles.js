@@ -59,7 +59,7 @@ const MobileLogoStyle = styled.div`
 				if (props.show) {
 					return css`
 						:nth-child(3) {
-							animation: ${fadeOut} 0.2s linear;
+							animation: ${fadeOut} 0.5s linear;
 							animation-fill-mode: forwards;
 						}
 					`;

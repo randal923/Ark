@@ -2528,15 +2528,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
 
 
-const fadeOut = styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"]`
-	from {
-		opacity: 100%;
-	}
-
-  to {
-	opacity: 0%;
-  }
-`;
+const fadeOut = Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["keyframes"])(["from{opacity:100%;}to{opacity:0%;}"]);
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Container",
   componentId: "w2b10l-0"
@@ -2550,7 +2542,7 @@ const MobileLogoStyle = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a
   componentId: "w2b10l-2"
 })(["display:none;@media (max-width:", "){display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,0.92);img{height:30px;width:30px;}svg{margin-right:10px;margin-left:10px;", "}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile, props => {
   if (props.show) {
-    return Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])([":nth-child(3){animation:", " 0.2s linear;animation-fill-mode:forwards;}"], fadeOut);
+    return Object(styled_components__WEBPACK_IMPORTED_MODULE_0__["css"])([":nth-child(3){animation:", " 0.5s linear;animation-fill-mode:forwards;}"], fadeOut);
   }
 });
 const MenuBurger = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
