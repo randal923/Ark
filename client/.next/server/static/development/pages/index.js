@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1622,36 +1622,42 @@ class Movie extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 19
       },
       __self: this
-    }, __jsx("img", {
-      src: images[0],
-      alt: title,
+    }, __jsx("a", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 20
       },
       __self: this
-    })), __jsx(_styles__WEBPACK_IMPORTED_MODULE_3__["Title"], {
+    }, __jsx("img", {
+      src: images[0],
+      alt: title,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 21
+      },
+      __self: this
+    }))), __jsx(_styles__WEBPACK_IMPORTED_MODULE_3__["Title"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
       },
       __self: this
     }, __jsx("h4", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 23
-      },
-      __self: this
-    }, title)), __jsx(_styles__WEBPACK_IMPORTED_MODULE_3__["Price"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 25
       },
       __self: this
+    }, title)), __jsx(_styles__WEBPACK_IMPORTED_MODULE_3__["Price"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
     }, __jsx("h4", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 28
       },
       __self: this
     }, formatMoney(price)))));
@@ -2179,7 +2185,12 @@ const baseImg = API + '/public/images/';
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles */ "./containers/Banners/styles.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles */ "./containers/Banners/styles.js");
+/* harmony import */ var _utilities_movies__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/movies */ "./utilities/movies.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-icons/md */ "react-icons/md");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_icons_md__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/containers/Banners/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -2187,62 +2198,88 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-const IMAGES = ['/banners/gang_squad.jpg'];
+
+
+
 
 class Banners extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(...args) {
     super(...args);
 
     _defineProperty(this, "state", {
-      img: IMAGES[0],
       index: 0
     });
-
-    _defineProperty(this, "onChange", index => {
-      let option = index < 0 ? IMAGES.length - 1 : index >= IMAGES.length ? 0 : index;
-      this.setState({
-        img: IMAGES[option],
-        index: option
-      });
-    });
   }
 
-  componentDidMount() {
-    this.scroll = window.setInterval(() => this.onChange(this.state.index + 1), 4000);
-  }
-
-  componentWillUnmount() {
-    window.clearInterval(this.scroll);
-  }
-
-  renderBanners() {
+  handleBannerClick() {
     const {
-      img
+      index
     } = this.state;
-    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_1__["Banner"], {
+
+    if (index < _utilities_movies__WEBPACK_IMPORTED_MODULE_3__["MOVIES"].length - 1) {
+      this.setState({
+        index: index + 1
+      });
+    } else {
+      this.setState({
+        index: 0
+      });
+    }
+  }
+
+  render() {
+    const {
+      index
+    } = this.state;
+    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_2__["Banner"], {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 29
       },
       __self: this
-    }, __jsx("img", {
-      src: img,
+    }, __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_4__["MdKeyboardArrowLeft"], {
+      size: 45,
+      onClick: () => this.handleBannerClick(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30
       },
       __self: this
-    }));
-  }
-
-  render() {
-    return __jsx(_styles__WEBPACK_IMPORTED_MODULE_1__["Container"], {
+    }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      href: `/movie/${_utilities_movies__WEBPACK_IMPORTED_MODULE_3__["MOVIES"][index].title}?movie=${_utilities_movies__WEBPACK_IMPORTED_MODULE_3__["MOVIES"][index].id}`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }, __jsx("a", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: this
+    }, __jsx("img", {
+      src: _utilities_movies__WEBPACK_IMPORTED_MODULE_3__["MOVIES"][index].banner,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33
+      },
+      __self: this
+    }))), __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_4__["MdKeyboardArrowRight"], {
+      size: 45,
+      onClick: () => this.handleBannerClick(),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 36
       },
       __self: this
-    }, this.renderBanners());
+    })));
   }
 
 }
@@ -2264,6 +2301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Banner", function() { return Banner; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
+
 
 const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Container",
@@ -2272,7 +2311,7 @@ const Container = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.w
 const Banner = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "styles__Banner",
   componentId: "sc-1hdpzuq-1"
-})(["margin:0.5rem 0;img{width:100%;box-shadow:0 0 10px black;}"]);
+})(["margin:0.5rem 0;width:100%;position:relative;display:flex;align-items:center;img{width:100%;box-shadow:0 0 10px black;:hover{cursor:pointer;}}svg{background:rgba(0,0,0,0.4);height:90%;:hover{background:rgba(0,0,0,0.8);cursor:pointer;color:var(--blue);}:nth-child(1){position:absolute;}:nth-child(3){position:absolute;right:0;}}@media (max-width:", "){img{height:200px;}svg{width:25px;}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 
 
 /***/ }),
@@ -4879,6 +4918,7 @@ __webpack_require__.r(__webpack_exports__);
 const MOVIES = [{
   id: 1231495333,
   images: ['/movies/harry_potter.jpg'],
+  banner: '/banners/harry_potter.jpg',
   title: "Harry Potter and the Philosopher's Stone",
   genre: ['Fantasy'],
   price: 15.99,
@@ -4886,6 +4926,7 @@ const MOVIES = [{
 }, {
   id: 4234234222,
   images: ['/movies/io.jpg'],
+  banner: '/banners/gang_squad.jpg',
   title: 'IO',
   genre: ['Fantasy'],
   price: 15.99,
@@ -4893,6 +4934,7 @@ const MOVIES = [{
 }, {
   id: 1245645623,
   images: ['/movies/matrix.jpg'],
+  banner: '/banners/life_death.jpg',
   title: 'The Matrix',
   genre: ['Fantasy', 'Action'],
   price: 15.99,
@@ -4900,6 +4942,7 @@ const MOVIES = [{
 }, {
   id: 123149123124333,
   images: ['/movies/harry_potter.jpg'],
+  banner: '/banners/harry_potter.jpg',
   title: "Harry Potter and the Philosopher's Stone",
   genre: ['Fantasy'],
   price: 15.99,
@@ -4908,7 +4951,7 @@ const MOVIES = [{
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

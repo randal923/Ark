@@ -2,6 +2,7 @@ export const MOVIES = [
 	{
 		id: 1231495333,
 		images: ['/movies/harry_potter.jpg'],
+		banner: '/banners/harry_potter.jpg',
 		title: "Harry Potter and the Philosopher's Stone",
 		genre: ['Fantasy'],
 		price: 15.99,
@@ -10,6 +11,7 @@ export const MOVIES = [
 	{
 		id: 4234234222,
 		images: ['/movies/io.jpg'],
+		banner: '/banners/gang_squad.jpg',
 		title: 'IO',
 		genre: ['Fantasy'],
 		price: 15.99,
@@ -18,6 +20,7 @@ export const MOVIES = [
 	{
 		id: 1245645623,
 		images: ['/movies/matrix.jpg'],
+		banner: '/banners/life_death.jpg',
 		title: 'The Matrix',
 		genre: ['Fantasy', 'Action'],
 		price: 15.99,
@@ -26,6 +29,7 @@ export const MOVIES = [
 	{
 		id: 123149123124333,
 		images: ['/movies/harry_potter.jpg'],
+		banner: '/banners/harry_potter.jpg',
 		title: "Harry Potter and the Philosopher's Stone",
 		genre: ['Fantasy'],
 		price: 15.99,

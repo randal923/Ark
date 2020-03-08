@@ -1677,36 +1677,42 @@ function (_Component) {
           lineNumber: 19
         },
         __self: this
-      }, __jsx("img", {
-        src: images[0],
-        alt: title,
+      }, __jsx("a", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 20
         },
         __self: this
-      })), __jsx(_styles__WEBPACK_IMPORTED_MODULE_8__["Title"], {
+      }, __jsx("img", {
+        src: images[0],
+        alt: title,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 21
+        },
+        __self: this
+      }))), __jsx(_styles__WEBPACK_IMPORTED_MODULE_8__["Title"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24
         },
         __self: this
       }, __jsx("h4", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 23
-        },
-        __self: this
-      }, title)), __jsx(_styles__WEBPACK_IMPORTED_MODULE_8__["Price"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 25
         },
         __self: this
+      }, title)), __jsx(_styles__WEBPACK_IMPORTED_MODULE_8__["Price"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
       }, __jsx("h4", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 28
         },
         __self: this
       }, formatMoney(price)))));
@@ -2326,7 +2332,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles */ "./containers/Banners/styles.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _styles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./styles */ "./containers/Banners/styles.js");
+/* harmony import */ var _utilities_movies__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utilities/movies */ "./utilities/movies.js");
+/* harmony import */ var react_icons_md__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-icons/md */ "./node_modules/react-icons/md/index.esm.js");
 
 
 
@@ -2338,7 +2348,9 @@ var _jsxFileName = "/mnt/c/Users/randa/Desktop/HD/Code/Ark/client/containers/Ban
 var __jsx = react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement;
 
 
-var IMAGES = ['/banners/gang_squad.jpg'];
+
+
+
 
 var Banners =
 /*#__PURE__*/
@@ -2359,65 +2371,86 @@ function (_Component) {
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, (_getPrototypeOf2 = Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Banners)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "state", {
-      img: IMAGES[0],
       index: 0
-    });
-
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4__["default"])(_this), "onChange", function (index) {
-      var option = index < 0 ? IMAGES.length - 1 : index >= IMAGES.length ? 0 : index;
-
-      _this.setState({
-        img: IMAGES[option],
-        index: option
-      });
     });
 
     return _this;
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Banners, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "handleBannerClick",
+    value: function handleBannerClick() {
+      var index = this.state.index;
+
+      if (index < _utilities_movies__WEBPACK_IMPORTED_MODULE_10__["MOVIES"].length - 1) {
+        this.setState({
+          index: index + 1
+        });
+      } else {
+        this.setState({
+          index: 0
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
       var _this2 = this;
 
-      this.scroll = window.setInterval(function () {
-        return _this2.onChange(_this2.state.index + 1);
-      }, 4000);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.clearInterval(this.scroll);
-    }
-  }, {
-    key: "renderBanners",
-    value: function renderBanners() {
-      var img = this.state.img;
-      return __jsx(_styles__WEBPACK_IMPORTED_MODULE_8__["Banner"], {
+      var index = this.state.index;
+      return __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["Container"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28
+        },
+        __self: this
+      }, __jsx(_styles__WEBPACK_IMPORTED_MODULE_9__["Banner"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 29
         },
         __self: this
-      }, __jsx("img", {
-        src: img,
+      }, __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_11__["MdKeyboardArrowLeft"], {
+        size: 45,
+        onClick: function onClick() {
+          return _this2.handleBannerClick();
+        },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 30
         },
         __self: this
-      }));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return __jsx(_styles__WEBPACK_IMPORTED_MODULE_8__["Container"], {
+      }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_8___default.a, {
+        href: "/movie/".concat(_utilities_movies__WEBPACK_IMPORTED_MODULE_10__["MOVIES"][index].title, "?movie=").concat(_utilities_movies__WEBPACK_IMPORTED_MODULE_10__["MOVIES"][index].id),
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        },
+        __self: this
+      }, __jsx("a", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
+        },
+        __self: this
+      }, __jsx("img", {
+        src: _utilities_movies__WEBPACK_IMPORTED_MODULE_10__["MOVIES"][index].banner,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33
+        },
+        __self: this
+      }))), __jsx(react_icons_md__WEBPACK_IMPORTED_MODULE_11__["MdKeyboardArrowRight"], {
+        size: 45,
+        onClick: function onClick() {
+          return _this2.handleBannerClick();
+        },
         __source: {
           fileName: _jsxFileName,
           lineNumber: 36
         },
         __self: this
-      }, this.renderBanners());
+      })));
     }
   }]);
 
@@ -2440,6 +2473,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Container", function() { return Container; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Banner", function() { return Banner; });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../global/breakpoints */ "./global/breakpoints.js");
+
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Container",
@@ -2448,7 +2483,7 @@ var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.wi
 var Banner = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "styles__Banner",
   componentId: "sc-1hdpzuq-1"
-})(["margin:0.5rem 0;img{width:100%;box-shadow:0 0 10px black;}"]);
+})(["margin:0.5rem 0;width:100%;position:relative;display:flex;align-items:center;img{width:100%;box-shadow:0 0 10px black;:hover{cursor:pointer;}}svg{background:rgba(0,0,0,0.4);height:90%;:hover{background:rgba(0,0,0,0.8);cursor:pointer;color:var(--blue);}:nth-child(1){position:absolute;}:nth-child(3){position:absolute;right:0;}}@media (max-width:", "){img{height:200px;}svg{width:25px;}}"], _global_breakpoints__WEBPACK_IMPORTED_MODULE_1__["breakPoints"].mobile);
 
 
 /***/ }),
@@ -25820,6 +25855,7 @@ __webpack_require__.r(__webpack_exports__);
 var MOVIES = [{
   id: 1231495333,
   images: ['/movies/harry_potter.jpg'],
+  banner: '/banners/harry_potter.jpg',
   title: "Harry Potter and the Philosopher's Stone",
   genre: ['Fantasy'],
   price: 15.99,
@@ -25827,6 +25863,7 @@ var MOVIES = [{
 }, {
   id: 4234234222,
   images: ['/movies/io.jpg'],
+  banner: '/banners/gang_squad.jpg',
   title: 'IO',
   genre: ['Fantasy'],
   price: 15.99,
@@ -25834,6 +25871,7 @@ var MOVIES = [{
 }, {
   id: 1245645623,
   images: ['/movies/matrix.jpg'],
+  banner: '/banners/life_death.jpg',
   title: 'The Matrix',
   genre: ['Fantasy', 'Action'],
   price: 15.99,
@@ -25841,6 +25879,7 @@ var MOVIES = [{
 }, {
   id: 123149123124333,
   images: ['/movies/harry_potter.jpg'],
+  banner: '/banners/harry_potter.jpg',
   title: "Harry Potter and the Philosopher's Stone",
   genre: ['Fantasy'],
   price: 15.99,
@@ -25849,7 +25888,7 @@ var MOVIES = [{
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!***************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2Fmnt%2Fc%2FUsers%2Franda%2FDesktop%2FHD%2FCode%2FArk%2Fclient%2Fpages%2Findex.js ***!
   \***************************************************************************************************************************************************/
@@ -25872,5 +25911,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

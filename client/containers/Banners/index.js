@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 
 import { Container, Banner } from './styles';
 
-const IMAGES = ['/banners/gang_squad.jpg'];
+import { MOVIES } from '../../utilities/movies';
+
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 class Banners extends Component {
 	state = {
-		img: IMAGES[0],
 		index: 0,
 	};
 
-	onChange = index => {
-		let option = index < 0 ? IMAGES.length - 1 : index >= IMAGES.length ? 0 : index;
-		this.setState({ img: IMAGES[option], index: option });
-	};
+	handleBannerClick() {
+		const { index } = this.state;
 
-	componentDidMount() {
-		this.scroll = window.setInterval(() => this.onChange(this.state.index + 1), 4000);
-	}
-
-	componentWillUnmount() {
-		window.clearInterval(this.scroll);
-	}
-
-	renderBanners() {
-		const { img } = this.state;
-		return (
-			<Banner>
-				<img src={img} />
-			</Banner>
-		);
+		if (index < MOVIES.length - 1) {
+			this.setState({ index: index + 1 });
+		} else {
+			this.setState({ index: 0 });
+		}
 	}
 
 	render() {
-		return <Container>{this.renderBanners()}</Container>;
+		const { index } = this.state;
+		return (
+			<Container>
+				<Banner>
+					<MdKeyboardArrowLeft size={45} onClick={() => this.handleBannerClick()} />
+					<Link href={`/movie/${MOVIES[index].title}?movie=${MOVIES[index].id}`}>
+						<a>
+							<img src={MOVIES[index].banner} />
+						</a>
+					</Link>
+					<MdKeyboardArrowRight size={45} onClick={() => this.handleBannerClick()} />
+				</Banner>
+			</Container>
+		);
 	}
 }
 

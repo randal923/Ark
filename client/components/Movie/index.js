@@ -17,7 +17,9 @@ class Movie extends Component {
 			<Container moviesPerLine={moviesPerLine}>
 				<MovieItem>
 					<Link href={`/movie/${title}?movie=${id}`}>
-						<img src={images[0]} alt={title} />
+						<a>
+							<img src={images[0]} alt={title} />
+						</a>
 					</Link>
 					<Title>
 						<h4>{title}</h4>
