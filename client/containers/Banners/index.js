@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Link from 'next/link';
 
+// Styles
 import { Container, Banner } from './styles';
 
+// Movies
 import { MOVIES } from '../../utilities/movies';
 
+// Icons
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 class Banners extends Component {
